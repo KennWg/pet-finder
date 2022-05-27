@@ -16,11 +16,11 @@ function App() {
     <StateProvider>
         <Navbar />
         <Header />
-        <SignUp />
-        <Report />
+        {/* <SignUp />
+        <Report /> */}
         <Dashboard />
-        <Login />
-        <Placeholder />
+        {/* <Login /> */}
+        {/* <Placeholder /> */}
         <Footer />
     </StateProvider>
   </div>
