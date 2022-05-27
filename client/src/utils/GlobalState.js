@@ -10,6 +10,14 @@ const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useStoreReducer({
     currentView: "HOME",
     views: ["HOME", "LOGIN", "SIGNUP", "REPORT", "VIEW REPORT", "ALL REPORTS"],
+    navBarChoices: [
+      { name: "REPORT", description: "" },
+      { name: "DASHBOARD", description: "" },
+      { name: "HOME", description: "" },
+      { name: "LOGIN", description: "" },
+      { name: "SIGNUP", description: "" },
+      { name: "LOGOUT", description: "" }
+    ],
     users: [
       {
         id: 1,
@@ -52,9 +60,9 @@ const StoreProvider = ({ value = [], ...props }) => {
     ]
   })
 
-  console.log('Ladies and Gentlemen! -- ',state);
+  console.log('Ladies and Gentlemen! -- ', state);
 
-return <Provider value={[state, dispatch]} {...props} />
+  return <Provider value={[state, dispatch]} {...props} />
 }
 
 const useStoreContext = () => {

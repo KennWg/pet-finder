@@ -70,6 +70,17 @@ body {
   width: 75vw;
 }
 
+.tablet-nav-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tablet-nav-icon {
+  height: 58px;
+  mix-blend-mode: multiply;
+}
+
 .mobile-navbar {
   /* for development*/
   border: 5px dotted rgb(0, 255, 242);

@@ -12,7 +12,7 @@ import { useStoreContext } from '../../utils/GlobalState';
 function Main() {
     const [state, dispatch] = useStoreContext();
     const { currentView } = state;
-    console.log('Oh Baby!', state);
+    console.log('Oh &&& Baby!', currentView);
 
     return (
         <main className="">
