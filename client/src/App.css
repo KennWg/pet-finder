@@ -1,0 +1,217 @@
+* {
+  /* for development*/
+  /* border: 2px dotted red; */
+  /* background-color: #fffb0021; */
+
+}
+
+/* USER AGENT STYLE SHEET OVERIDES */
+p {
+  margin: 0;
+}
+
+
+/* Bespoke CSS begins */
+body {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.site-container {
+  /* background: linear-gradient(#3c5688, #58a8e7); */
+  background-image: url(./assets/images/sky-background.jpg);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+/* NAVBAR */
+.navbar-class {
+
+  /* Positon */
+  position: absolute;
+  /* Display */
+  display: contents;
+  /* Size */
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.laptop-navbar {
+  /* for development*/
+  border: 5px dotted rgb(0, 255, 242);
+
+  /* Positon */
+  position: absolute;
+  top: 1vh;
+  right: 1.6vw;
+  /* Display */
+  display: flex;
+  justify-content: space-between;
+  /* Size */
+  width: 35vw;
+}
+
+.tablet-navbar {
+  /* for development*/
+  border: 5px dotted rgb(0, 255, 242);
+
+  /* Positon */
+  z-index: 10;
+  position: absolute;
+  bottom: 1vh;
+  right: 50%;
+  transform: translate(50%, 0%);
+
+  /* Display */
+  display: flex;
+  justify-content: space-between;
+  /* Size */
+  width: 75vw;
+}
+
+.mobile-navbar {
+  /* for development*/
+  border: 5px dotted rgb(0, 255, 242);
+
+  /* Positon */
+  z-index: 10;
+  position: absolute;
+  bottom: 10vh;
+  right: 1vw;
+  transform: translate(0%, 0%);
+
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Size */
+  height: 30vh;
+
+  /*Font*/
+  font-size: 0.6em;
+}
+
+.mobile-nav-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-nav-icon {
+  width: 28px;
+  filter: invert(100%);
+  mix-blend-mode: multiply;
+}
+
+
+
+
+.tablet-navbar,
+.mobile-navbar {
+  display: none;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 15s linear;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.App-header {
+  /* background-color: #282c34; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.signup-class,
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.footer-class {
+  display: relative;
+}
+
+.footer-img {
+  min-width: 140vw;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+@media (max-width: 1100px) and (min-width: 701px) {
+  .tablet-navbar {
+    display: flex;
+  }
+
+  .laptop-navbar,
+  .mobile-navbar {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) and (min-width: 481px) {
+  .tablet-navbar {
+    display: flex;
+  }
+
+  .laptop-navbar,
+  .mobile-navbar {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-navbar {
+    display: flex;
+  }
+
+  .tablet-navbar,
+  .laptop-navbar {
+    display: none;
+  }
+}
+
+@media (max-width: 425px) {}
+
+@media (max-width: 395px) {}
+
+@media only screen and (max-width: 300px) {}
