@@ -18,7 +18,7 @@ body {
 
 .site-container {
   /* background: linear-gradient(#3c5688, #58a8e7); */
-  background-image: url(./assets/images/sky-background.jpg);
+  background-image: url(./assets/images/sky-background.png);
   background-size: cover;
   height: 100vh;
   width: 100vw;
@@ -99,8 +99,7 @@ body {
 }
 
 .mobile-nav-icon {
-  width: 28px;
-  filter: invert(100%);
+  height: 38px;
   mix-blend-mode: multiply;
 }
 
