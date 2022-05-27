@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import dogImg from '../../assets/images/dog.jpg';
 
+import { useStateContext } from '../../utils/Contexts';
+
 function Dashboard() {
+
+    const { users } = useStateContext();
 
     const highlightStyle = {
         color:'red',
@@ -16,7 +20,14 @@ function Dashboard() {
         <div className="dashboard">
             <p>
                 <section>
-                    <h2 class="row">
+                    <h2 className="row">
+                        
+                        {users.map((user) => (
+                            <h3 key={user.username}>
+                                Welcome, {user.username}
+                            </h3>
+                        ))}
+
                         <button className="btn btn-primary" data-testid="button" type="submit">Create a Report<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         <button className="btn btn-primary" data-testid="button" type="submit">All Reports<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         <button className="btn btn-primary" data-testid="button" type="submit">Logout<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
@@ -24,19 +35,15 @@ function Dashboard() {
                     </h2>
                 </section>
 
-                <section class="new-pet-report">
-                    <div class="row">
-                        <img class="col-md-4 col-12" style={imgStyle} src={dogImg} alt="dog_img" />
-                        <h3 class="col-md-8 col-12">Some text</h3>
+                <section className="new-pet-report">
+                    <div className="row">
+                        <img className="col-md-4 col-12" style={imgStyle} src={dogImg} alt="dog_img" />
+                        <h3 className="col-md-8 col-12">Some text</h3>
                     </div>
 
-                    <div class="row">
-                        <button className="btn btn-primary" data-testid="button" type="submit">Edit Report<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                        <button className="btn btn-primary" data-testid="button" type="submit">Delete Report<i class="fa fa-paper-plane" aria-hidden="true"></i></button>                       
-                    </div>
                 </section>
 
-                <section class="my-report">
+                <section className="my-report">
                     <div>
                         <h4>Reports I have commented on</h4>
                     </div>
