@@ -1,5 +1,9 @@
+const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const { Schema, model } = require('mongoose');  
+const Report = require('./Report')
+const Comment = require('./Comment')
 
 const UserSchema = new Schema(
     {
@@ -23,7 +27,9 @@ const UserSchema = new Schema(
         address: {
             type: String,
             required: true,
-        }
+        },
+        reports: [Report.schema],
+        comments: [Comment.Schema]
     }
 )
 
@@ -43,6 +49,6 @@ UserSchema.methods.isCorrectPassword = async function(password) {
     return bcrypt.compare(password, this.password);
 };
 
-const User = model('User', UserSchema);
+const User = mongoose.model('User', UserSchema);
 
 module.exports = User;
