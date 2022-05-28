@@ -5,7 +5,7 @@ import { validateEmail, validatePassword } from '../../utils/helpers';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../../utils/mutations';
 
-function Contact() {
+function SignUp() {
     const [formData, setFormData] = useState({ username: '', email: '', address: '', password: '' });
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -100,4 +100,4 @@ function Contact() {
         </div>
     );
 }
-export default Contact
+export default SignUp
