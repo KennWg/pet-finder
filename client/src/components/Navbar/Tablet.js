@@ -1,21 +1,15 @@
 import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_VIEW } from '../../utils/actions';
 
-import REPORT from '../../assets/images/REPORT.png';
-import HOME from '../../assets/images/HOME.png';
-import DASHBOARD from '../../assets/images/DASHBOARD.png';
-import LOGIN from '../../assets/images/LOGIN.png';
-
-
 function Tablet() {
 
     const [state, dispatch] = useStoreContext();
     const { currentView, navBarChoices } = state;
     console.log('NavBar Baby!', navBarChoices);
 
-const imagePath = imageName => {
-    return require(`../../assets/images/${imageName}.png`)
-}
+    const imagePath = imageName => {
+        return require(`../../assets/images/${imageName}.png`)
+    }
 
     const handleClick = async clickedNavIcon => {
         await dispatch({
@@ -48,22 +42,9 @@ const imagePath = imageName => {
             ))
             }
 
-
         </div >
 
-
-
     )
-
-    return (
-
-        <div className="tablet-navbar">
-            <div>Make a Report</div>
-            <div>Home</div>
-            <div>My Dashboard</div>
-            <div>Login / Sign Up</div>
-        </div>
-    );
 }
 
 export default Tablet;

@@ -52,6 +52,17 @@ body {
   width: 35vw;
 }
 
+.laptop-nav-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.laptop-nav-icon {
+  height: 40px;
+  /* mix-blend-mode: color-dodge; */
+}
+
 .tablet-navbar {
   /* for development*/
   border: 5px dotted rgb(0, 255, 242);

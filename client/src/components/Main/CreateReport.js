@@ -1,6 +1,7 @@
 import { useStoreContext } from '../../utils/GlobalState.js';
-function createReport() {
-    const { users } = useStoreContext();
+function CreateReport() {
+    const [ state, dispatch ]  = useStoreContext();
+    const { users } = state
 
     return (
         <div class="report-card">
@@ -16,4 +17,4 @@ function createReport() {
     )
 }
 
-export default createReport;
+export default CreateReport;
