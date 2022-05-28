@@ -1,7 +1,10 @@
 import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_VIEW } from '../../utils/actions';
 
-
+import REPORT from '../../assets/images/REPORT.png';
+import HOME from '../../assets/images/HOME.png';
+import DASHBOARD from '../../assets/images/DASHBOARD.png';
+import LOGIN from '../../assets/images/LOGIN.png';
 
 
 function Tablet() {
@@ -10,11 +13,14 @@ function Tablet() {
     const { currentView, navBarChoices } = state;
     console.log('NavBar Baby!', navBarChoices);
 
+const imagePath = imageName => {
+    return require(`../../assets/images/${imageName}.png`)
+}
 
-    const handleClick = async id => {
+    const handleClick = async clickedNavIcon => {
         await dispatch({
             type: UPDATE_VIEW,
-            currentView: id
+            currentView: clickedNavIcon
         })
         console.log('Clicked:', currentView);
     };
@@ -36,8 +42,7 @@ function Tablet() {
                         href="#"
                         title={view.description}
                     >
-                        {view.name}
-                        {/* <img src="/src/assets/images/" {view.name} className="mobile-nav-icon" alt="make a report icon" /> */}
+                        <img src={imagePath(view.name)} className="tablet-nav-icon" alt={view.name} />
                     </a>
                 </div>
             ))

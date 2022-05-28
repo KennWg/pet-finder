@@ -1,7 +1,7 @@
-import report from '../../assets/images/report.png';
-import home from '../../assets/images/home.png';
-import dashboard from '../../assets/images/dashboard.png';
-import login from '../../assets/images/login.png';
+import report from '../../assets/images/REPORT.png';
+import home from '../../assets/images/HOME.png';
+import dashboard from '../../assets/images/DASHBOARD.png';
+import login from '../../assets/images/LOGIN.png';
 
 
 
