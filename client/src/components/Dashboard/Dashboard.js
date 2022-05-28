@@ -22,11 +22,11 @@ function Dashboard() {
                 <section>
                     <h2 className="row">
                         
-                        {users.map((user) => (
+                        {/* {users.map((user) => (
                             <h3 key={user.username}>
                                 Welcome, {user.username}
                             </h3>
-                        ))}
+                        ))} */}
 
                         <button className="btn btn-primary" data-testid="button" type="submit">Create a Report<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         <button className="btn btn-primary" data-testid="button" type="submit">All Reports<i class="fa fa-paper-plane" aria-hidden="true"></i></button>

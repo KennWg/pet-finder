@@ -6,7 +6,7 @@ import Header from './components/Header/Header.js';
 import SignUp from './components/Main/SignUp.js';
 import Login from './components/Main/Login.js';
 import Placeholder from './components/Placeholder.js';
-import Report from './components/Dashboard/Report';
+import createReport from './components/Dashboard/createReport';
 import Dashboard from './components/Dashboard/Dashboard.js';
 import Footer from './components/Footer/Footer.js';
 

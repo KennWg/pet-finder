@@ -1,5 +1,5 @@
 import { useStateContext } from '../../utils/Contexts';
-function Report() {
+function createReport() {
     const { users } = useStateContext();
 
     return (
@@ -16,4 +16,4 @@ function Report() {
     )
 }
 
-export default Report;
+export default createReport;
