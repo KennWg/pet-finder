@@ -1,29 +1,8 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
+const CommentSchema = require('../models/Comment');
+const dateFormat = require('../utils/dateFormat');
 
-const { Schema } = mongoose;
 
-const CommentSchema = new Schema(
-    {
-        report: {
-            type: Schema.Types.ObjectId,
-            ref: 'Report',
-            required: true
-        },
-        user: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-            required: true
-        },
-        commentBody: {
-            type: String,
-            required: [true, 'Please include your comment']
-        },
-        createdAt: {
-            type: Date,
-            default: Date.now
-        }
-    }
-)
 
 const ReportSchema = new Schema(
     {
@@ -48,17 +27,23 @@ const ReportSchema = new Schema(
         },
         createdAt: {
             type: Date,
-            default: Date.now
+            default: Date.now,
+            get: timestamp => dateFormat(timestamp)
         },
-        user: {
+        createdBy: {
             type: Schema.Types.ObjectId,
             ref: 'User',
-            required: true
+            // required: true
         },
         comments: [CommentSchema]
+    },
+    {
+        toJSON: {
+            getters: true
+        }
     }
 );
 
-const Report = mongoose.model ('Report', ReportSchema);
+const Report = model('Report', ReportSchema);
 
 module.exports = Report;

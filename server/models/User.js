@@ -1,9 +1,6 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const Report = require('./Report')
-const Comment = require('./Comment')
+
 
 const UserSchema = new Schema(
     {
@@ -28,14 +25,18 @@ const UserSchema = new Schema(
             type: String,
             required: true,
         },
-        reports: [Report.schema],
-        comments: [Comment.Schema]
+        reports: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Report'
+            }
+        ]
     }
 )
 
 
 // to create password
-UserSchema.pre('save', async function(next) {
+UserSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
         const saltRounds = 10;
         this.password = await bcrypt.hash(this.password, saltRounds);
@@ -45,10 +46,10 @@ UserSchema.pre('save', async function(next) {
 });
 
 // compare password with hashed password
-UserSchema.methods.isCorrectPassword = async function(password) {
+UserSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
 
-const User = mongoose.model('User', UserSchema);
+const User = model('User', UserSchema);
 
 module.exports = User;
