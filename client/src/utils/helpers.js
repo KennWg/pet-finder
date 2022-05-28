@@ -25,5 +25,10 @@ module.exports = {
     },
     capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    },
+    validatePassword(password) {
+        var re = /.{8}/;
+        return re.test(String(password));
     }
+
 };
