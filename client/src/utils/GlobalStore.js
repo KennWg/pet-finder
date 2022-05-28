@@ -60,8 +60,6 @@ const StoreProvider = ({ value = [], ...props }) => {
     ]
   })
 
-  console.log('Ladies and Gentlemen! -- ', state);
-
   return <Provider value={[state, dispatch]} {...props} />
 }
 

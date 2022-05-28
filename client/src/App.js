@@ -1,5 +1,5 @@
 import './App.css';
-import { StoreProvider } from "./utils/GlobalState";
+import { StoreProvider } from "./utils/GlobalStore";
 import Navbar from './components/Navbar/';
 import Header from './components/Header/Header.js';
 import Main from './components/Main/';
