@@ -12,7 +12,7 @@ function Login() {
         e.preventDefault();
         if (!errorMessage) {
             setFormState({ [e.target.name]: e.target.value });
-            console.log('Form', formState);
+            console.log('client/src/components/Main/Login.js:Form -- ', formState);
         }
     };
 

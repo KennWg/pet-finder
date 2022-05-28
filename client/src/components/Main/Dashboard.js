@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import dogImg from '../../assets/images/dog.jpg';
 
-import { useStoreContext } from '../../utils/GlobalState';
+import { useStoreContext } from '../../utils/GlobalStore';
 
 function Dashboard() {
 

@@ -6,13 +6,12 @@ import SignUp from './SignUp.js';
 import SingleReport from './';
 import AllReports from './';
 
-import { useStoreContext } from '../../utils/GlobalState';
+import { useStoreContext } from '../../utils/GlobalStore';
 
 
 function Main() {
     const [state, dispatch] = useStoreContext();
     const { currentView } = state;
-    console.log('Oh &&& Baby!', currentView);
 
     return (
         <main className="">

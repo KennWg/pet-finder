@@ -1,4 +1,4 @@
-import { useStoreContext } from '../../utils/GlobalState';
+import { useStoreContext } from '../../utils/GlobalStore';
 import { UPDATE_VIEW } from '../../utils/actions';
 
 // import report from '../../assets/images/REPORT.png';
@@ -11,7 +11,6 @@ function Mobile() {
     
     const [state, dispatch] = useStoreContext();
     const { currentView, navBarChoices } = state;
-    console.log('NavBar Baby!', navBarChoices);
 
     const imagePath = imageName => {
         return require(`../../assets/images/${imageName}.png`)
@@ -22,7 +21,6 @@ function Mobile() {
             type: UPDATE_VIEW,
             currentView: clickedNavIcon
         })
-        console.log('Clicked:', currentView);
     };
 
 
