@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import dogImg from '../../assets/images/dog.jpg';
 
-import { useStateContext } from '../../utils/Contexts';
+import { useStoreContext } from '../../utils/GlobalState';
 
 function Dashboard() {
 
-    const { users } = useStateContext();
+    const { users } = useStoreContext();
 
     const highlightStyle = {
         color:'red',

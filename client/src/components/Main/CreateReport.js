@@ -1,6 +1,6 @@
-import { useStateContext } from '../../utils/GlobalState.js';
+import { useStoreContext } from '../../utils/GlobalState.js';
 function createReport() {
-    const { users } = useStateContext();
+    const { users } = useStoreContext();
 
     return (
         <div class="report-card">
