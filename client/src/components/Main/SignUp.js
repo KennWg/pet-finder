@@ -98,11 +98,9 @@ function SignUp() {
                 )}
 
                 <div className="">
-                    <button className="" type="submit">Submit <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                    <button className="" type="submit">Submit<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                 </div>
             </form>
-
-
 
         </div>
     );

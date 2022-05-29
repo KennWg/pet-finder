@@ -24,7 +24,6 @@ body {
   width: 100vw;
 }
 
-
 /* NAVBAR */
 .navbar-class {
 
@@ -131,6 +130,11 @@ body {
 .tablet-navbar,
 .mobile-navbar {
   display: none;
+}
+
+.homepage-dog{
+  max-height: 50vh;
+  max-width: 100%;
 }
 
 /* REPORT STYLES */

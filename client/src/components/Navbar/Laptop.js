@@ -1,6 +1,8 @@
 import { useStoreContext } from '../../utils/GlobalStore';
 import { UPDATE_VIEW } from '../../utils/actions';
 
+import Auth from '../../utils/auth.js';
+
 function Laptop() {
 
     const [state, dispatch] = useStoreContext();
