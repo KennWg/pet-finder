@@ -19,48 +19,28 @@ function Tablet() {
         })
     };
 
+    let tempArr = [];
+    (Auth.loggedIn())
+        ? tempArr = navBarChoices
+        : tempArr = navBarChoicesNOT;
 
     return (
-        <>
-            {(Auth.loggedIn())
-                ? <div className="tablet-navbar">
-                    {navBarChoices.map((view) => (
-                        <div className={`tablet-nav-div`}
-                            key={view.name}>
-                            <a className={`nav-link ${currentView === view.name ? 'active' : ''}`}
-                                onClick={() => {
-                                    handleClick(view.name);
-                                }}
-                                href="#"
-                                title={view.description}>
-                                <img src={imagePath(view.name)} className="tablet-nav-icon" alt={view.name} />
-                            </a>
-                        </div>
-                    ))
-                    }
-
-                </div >
-
-                : <div className="tablet-navbar">
-                    {navBarChoicesNOT.map((view) => (
-                        <div className={`tablet-nav-div`}
-                            key={view.name}>
-                            <a className={`nav-link ${currentView === view.name ? 'active' : ''}`}
-                                onClick={() => {
-                                    handleClick(view.name);
-                                }}
-                                href="#"
-                                title={view.description}>
-                                <img src={imagePath(view.name)} className="tablet-nav-icon" alt={view.name} />
-                            </a>
-                        </div>
-                    ))
-                    }
-
-                </div >}
-        </>
-
-
+        <div className="tablet-navbar">
+            {tempArr.map((view) => (
+                <div className={`tablet-nav-div`}
+                    key={view.name}>
+                    <a className={`nav-link ${currentView === view.name ? 'active' : ''}`}
+                        onClick={() => {
+                            handleClick(view.name);
+                        }}
+                        href="#"
+                        title={view.description}>
+                        <img src={imagePath(view.name)} className="tablet-nav-icon" alt={view.name} />
+                    </a>
+                </div>
+            ))
+            }
+        </div >
     )
 }
 

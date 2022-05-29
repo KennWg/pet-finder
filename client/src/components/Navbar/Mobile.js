@@ -25,47 +25,28 @@ function Mobile() {
         })
     };
 
+    let tempArr = [];
+    (Auth.loggedIn())
+        ? tempArr = navBarChoices
+        : tempArr = navBarChoicesNOT;
+
     return (
-        <>
-            {(Auth.loggedIn())
-                ? <div className="mobile-navbar">
-                    {navBarChoices.map((view) => (
-                        <div className={`mobile-nav-div`}
-                            key={view.name}>
-                            <a className={`nav-link ${currentView === view.name ? 'active' : ''}`}
-                                onClick={() => {
-                                    handleClick(view.name);
-                                }}
-                                href="#"
-                                title={view.description}>
-                                <img src={imagePath(view.name)} className="mobile-nav-icon" alt={view.name} />
-                            </a>
-                        </div>
-                    ))
-                    }
-
-                </div >
-
-                : <div className="mobile-navbar">
-                    {navBarChoicesNOT.map((view) => (
-                        <div className={`mobile-nav-div`}
-                            key={view.name}>
-                            <a className={`nav-link ${currentView === view.name ? 'active' : ''}`}
-                                onClick={() => {
-                                    handleClick(view.name);
-                                }}
-                                href="#"
-                                title={view.description}>
-                                <img src={imagePath(view.name)} className="mobile-nav-icon" alt={view.name} />
-                            </a>
-                        </div>
-                    ))
-                    }
-
-                </div >}
-        </>
-
-
+        <div className="mobile-navbar">
+            {tempArr.map((view) => (
+                <div className={`mobile-nav-div`}
+                    key={view.name}>
+                    <a className={`nav-link ${currentView === view.name ? 'active' : ''}`}
+                        onClick={() => {
+                            handleClick(view.name);
+                        }}
+                        href="#"
+                        title={view.description}>
+                        <img src={imagePath(view.name)} className="mobile-nav-icon" alt={view.name} />
+                    </a>
+                </div>
+            ))
+            }
+        </div >
     )
 
 }
