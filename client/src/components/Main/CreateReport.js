@@ -7,6 +7,9 @@ function CreateReport() {
     const [formState, setFormState] = useState({ name: '', breed: '', collarMicrochip: '', picForUpload: '', description: '', lastKnownLocation: '' });
     const [errorMessage, setErrorMessage] = useState('');
     const { name, breed, collarMicrochip, picForUpload, description, lastKnownLocation } = formState;
+const [preview, setPreview ] = useState('');
+var imagePreview = false;
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -36,6 +39,30 @@ function CreateReport() {
             console.log('client/../CreateReport.js:handleChange: formState=', formState);
         }
     };
+var fileName = "";
+    const updateImageDisplay = (e) => {
+        console.log('YES!!!!!! -----====> ', e.target.files)
+        imagePreview = true;
+        console.log('imagePreview = true;', imagePreview)
+        const currentImageFiles = e.target.files[0];
+        console.log('currentImageFiles', currentImageFiles)
+
+        fileName = URL.createObjectURL(currentImageFiles);
+        console.log('imagePreview = true;', fileName)
+        setPreview();
+        if (!imagePreview) {
+            setPreview (`<img src=${fileName} alt="display"/>`)
+        } else {
+            setPreview (<input id="picForUpload" className="input-file" placeholder="Upload a picture" type="file" accept="image/*" name="picForUpload" onChange={callTwoFunctions} />)
+        }
+    }
+
+
+const callTwoFunctions = (e) => {
+    console.log('++++>>>', e.target)
+    handleChange(e);
+    updateImageDisplay(e);
+}
 
     return (
         <div className="signup-class">
@@ -54,9 +81,8 @@ function CreateReport() {
                 </div>
 
                 <div className="">
-                    <label className="input-file-label" for="picForUpload" >Upload Photo
-                        <input id="picForUpload" className="input-file" placeholder="Upload a picture" type="file" accept="image/*" name="picForUpload" onChange={handleChange} />
-                    </label>
+                    <label className="input-file-label">Upload Photo
+                    {preview}</label>
                 </div>
 
                 <div className="">
