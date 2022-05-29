@@ -50,7 +50,7 @@ type Query {
     addReport(name: String!, breed: String, photo: String!, description: String, lastSeen: String!, createdAt: String!, createdBy: ID!): Report
     updateReport(name: String!, breed: String, photo: String!, description: String, lastSeen: String!, createdAt: String!, createdBy: ID!): Report
     deleteReport(_id: ID!): Report
-    addComment(report: ID!, user: !ID, commentBody: String!, createdAt: String!): Report
+    addComment(report: ID!, user: ID!, commentBody: String!, createdAt: String!): Report
 
   }
   
