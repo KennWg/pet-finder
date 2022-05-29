@@ -133,6 +133,39 @@ body {
   display: none;
 }
 
+/* REPORT STYLES */
+form.missing-pet-report {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 50vh;
+  background-color: blueviolet;
+}
+
+.input-file {
+
+  opacity: 80%;
+  background-color: chartreuse;
+  position: absolute;
+  right: -0;
+  transform: translate(50%, 0%);
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+.input-file-label {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+
+/* CREATE_REACT_APP BOILERPLATE*/
 .App {
   text-align: center;
 }

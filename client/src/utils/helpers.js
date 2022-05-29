@@ -29,6 +29,10 @@ module.exports = {
     validatePassword(password) {
         var re = /.{8}/;
         return re.test(String(password));
+    },
+    anyInput(input) {
+        var re = /.{1}/;
+        return re.test(String(input));
     }
 
 };
