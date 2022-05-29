@@ -5,8 +5,11 @@ import { anyInput } from '../../utils/helpers';
 
 function CreateReport() {
     const [formState, setFormState] = useState({ name: '', breed: '', collarMicrochip: '', picForUpload: '', description: '', lastKnownLocation: '' });
-    const [errorMessage, setErrorMessage] = useState('');
     const { name, breed, collarMicrochip, picForUpload, description, lastKnownLocation } = formState;
+
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const [upload, setUpload] = useState(true);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,16 +29,26 @@ function CreateReport() {
                 (!anyInput(inputValue))
                     ? setErrorMessage(`${inputName} is required.`)
                     : setErrorMessage('');
+                if (inputName === 'picForUpload') {
+                    setUpload(false);
+                }
                 break;
+
             default:
                 break;
         }
         if (!errorMessage) {
-
-            setFormState({ ...formState, [target.name]: target.value });
-            console.log('client/../CreateReport.js:handleChange: formState=', formState);
+            if (inputName === 'picForUpload') {
+                setFormState({ ...formState, [target.name]: URL.createObjectURL(target.files[0]) });
+                console.log(target.files[0]);
+            } else {
+                setFormState({ ...formState, [target.name]: target.value });
+                console.log('client/../CreateReport.js:handleChange: formState=', formState);
+            }
         }
     };
+
+
 
     return (
         <div className="signup-class">
@@ -53,10 +66,10 @@ function CreateReport() {
                     <input className="" placeholder="Breed" value={breed} type="text" name="breed" onChange={handleChange} />
                 </div>
 
-                <div className="">
-                    <label className="input-file-label" for="picForUpload" >Upload Photo
-                        <input id="picForUpload" className="input-file" placeholder="Upload a picture" type="file" accept="image/*" name="picForUpload" onChange={handleChange} />
-                    </label>
+                <div className="">{upload ? (<label className="input-file-label" for="picForUpload" >Upload Photo
+                    <input id="picForUpload" className="input-file" placeholder="Upload a picture" type="file" accept="image/*" name="picForUpload" onChange={handleChange} />
+                </label>) : (<a onClick={setUpload}><img id="upload-thumbnail" src={picForUpload} ></img></a>)}
+
                 </div>
 
                 <div className="">
