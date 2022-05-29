@@ -13,6 +13,22 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
+const multer = require('multer');
+const storage = multer.diskStorage({
+  filename: function(req, file, callback) {
+    callback(null, Date.now() + file.originalname);
+  }
+});
+const imageCheck = function(req, file, callback) {
+  // accept image files only
+  if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+    return callback(new Error("Not an image"), false);
+  }
+  callback(null, true);
+};
+
+const upload = multer({ storage: storage, fileFilter: imageCheck });
+
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
