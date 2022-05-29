@@ -6,7 +6,7 @@ import Auth from '../../utils/auth.js';
 function Laptop() {
 
     const [state, dispatch] = useStoreContext();
-    const { currentView, navBarChoices } = state;
+    const { currentView, navBarChoices, navBarChoicesNOT } = state;
 
     const imagePath = imageName => {
         return require(`../../assets/images/${imageName}.png`)
@@ -21,30 +21,49 @@ function Laptop() {
 
 
     return (
-        <div className="laptop-navbar">
-            {navBarChoices.map((view) => (
-                <div
-                    className={`laptop-nav-div`}
-                    key={view.name}
-                >
-                    <a className={`nav-link ${currentView === view.name ? 'active' : ''}`}
-                        onClick={() => {
-                            handleClick(view.name);
+        <>
+            {(Auth.loggedIn())
+                ? <div className="laptop-navbar">
+                    {navBarChoices.map((view) => (
+                        <div className={`laptop-nav-div`}
+                            key={view.name}>
+                            <a className={`nav-link ${currentView === view.name ? 'active' : ''}`}
+                                onClick={() => {
+                                    handleClick(view.name);
+                                }}
+                                href="#"
+                                title={view.description}>
+                                <img src={imagePath(view.name)} className="laptop-nav-icon" alt={view.name} />
+                            </a>
+                        </div>
+                    ))
+                    }
 
-                        }}
+                </div >
 
-                        href="#"
-                        title={view.description}
-                    >
-                        <img src={imagePath(view.name)} className="laptop-nav-icon" alt={view.name} />
-                    </a>
-                </div>
-            ))
-            }
+                : <div className="laptop-navbar">
+                    {navBarChoicesNOT.map((view) => (
+                        <div className={`laptop-nav-div`}
+                            key={view.name}>
+                            <a className={`nav-link ${currentView === view.name ? 'active' : ''}`}
+                                onClick={() => {
+                                    handleClick(view.name);
+                                }}
+                                href="#"
+                                title={view.description}>
+                                <img src={imagePath(view.name)} className="laptop-nav-icon" alt={view.name} />
+                            </a>
+                        </div>
+                    ))
+                    }
 
-        </div >
+                </div >}
+        </>
+
 
     )
+
+
 }
 
 export default Laptop;
