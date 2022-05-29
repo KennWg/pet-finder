@@ -164,6 +164,11 @@ form.missing-pet-report {
   cursor: pointer;
 }
 
+#upload-thumbnail {
+  max-height: 50px;
+  max-width: 50px;
+}
+
 
 /* CREATE_REACT_APP BOILERPLATE*/
 .App {

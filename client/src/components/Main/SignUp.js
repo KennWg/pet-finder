@@ -24,8 +24,15 @@ function SignUp() {
                 variables: { ...formData }
             });
 
+            // if (!response.ok) {
+            //   throw new Error('something went wrong!');
+            // }
+
+            // const { token, user } = await response.json();
+            // console.log(user);
+            // Auth.login(token);
         } catch (e) {
-            console.error('client/src/components/Main/SignUp.js:Form - FORM ERROR -',e);
+            console.error('client/src/components/Main/SignUp.js:Form - FORM ERROR -', e);
             alert('- FORM ERROR - (see console)');
         }
 
