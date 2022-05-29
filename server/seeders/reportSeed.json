@@ -1,5 +1,6 @@
 [
     {
+        "createdBy":"Katlyn85",
         "name": "Muffin",
         "breed": "Cat",
         "photo": "muffin plays",
@@ -13,6 +14,7 @@
     }]
     },
     {
+        "createdBy":"Molly48",
         "name": "Sylvester",
         "breed": "Cat",
         "photo": "sylvester eats",
@@ -26,6 +28,7 @@
     }]
     },
     {
+        "createdBy": "Lessie_Kautzer61",
         "name": "Peggy",
         "breed": "Labrador",
         "photo": "Peggy plays",
@@ -39,6 +42,7 @@
     }]
     },
     {
+        "createdBy": "Elton_Heaney",
         "name": "Bailey",
         "breed": "Dog",
         "photo": "Bailey plays",
