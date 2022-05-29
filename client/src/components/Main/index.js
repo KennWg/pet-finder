@@ -3,7 +3,7 @@ import Login from './Login.js';
 import Dashboard from './Dashboard.js';
 import Report from './CreateReport.js';
 import SignUp from './SignUp.js';
-import SingleReport from './';
+import SingleReport from './SingleReport';
 import AllReports from './';
 
 import { useStoreContext } from '../../utils/GlobalStore';

@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import dogImg from '../../assets/images/dog.jpg';
 
 import { useStoreContext } from '../../utils/GlobalStore';
+import { UPDATE_VIEW } from '../../utils/actions';
 
 function Dashboard() {
 
     const { users } = useStoreContext();
+    const [state, dispatch] = useStoreContext();
 
     const highlightStyle = {
         color:'red',
@@ -16,11 +18,19 @@ function Dashboard() {
         height:'200px'
     }
 
+    const handleClick = async ({target}) => {
+        console.log(target.value)
+        await dispatch({
+            type: UPDATE_VIEW,
+            currentView: target.value
+        })
+    };
+
     return (
         <div className="dashboard">
             <p>
                 <section>
-                    <h2 className="row">
+                    <form className="row">
                         
                         {/* {users.map((user) => (
                             <h3 key={user.username}>
@@ -30,9 +40,10 @@ function Dashboard() {
 
                         <button className="btn btn-primary" data-testid="button" type="submit">Create a Report<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         <button className="btn btn-primary" data-testid="button" type="submit">All Reports<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                        <button className="btn btn-primary" data-testid="button" type="submit" value="VIEW REPORT" onClick={handleClick}>SingleReport<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         <button className="btn btn-primary" data-testid="button" type="submit">Logout<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         <button className="btn btn-primary" data-testid="button" type="submit" style={highlightStyle}>Delete Account<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                    </h2>
+                    </form>
                 </section>
 
                 <section className="new-pet-report">
