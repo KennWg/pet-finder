@@ -24,7 +24,7 @@ function Laptop() {
         : tempArr = navBarChoicesNOT;
 
     return (
-        <div className="laptop-navbar">
+        <div className="laptop-navbar navbar-div">
             {tempArr.map((view) => (
                 <div className={`laptop-nav-div`}
                     key={view.name}>

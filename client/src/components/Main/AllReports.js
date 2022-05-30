@@ -58,7 +58,7 @@ function AllReports() {
     ]
 
     return (
-        <div className="all-report-class">
+        <div className="all-report-class outer-div">
             {reportsObj.map((report) => (
                 <p>
                     <a className="reportThumbnail">

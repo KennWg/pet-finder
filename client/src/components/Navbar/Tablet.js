@@ -25,7 +25,7 @@ function Tablet() {
         : tempArr = navBarChoicesNOT;
 
     return (
-        <div className="tablet-navbar">
+        <div className="tablet-navbar navbar-div">
             {tempArr.map((view) => (
                 <div className={`tablet-nav-div`}
                     key={view.name}>

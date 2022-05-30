@@ -27,7 +27,7 @@ function Dashboard() {
     };
 
     return (
-        <div className="dashboard">
+        <div className="dashboard-class outer-div">
             <p>
                 <section>
                     <form className="row">

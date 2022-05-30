@@ -51,7 +51,7 @@ function CreateReport() {
 
 
     return (
-        <div className="signup-class">
+        <div className="signup-class outer-div">
             <h4 data-testid="h1tag">File a Missing Pet Report</h4>
             <h5>Please provide all the details that could help in locating the missing pet.</h5>
             <p style={{ maxWidth: '400px', textAlign: 'center' }}>Your email will be kept confidential. </p>

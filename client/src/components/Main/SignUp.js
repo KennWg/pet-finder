@@ -73,7 +73,7 @@ function SignUp() {
 
 
     return (
-        <div className="signup-class">
+        <div className="signup-class  outer-div">
             <h4 data-testid="h1tag">Sign Up</h4>
             <a href="mailto:dcpb777@gmail.com" rel="noopener noreferrer" target="_blank"><h5>Please provide a username, your email and street addresses and a password.</h5></a>
             <p style={{ maxWidth: '400px', textAlign: 'center' }}>Your email will be kept confidential. </p>

@@ -4,7 +4,7 @@ import dogImg from '../../assets/images/dog.jpg';
 function Home() {
     return (
 
-        <div className="home">
+        <div className="home-class outer-div">
             <p>
                 HOME
             </p>

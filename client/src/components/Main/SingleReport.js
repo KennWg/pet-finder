@@ -39,7 +39,7 @@ function SingleReport() {
     var petComment="I saw it last day";
 
     return (
-        <div className="single-report-class">
+        <div className="single-report-class  outer-div">
             
             <section>
                 <h4 data-testid="h1tag">Report for {petName}</h4>

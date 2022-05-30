@@ -1,6 +1,6 @@
 * {
   /* for development*/
-  /* border: 2px dotted red; */
+  border: 1px dotted rgba(255, 0, 0, 0.315);
   /* background-color: #fffb0021; */
 
 }
@@ -131,6 +131,15 @@ body {
 .mobile-navbar {
   display: none;
 }
+
+/*VIEW STYLES*/
+
+.outer-div {
+  display: flex;
+  justify-content: center;
+}
+
+/*HOME PAGE*/
 
 .homepage-dog{
   max-height: 50vh;

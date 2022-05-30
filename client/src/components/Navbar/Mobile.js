@@ -31,7 +31,7 @@ function Mobile() {
         : tempArr = navBarChoicesNOT;
 
     return (
-        <div className="mobile-navbar">
+        <div className="mobile-navbar  navbar-div">
             {tempArr.map((view) => (
                 <div className={`mobile-nav-div`}
                     key={view.name}>
