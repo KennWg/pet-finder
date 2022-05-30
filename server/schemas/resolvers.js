@@ -5,18 +5,26 @@ const { report } = require('process');
 
 const resolvers = {
     Query: {
-        // get all reports by user ID
-        reports: async (parent, { createdBy }) => {
-            const params = createdBy ? { createdBy } : {};
-            return Report.find(params).sort({ createdAt: -1 });
+        // get all reports
+        allReports: async (parent, { name, photo }) => {
+            const params = {};
+            if (name){
+                params.name = name;
+            }
+            if (photo){
+                params.photo = photo;
+            }
+
+
+            return await Report.find(params).populate('report');
         },
         // get a single report
         report: async (parent, { _id }) => {
-            return Report.findOne({ _id });
+            return await Report.findById(_id).populate('report');
         },
-        // get all comments by report ID
-        reportComments: async (parent, {report}) => {
-            const params = report ? {report} : {};
+        // get all reports by user ID
+        reportsByUserId: async (parent, {createdBy}) => {
+            const params = createdBy ? {createdBy} : {};
             return Comment.find(params).sort({createdAt: -1});
         }
     },

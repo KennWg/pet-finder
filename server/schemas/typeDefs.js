@@ -25,7 +25,7 @@ type Report {
 }
 
 type Comment {
-  commentId: ID
+  _id: ID
   report: Report
   user: User
   commentBody: String
@@ -38,9 +38,9 @@ type Auth {
 }
 
 type Query {
-  reports: [Report]
-  report: Report
-  reportComments(user: ID!, report: ID!, commentId: ID!): [Report]
+  allReports (name: String!, photo: String!): [Report]
+  report(_id: ID!, name: String, breed: String!, photo: String!, description: String!, lastSeen: String!, createdAt: String!, createdBy: ID!): Report
+  reportsByUserId(createdBy: ID!): [Report]
 }
 
 type Mutation {
@@ -61,10 +61,19 @@ type Mutation {
 
 // REMOVED when refactoring
 // type Query {
-//   allReports: [Report]
+//   allReports (name: string!, photo: String!): [Report] ----must include
 //   report: Report
 //   reportsByUser(createdBy: ID!): [Report]
-//   reportsByUserComments (user: ID!, report: ID!, commentId: ID!): [Report]
+//   userReportsByComments (user: ID!, report: ID!, commentId: ID!): [Report]
+// }
+
+
+// type Comment {
+//   commentId: ID --deleted
+//   report: Report
+//   user: User
+//   commentBody: String
+//   createdAt: String
 // }
 
 // export typdefs
