@@ -8,7 +8,7 @@ function Home() {
 
             <h1>Welcome to the Pet Finder</h1>
             <br></br>
-            <p><img src={dogImg} alt="a dog sit on the front page" className='homepage-dog' /></p>
+            <img src={dogImg} alt="a dog sit on the front page" className='homepage-dog' />
         </div>
     );
 }

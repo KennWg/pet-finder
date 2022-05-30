@@ -145,17 +145,19 @@ body {
   z-index: 5;
   display: flex;
   justify-content: center;
-width: 80vw;
-height: 80vh;
-background-color: rgb(189, 255, 209);
-/* border: 3px solid black; */
+  width: 80vw;
+  height: 80vh;
+  max-width: 80vw;
+  max-height: 80vh;
+  background-color: rgb(189, 255, 209);
+  /* border: 3px solid black; */
 }
 
 /*HOME PAGE -------------------------- */
 
-.homepage-dog{
+.homepage-dog {
   max-height: 50vh;
-  max-width: 100%;
+  max-width: 80%;
 }
 
 /* REPORT STYLES */
@@ -281,6 +283,10 @@ input {
   right: 0;
 }
 
+
+
+/* Mobile Resizing */
+
 @media (max-width: 1100px) and (min-width: 701px) {
   .tablet-navbar {
     display: flex;
@@ -311,6 +317,20 @@ input {
   .tablet-navbar,
   .laptop-navbar {
     display: none;
+  }
+
+  /* .homepage-dog {
+
+    height: 100%;
+    width: 100%;
+    max-height: none;
+    max-width: none;
+    object-fit: cover;
+  } */
+
+  .home-class h1 {
+    color: antiquewhite;
+
   }
 }
 
