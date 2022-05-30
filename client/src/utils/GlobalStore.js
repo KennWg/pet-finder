@@ -14,9 +14,12 @@ const StoreProvider = ({ value = [], ...props }) => {
       { name: "REPORT", description: "" },
       { name: "DASHBOARD", description: "" },
       { name: "HOME", description: "" },
+      { name: "LOGOUT", description: "" }
+    ],
+    navBarChoicesNOT:[
+      { name: "HOME", description: "" },
       { name: "LOGIN", description: "" },
       { name: "SIGNUP", description: "" },
-      { name: "LOGOUT", description: "" }
     ],
     users: [
       {

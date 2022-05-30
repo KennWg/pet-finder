@@ -14,7 +14,7 @@ function Main() {
     const { currentView } = state;
 
     return (
-        <main className="">
+        <main className="main-class">
             {currentView === 'HOME' && <Home />}
             {currentView === 'DASHBOARD' && <Dashboard />}
             {currentView === 'LOGIN' && <Login />}

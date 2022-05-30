@@ -1,7 +1,7 @@
 * {
   /* for development*/
-  /* border: 2px dotted red; */
-  /* background-color: #fffb0021; */
+  /* border: 1px dotted rgba(255, 0, 0, 0.315);
+  background-color: #ff003748; */
 
 }
 
@@ -16,6 +16,24 @@ body {
   font-family: 'Times New Roman', Times, serif;
 }
 
+h1,h2,h3,h4,h5{
+  margin: 2vw;
+}
+
+.error-div{
+  height: 3vh;
+  /* background-color: blue; */
+}
+
+.signup-class h3{
+  font-size: 120%;
+  color: #6185fbb4;
+}
+
+button[type="submit"]{
+  margin-bottom: 3vh;
+}
+
 .site-container {
   /* background: linear-gradient(#3c5688, #58a8e7); */
   background-image: url(./assets/images/sky-background.png);
@@ -23,7 +41,6 @@ body {
   height: 100vh;
   width: 100vw;
 }
-
 
 /* NAVBAR */
 .navbar-class {
@@ -42,6 +59,7 @@ body {
   border: 5px dotted rgb(0, 255, 242);
 
   /* Positon */
+  z-index: 10;
   position: absolute;
   top: 1vh;
   right: 1.6vw;
@@ -125,12 +143,39 @@ body {
   mix-blend-mode: multiply;
 }
 
-
-
-
 .tablet-navbar,
 .mobile-navbar {
   display: none;
+}
+
+/*VIEW STYLES*/
+.main-class {
+  display: flex;
+  justify-content: center;
+}
+
+
+.outer-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  width: 80vw;
+  height: 80vh;
+  max-width: 80vw;
+  max-height: 80vh;
+  background-color: rgba(189, 255, 209, 0.747);
+  /* border: 3px solid black; */
+}
+
+/*HOME PAGE -------------------------- */
+
+.homepage-dog {
+  max-height: 50vh;
+  max-width: 80%;
 }
 
 /* REPORT STYLES */
@@ -169,6 +214,19 @@ form.missing-pet-report {
   max-width: 50px;
 }
 
+/* FORM STYLES */
+form, form div {
+  width: 100%;
+}
+
+input {
+  background-color: rgba(204, 204, 204, 0);
+  border: none;
+  border-bottom: 1px solid black;
+  margin: 4vh;
+  width: 60%;
+  text-align: center;
+}
 
 /* CREATE_REACT_APP BOILERPLATE*/
 .App {
@@ -218,10 +276,18 @@ form.missing-pet-report {
 }
 
 .signup-class,
-.signup-form {
+.signup-form,
+.home-class,
+.dashboard-class,
+.all-reports-class,
+.login-class,
+.single-report-class,
+.create-report-class {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  justify-content: space-around;
 }
 
 
@@ -235,6 +301,10 @@ form.missing-pet-report {
   bottom: 0;
   right: 0;
 }
+
+
+
+/* Mobile Resizing */
 
 @media (max-width: 1100px) and (min-width: 701px) {
   .tablet-navbar {
@@ -266,6 +336,20 @@ form.missing-pet-report {
   .tablet-navbar,
   .laptop-navbar {
     display: none;
+  }
+
+  .homepage-dog {
+
+    height: 100%;
+    width: 100%;
+    max-height: none;
+    max-width: none;
+    object-fit: cover;
+  }
+
+  .home-class h1 {
+    color: antiquewhite;
+
   }
 }
 
