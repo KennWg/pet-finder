@@ -12,7 +12,10 @@ import Main from './components/Main/';
 import Footer from './components/Footer/Footer.js';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql'});
+// Remember to change back to:   uri: '/graphql'    for deployment
+
+  uri: 'http://localhost:3001/graphql'
+});
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
