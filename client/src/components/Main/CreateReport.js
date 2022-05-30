@@ -1,20 +1,31 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 import { anyInput } from '../../utils/helpers';
 
 
 function CreateReport() {
-    const [formState, setFormState] = useState({ name: '', breed: '', collarMicrochip: '', picForUpload: '', description: '', lastKnownLocation: '' });
-    const { name, breed, collarMicrochip, picForUpload, description, lastKnownLocation } = formState;
+    const [formState, setFormState] = useState({ name: '', breed: '', collarMicrochip: '', picForUpload: '', description: '', lastKnownLocation: '', uploadedFile: '' });
+    const { name, breed, collarMicrochip, picForUpload, description, lastKnownLocation, uploadedFile } = formState;
 
     const [errorMessage, setErrorMessage] = useState('');
 
     const [upload, setUpload] = useState(true);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!errorMessage) {
             console.log('Submit Form', formState);
+
+            //Image submission
+
+            const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
+
+            const imageData = new FormData();
+            imageData.append('file', uploadedFile);
+            imageData.append('upload_preset', process.env.REACT_APP_UPLOAD_PRESET);
+
+            const response = await axios.post(url, imageData);
         }
     };
 
@@ -39,8 +50,7 @@ function CreateReport() {
         }
         if (!errorMessage) {
             if (inputName === 'picForUpload') {
-                setFormState({ ...formState, [target.name]: URL.createObjectURL(target.files[0]) });
-                console.log(target.files[0]);
+                setFormState({ ...formState, [target.name]: URL.createObjectURL(target.files[0]), uploadedFile: target.files[0] });
             } else {
                 setFormState({ ...formState, [target.name]: target.value });
                 console.log('client/../CreateReport.js:handleChange: formState=', formState);
