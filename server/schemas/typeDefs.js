@@ -38,16 +38,17 @@ type Auth {
 }
 
 type Query {
-  allReports(name: String!, photo: String!): [Report]
-  report (name: String!, breed: String, photo: String!, description: String, lastSeen: String!, createdAt: String!, createdBy: ID!): Report
-  reportByUserComments(user: ID!, report: ID!, commentId: ID!): [Report]
-  reportsByUserID(createdBy: ID!): [Report]
+  allUsers: [User]
+  allReports: [Report]
+  report (_id: ID!): Report
+  reportByUserComments(user: ID!): [Report]
+  reportsByUserId(createdBy: ID!): [Report]
 }
 
 type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!, address: String!): Auth
-  addReport(name: String!, breed: String, photo: String!, description: String, lastSeen: String!, createdAt: String!, createdBy: ID!): Report
+  addReport(name: String!, breed: String, photo: String!, description: String, lastSeen: String!, createdBy: ID!): Report
   updateReport(name: String!, breed: String, photo: String!, description: String, lastSeen: String!, createdAt: String!, createdBy: ID!): Report
   deleteReport(_id: ID!): Report
   addComment(report: ID!, user: ID!, commentBody: String!, createdAt: String!): Report
