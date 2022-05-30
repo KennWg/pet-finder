@@ -14,26 +14,33 @@ function SignUp() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('You hit the SUBMIT button');
-        if (!errorMessage) {
-            setFormData({ [e.target.name]: e.target.value });
+
+        if (errorMessage) {
+            // setFormData({ [e.target.name]: e.target.value });
             console.log('client/src/components/Main/SignUp.js:Form - NO ERROR - ', formData);
+            return;
         }
 
         try {
+            console.log("TRYING SIGNUP", formData);
             const response = await createUser({
                 variables: { ...formData }
             });
+            console.log("try COMPLETED");
 
             // if (!response.ok) {
-            //   throw new Error('something went wrong!');
+            //     throw new Error('response was not "OK" something went wrong! -- In SignUp');
             // }
 
             // const { token, user } = await response.json();
             // console.log(user);
+            // console.token(token);
             // Auth.login(token);
         } catch (e) {
             console.error('client/src/components/Main/SignUp.js:Form - FORM ERROR -', e);
-            alert('- FORM ERROR - (see console)');
+            console.log("Mutation error :", error);
+
+            // alert('- FORM ERROR - (see console)');
         }
 
         setFormData({
@@ -44,7 +51,16 @@ function SignUp() {
         });
     };
 
+
+
     const handleChange = (e) => {
+        console.log('Handling Change');
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+        console.log(formData);
+    };
+
+    const validate = (e) => {
         if (e.target.name === 'email') {
             const isValid = validateEmail(e.target.value);
             if (!isValid) {
@@ -67,10 +83,7 @@ function SignUp() {
             }
 
         }
-
-
-    };
-
+    }
 
     return (
         <div className="signup-class  outer-div">
@@ -79,28 +92,28 @@ function SignUp() {
             <p style={{ maxWidth: '400px', textAlign: 'center' }}>Your email will be kept confidential. </p>
 
             <div className="error-div">
-                {errorMessage && (                        
-                    <p className="error-text">{errorMessage}</p>                        
+                {errorMessage && (
+                    <p className="error-text">{errorMessage}</p>
                 )}
             </div>
-            
+
 
             <form className="signup-form" id="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Username" type="text" name="username" defaultValue={formData.username} onBlur={handleChange} />
+                    <input className="form-control" placeholder="Username" type="text" name="username" value={formData.username} onChange={handleChange} onBlur={validate} />
                 </div>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Email" type="email" name="email" defaultValue={formData.email} onBlur={handleChange} />
+                    <input className="form-control" placeholder="Email" type="email" name="email" value={formData.email} onChange={handleChange} onBlur={validate} />
                 </div>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Address" type="text" name="address" defaultValue={formData.address} onBlur={handleChange} />
+                    <input className="form-control" placeholder="Address" type="text" name="address" value={formData.address} onChange={handleChange} onBlur={validate} />
                 </div>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Password" type="text" name="password" defaultValue={formData.password} onBlur={handleChange} />
+                    <input className="form-control" placeholder="Password" type="text" name="password" value={formData.password} onChange={handleChange} onBlur={validate} />
                 </div>
 
                 <div className="">
-                    <button className="" type="submit">Submit<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                    <button className="" type="submit">Submit<i className="fa fa-paper-plane" aria-hidden="true"></i></button>
                 </div>
             </form>
 
