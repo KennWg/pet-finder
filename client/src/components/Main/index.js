@@ -5,6 +5,7 @@ import Report from './CreateReport.js';
 import SignUp from './SignUp.js';
 import SingleReport from './SingleReport';
 import AllReports from './AllReports';
+import LogoutInfo from './LogoutInfo.js';
 
 import { useStoreContext } from '../../utils/GlobalStore';
 
@@ -18,6 +19,7 @@ function Main() {
             {currentView === 'HOME' && <Home />}
             {currentView === 'DASHBOARD' && <Dashboard />}
             {currentView === 'LOGIN' && <Login />}
+            {currentView === 'LOGOUT' && <LogoutInfo />}
             {currentView === 'SIGNUP' && <SignUp />}
             {currentView === 'REPORT' && <Report />}
             {currentView === 'VIEW REPORT' && <SingleReport />}
