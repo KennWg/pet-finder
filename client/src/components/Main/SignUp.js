@@ -15,16 +15,17 @@ function SignUp() {
         e.preventDefault();
         console.log('You hit the SUBMIT button');
 
-        if (!errorMessage) {
-            setFormData({ [e.target.name]: e.target.value });
-            console.log('client/src/components/Main/SignUp.js:Form - NO ERROR - ', formData);
-        }
+        // if (!errorMessage) {
+        //     // setFormData({ [e.target.name]: e.target.value });
+        //     console.log('client/src/components/Main/SignUp.js:Form - NO ERROR - ', formData);
+        // }
 
         try {
-            console.log("TRYING SIGNUP");
+            console.log("TRYING SIGNUP", formData);
             const response = await createUser({
                 variables: { ...formData }
             });
+            console.log("try COMPLETED");
 
             if (!response.ok) {
               throw new Error('something went wrong! -- In SignUp');
@@ -50,9 +51,16 @@ function SignUp() {
 
 
     const handleChange = (e) => {
+        console.log('Handling Change');
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+console.log(formData);
 
+
+
+    };
+
+    const validate = (e) =>{
         if (e.target.name === 'email') {
             const isValid = validateEmail(e.target.value);
             if (!isValid) {
@@ -75,10 +83,7 @@ function SignUp() {
             }
 
         }
-
-
-    };
-
+    }
 
     return (
         <div className="signup-class  outer-div">
@@ -95,16 +100,16 @@ function SignUp() {
 
             <form className="signup-form" id="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Username" type="text" name="username" defaultValue={formData.username} onBlur={handleChange} />
+                    <input className="form-control" placeholder="Username" type="text" name="username" defaultValue={formData.username} onChange={handleChange} onBlur={validate} />
                 </div>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Email" type="email" name="email" defaultValue={formData.email} onBlur={handleChange} />
+                    <input className="form-control" placeholder="Email" type="email" name="email" defaultValue={formData.email} onChange={handleChange} onBlur={validate}/>
                 </div>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Address" type="text" name="address" defaultValue={formData.address} onBlur={handleChange} />
+                    <input className="form-control" placeholder="Address" type="text" name="address" defaultValue={formData.address} onChange={handleChange} onBlur={validate}/>
                 </div>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Password" type="text" name="password" defaultValue={formData.password} onBlur={handleChange} />
+                    <input className="form-control" placeholder="Password" type="text" name="password" defaultValue={formData.password} onChange={handleChange} onBlur={validate}/>
                 </div>
 
                 <div className="">
