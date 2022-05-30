@@ -9,6 +9,27 @@ function Home() {
             <h1>Welcome to the Pet Finder</h1>
             <br></br>
             <img src={dogImg} alt="a dog sit on the front page" className='homepage-dog' />
+            <h2>Filler Content</h2>
+            <br></br>
+            <h2>Filler Content</h2>
+            <br></br>
+            <h2>Filler Content</h2>
+            <br></br>
+            <h2>Filler Content</h2>
+            <br></br>
+            <h2>Filler Content</h2>
+            <br></br>
+            <h2>Filler Content</h2>
+            <br></br>
+            <h2>Filler Content</h2>
+            <br></br>
+            <h2>Filler Content</h2>
+            <br></br>
+            <h2>Filler Content</h2>
+            <br></br>
+            <h2>Filler Content</h2>
+            <br></br>
+            
         </div>
     );
 }

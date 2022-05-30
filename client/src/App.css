@@ -36,19 +36,22 @@ button[type="submit"]{
 
 .site-container {
   /* background: linear-gradient(#3c5688, #58a8e7); */
-  background-image: url(./assets/images/sky-background.png);
+  /* background-image: url(./assets/images/sky-background.png); */
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 }
 
 /* NAVBAR */
 .navbar-class {
-
+  /* background-color: #ff0037ea;  */
+  
   /* Positon */
   position: absolute;
+
   /* Display */
-  display: contents;
+  display:block;
+
   /* Size */
   min-height: 100vh;
   min-width: 100vw;
@@ -148,6 +151,18 @@ button[type="submit"]{
   display: none;
 }
 
+.header-class,
+.footer-class,
+.main-class {
+  border: 6px solid red;
+  background-color: #61dafb;
+  min-height: 50px;
+}
+
+/* HEADER */
+
+
+
 /*VIEW STYLES*/
 .main-class {
   display: flex;
@@ -156,17 +171,21 @@ button[type="submit"]{
 
 
 .outer-div {
-  position: absolute;
+  position: relative;
+
+/* Removing because scrolling content must be handled */
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -55%);
+  transform: translate(-50%, -55%); */
+
   z-index: 5;
   display: flex;
   justify-content: center;
   width: 80vw;
-  height: 80vh;
+  /* height: 80vh; */
   max-width: 80vw;
-  max-height: 80vh;
+  /* max-height: 80vh; */
   background-color: rgba(189, 255, 209, 0.747);
   /* border: 3px solid black; */
 }
@@ -290,6 +309,7 @@ input {
   justify-content: space-around;
 }
 
+/* FOOTER */
 
 .footer-class {
   display: relative;
