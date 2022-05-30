@@ -38,9 +38,10 @@ type Auth {
 }
 
 type Query {
-  reports: [Report]
-  report: Report
-  reportComments(user: ID!, report: ID!, commentId: ID!): [Report]
+  allReports(name: String!, photo: String!): [Report]
+  report (name: String!, breed: String, photo: String!, description: String, lastSeen: String!, createdAt: String!, createdBy: ID!): Report
+  reportByUserComments(user: ID!, report: ID!, commentId: ID!): [Report]
+  reportsByUserID(createdBy: ID!): [Report]
 }
 
 type Mutation {

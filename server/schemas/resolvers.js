@@ -15,9 +15,12 @@ const resolvers = {
             return Report.findOne({ _id });
         },
         // get all comments by report ID
-        reportComments: async (parent, {report}) => {
+        reportyUserComments: async (parent, {report}) => {
             const params = report ? {report} : {};
             return Comment.find(params).sort({createdAt: -1});
+        },
+        reportsByUserId: async(parent, {args}) => {
+            
         }
     },
 
