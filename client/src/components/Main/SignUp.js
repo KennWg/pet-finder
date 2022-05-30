@@ -28,7 +28,7 @@ function SignUp() {
             console.log("try COMPLETED");
 
             if (!response.ok) {
-              throw new Error('something went wrong! -- In SignUp');
+                throw new Error('something went wrong! -- In SignUp');
             }
 
             const { token, user } = await response.json();
@@ -37,6 +37,8 @@ function SignUp() {
             // Auth.login(token);
         } catch (e) {
             console.error('client/src/components/Main/SignUp.js:Form - FORM ERROR -', e);
+            console.log("Mutation error :", error);
+
             alert('- FORM ERROR - (see console)');
         }
 
@@ -54,13 +56,10 @@ function SignUp() {
         console.log('Handling Change');
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-console.log(formData);
-
-
-
+        console.log(formData);
     };
 
-    const validate = (e) =>{
+    const validate = (e) => {
         if (e.target.name === 'email') {
             const isValid = validateEmail(e.target.value);
             if (!isValid) {
@@ -92,28 +91,28 @@ console.log(formData);
             <p style={{ maxWidth: '400px', textAlign: 'center' }}>Your email will be kept confidential. </p>
 
             <div className="error-div">
-                {errorMessage && (                        
-                    <p className="error-text">{errorMessage}</p>                        
+                {errorMessage && (
+                    <p className="error-text">{errorMessage}</p>
                 )}
             </div>
-            
+
 
             <form className="signup-form" id="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <input className="form-control" placeholder="Username" type="text" name="username" defaultValue={formData.username} onChange={handleChange} onBlur={validate} />
                 </div>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Email" type="email" name="email" defaultValue={formData.email} onChange={handleChange} onBlur={validate}/>
+                    <input className="form-control" placeholder="Email" type="email" name="email" defaultValue={formData.email} onChange={handleChange} onBlur={validate} />
                 </div>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Address" type="text" name="address" defaultValue={formData.address} onChange={handleChange} onBlur={validate}/>
+                    <input className="form-control" placeholder="Address" type="text" name="address" defaultValue={formData.address} onChange={handleChange} onBlur={validate} />
                 </div>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Password" type="text" name="password" defaultValue={formData.password} onChange={handleChange} onBlur={validate}/>
+                    <input className="form-control" placeholder="Password" type="text" name="password" defaultValue={formData.password} onChange={handleChange} onBlur={validate} />
                 </div>
 
                 <div className="">
-                    <button className="" type="submit">Submit<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                    <button className="" type="submit">Submit<i className="fa fa-paper-plane" aria-hidden="true"></i></button>
                 </div>
             </form>
 
