@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-
 import { validateEmail, validatePassword } from '../../utils/helpers';
-
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth.js'
 
 function SignUp() {
     const [formData, setFormData] = useState({ username: '', email: '', address: '', password: '' });
@@ -23,19 +22,22 @@ function SignUp() {
 
         try {
             console.log("TRYING SIGNUP", formData);
-            const response = await createUser({
+            const { data } = await createUser({
                 variables: { ...formData }
             });
             console.log("try COMPLETED");
+            console.log(data)
 
-            // if (!response.ok) {
-            //     throw new Error('response was not "OK" something went wrong! -- In SignUp');
-            // }
+            if (!data) {
+                throw new Error('response was not "OK" something went wrong! -- In SignUp');
+            }
+            else {
+                const { token, user } = data.addUser;
+                console.log(user);
+                console.log(token);
+                Auth.login(token);
+            }
 
-            // const { token, user } = await response.json();
-            // console.log(user);
-            // console.token(token);
-            // Auth.login(token);
         } catch (e) {
             console.error('client/src/components/Main/SignUp.js:Form - FORM ERROR -', e);
             console.log("Mutation error :", error);
@@ -54,10 +56,10 @@ function SignUp() {
 
 
     const handleChange = (e) => {
-        console.log('Handling Change');
+        // console.log('Handling Change');
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-        console.log(formData);
+        // console.log(formData);
     };
 
     const validate = (e) => {
