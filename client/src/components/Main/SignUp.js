@@ -74,9 +74,16 @@ function SignUp() {
 
     return (
         <div className="signup-class  outer-div">
-            <h4 data-testid="h1tag">Sign Up</h4>
-            <a href="mailto:dcpb777@gmail.com" rel="noopener noreferrer" target="_blank"><h5>Please provide a username, your email and street addresses and a password.</h5></a>
+            <h2 data-testid="h1tag">Sign Up</h2>
+            <h3>Please provide a username, your email and street addresses and a password.</h3>
             <p style={{ maxWidth: '400px', textAlign: 'center' }}>Your email will be kept confidential. </p>
+
+            <div className="error-div">
+                {errorMessage && (                        
+                    <p className="error-text">{errorMessage}</p>                        
+                )}
+            </div>
+            
 
             <form className="signup-form" id="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -91,11 +98,6 @@ function SignUp() {
                 <div className="form-group">
                     <input className="form-control" placeholder="Password" type="text" name="password" defaultValue={formData.password} onBlur={handleChange} />
                 </div>
-                {errorMessage && (
-                    <div>
-                        <p className="error-text">{errorMessage}</p>
-                    </div>
-                )}
 
                 <div className="">
                     <button className="" type="submit">Submit<i class="fa fa-paper-plane" aria-hidden="true"></i></button>

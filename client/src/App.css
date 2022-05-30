@@ -16,6 +16,24 @@ body {
   font-family: 'Times New Roman', Times, serif;
 }
 
+h1,h2,h3,h4,h5{
+  margin: 2vw;
+}
+
+.error-div{
+  height: 3vh;
+  /* background-color: blue; */
+}
+
+.signup-class h3{
+  font-size: 120%;
+  color: #6185fbb4;
+}
+
+button[type="submit"]{
+  margin-bottom: 3vh;
+}
+
 .site-container {
   /* background: linear-gradient(#3c5688, #58a8e7); */
   background-image: url(./assets/images/sky-background.png);
@@ -149,7 +167,7 @@ body {
   height: 80vh;
   max-width: 80vw;
   max-height: 80vh;
-  background-color: rgb(189, 255, 209);
+  background-color: rgba(189, 255, 209, 0.747);
   /* border: 3px solid black; */
 }
 
@@ -197,18 +215,18 @@ form.missing-pet-report {
 }
 
 /* FORM STYLES */
+form, form div {
+  width: 100%;
+}
+
 input {
   background-color: rgba(204, 204, 204, 0);
   border: none;
   border-bottom: 1px solid black;
-  margin: 2vh;
+  margin: 4vh;
+  width: 60%;
+  text-align: center;
 }
-
-
-
-
-
-
 
 /* CREATE_REACT_APP BOILERPLATE*/
 .App {
@@ -269,6 +287,7 @@ input {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  justify-content: space-around;
 }
 
 
@@ -319,14 +338,14 @@ input {
     display: none;
   }
 
-  /* .homepage-dog {
+  .homepage-dog {
 
     height: 100%;
     width: 100%;
     max-height: none;
     max-width: none;
     object-fit: cover;
-  } */
+  }
 
   .home-class h1 {
     color: antiquewhite;
