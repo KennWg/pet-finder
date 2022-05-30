@@ -19,7 +19,7 @@ function Laptop() {
         })
     };
     let tempArr = [];
-    (!Auth.loggedIn())
+    (Auth.loggedIn())
         ? tempArr = navBarChoices
         : tempArr = navBarChoicesNOT;
 
