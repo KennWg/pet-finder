@@ -5,13 +5,10 @@ function Home() {
     return (
 
         <div className="home-class outer-div">
-            <p>
-                HOME
-            </p>
 
             <h1>Welcome to the Pet Finder</h1>
-
-            <p><img src={dogImg} alt="a dog sit on the front page" className='homepage-dog'/></p>
+            <br></br>
+            <p><img src={dogImg} alt="a dog sit on the front page" className='homepage-dog' /></p>
         </div>
     );
 }
