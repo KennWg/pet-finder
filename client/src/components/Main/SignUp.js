@@ -14,22 +14,25 @@ function SignUp() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('You hit the SUBMIT button');
+
         if (!errorMessage) {
             setFormData({ [e.target.name]: e.target.value });
             console.log('client/src/components/Main/SignUp.js:Form - NO ERROR - ', formData);
         }
 
         try {
+            console.log("TRYING SIGNUP");
             const response = await createUser({
                 variables: { ...formData }
             });
 
-            // if (!response.ok) {
-            //   throw new Error('something went wrong!');
-            // }
+            if (!response.ok) {
+              throw new Error('something went wrong! -- In SignUp');
+            }
 
-            // const { token, user } = await response.json();
-            // console.log(user);
+            const { token, user } = await response.json();
+            console.log(user);
+            console.token(token);
             // Auth.login(token);
         } catch (e) {
             console.error('client/src/components/Main/SignUp.js:Form - FORM ERROR -', e);
@@ -44,7 +47,12 @@ function SignUp() {
         });
     };
 
+
+
     const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+
         if (e.target.name === 'email') {
             const isValid = validateEmail(e.target.value);
             if (!isValid) {
