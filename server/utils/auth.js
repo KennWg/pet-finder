@@ -1,7 +1,14 @@
 const jwt = require('jsonwebtoken');
 
 const secret = 'mysecretsshhhhh';
-const expiration = '2h';
+const expiration = '100h';
+
+// change the expiration back to 2h when deploying
+// change the expiration back to 2h when deploying
+// change the expiration back to 2h when deploying
+// change the expiration back to 2h when deploying
+// change the expiration back to 2h when deploying
+
 
 module.exports = {
   authMiddleware: function({ req }) {
