@@ -16,19 +16,22 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('You hit the SUBMIT button');
-        if (!errorMessage) {
-            setFormData({ [e.target.name]: e.target.value });
+        if (errorMessage) {
+            // setFormData({ [e.target.name]: e.target.value });
             console.log('client/src/components/Main/Login.js:Form - NO ERROR - ', formData);
+            return;
         }
 
         try {
+            console.log("TRYING LOGIN", formData);
             const response = await loginUser({
                 variables: { ...formData }
             });
+            console.log("try COMPLETED");
 
         } catch (e) {
             console.error('client/src/components/Main/Login.js:Form - FORM ERROR -', e);
-            alert('- FORM ERROR - (see console)');
+            // alert('- FORM ERROR - (see console)');
         }
 
         setFormData({
@@ -37,11 +40,14 @@ function Login() {
         });
     };
 
-
-
-
-
     const handleChange = (e) => {
+        console.log('Handling Change');
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+        console.log(formData);
+    };
+
+    const validate = (e) => {
         if (e.target.name === 'email') {
             const isValid = validateEmail(e.target.value);
             if (!isValid) {
@@ -56,8 +62,15 @@ function Login() {
             } else {
                 setErrorMessage('');
             }
+        } else {
+            if (!e.target.value.length) {
+                setErrorMessage(`${e.target.name} is required.`);
+            } else {
+                setErrorMessage('');
+            }
+
         }
-    };
+    }
 
     return (
 
@@ -68,11 +81,11 @@ function Login() {
 
             <form className="signup-form" id="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <input className="form-control" placeholder="username" type="text" name="email" onBlur={handleChange} />
+                    <input className="form-control" placeholder="email" type="text" name="email" value={formData.email} onChange={handleChange} onBlur={validate} />
                 </div>
 
                 <div className="form-group">
-                    <input className="form-control" placeholder="password" type="text" name="password" onBlur={handleChange} />
+                    <input className="form-control" placeholder="password" type="text" name="password" value={formData.password} onChange={handleChange} onBlur={validate} />
                 </div>
 
                 {errorMessage && (
