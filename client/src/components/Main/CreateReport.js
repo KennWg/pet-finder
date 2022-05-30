@@ -15,6 +15,7 @@ function CreateReport() {
         e.preventDefault();
         if (!errorMessage) {
             console.log('Submit Form', formState);
+            console.log(formState.picForUpload);
         }
     };
 
