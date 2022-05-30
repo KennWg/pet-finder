@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { validateEmail, validatePassword } from '../../utils/helpers';
-
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth.js'
 
 
 function Login() {
@@ -24,10 +24,20 @@ function Login() {
 
         try {
             console.log("TRYING LOGIN", formData);
-            const response = await loginUser({
+            const { data } = await loginUser({
                 variables: { ...formData }
             });
             console.log("try COMPLETED");
+
+            if (!data) {
+                throw new Error('response was not "OK" something went wrong! -- In Login');
+            }
+            else {
+                const { token, user } = data.login;
+                console.log(user);
+                // console.log(token);
+                Auth.login(token);
+            }
 
         } catch (e) {
             console.error('client/src/components/Main/Login.js:Form - FORM ERROR -', e);
@@ -41,10 +51,10 @@ function Login() {
     };
 
     const handleChange = (e) => {
-        console.log('Handling Change');
+        // console.log('Handling Change');
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-        console.log(formData);
+        // console.log(formData);
     };
 
     const validate = (e) => {
