@@ -15,10 +15,11 @@ function SignUp() {
         e.preventDefault();
         console.log('You hit the SUBMIT button');
 
-        // if (!errorMessage) {
-        //     // setFormData({ [e.target.name]: e.target.value });
-        //     console.log('client/src/components/Main/SignUp.js:Form - NO ERROR - ', formData);
-        // }
+        if (errorMessage) {
+            // setFormData({ [e.target.name]: e.target.value });
+            console.log('client/src/components/Main/SignUp.js:Form - NO ERROR - ', formData);
+            return;
+        }
 
         try {
             console.log("TRYING SIGNUP", formData);
@@ -27,19 +28,19 @@ function SignUp() {
             });
             console.log("try COMPLETED");
 
-            if (!response.ok) {
-                throw new Error('something went wrong! -- In SignUp');
-            }
+            // if (!response.ok) {
+            //     throw new Error('response was not "OK" something went wrong! -- In SignUp');
+            // }
 
-            const { token, user } = await response.json();
-            console.log(user);
-            console.token(token);
+            // const { token, user } = await response.json();
+            // console.log(user);
+            // console.token(token);
             // Auth.login(token);
         } catch (e) {
             console.error('client/src/components/Main/SignUp.js:Form - FORM ERROR -', e);
             console.log("Mutation error :", error);
 
-            alert('- FORM ERROR - (see console)');
+            // alert('- FORM ERROR - (see console)');
         }
 
         setFormData({
@@ -99,16 +100,16 @@ function SignUp() {
 
             <form className="signup-form" id="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Username" type="text" name="username" defaultValue={formData.username} onChange={handleChange} onBlur={validate} />
+                    <input className="form-control" placeholder="Username" type="text" name="username" value={formData.username} onChange={handleChange} onBlur={validate} />
                 </div>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Email" type="email" name="email" defaultValue={formData.email} onChange={handleChange} onBlur={validate} />
+                    <input className="form-control" placeholder="Email" type="email" name="email" value={formData.email} onChange={handleChange} onBlur={validate} />
                 </div>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Address" type="text" name="address" defaultValue={formData.address} onChange={handleChange} onBlur={validate} />
+                    <input className="form-control" placeholder="Address" type="text" name="address" value={formData.address} onChange={handleChange} onBlur={validate} />
                 </div>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Password" type="text" name="password" defaultValue={formData.password} onChange={handleChange} onBlur={validate} />
+                    <input className="form-control" placeholder="Password" type="text" name="password" value={formData.password} onChange={handleChange} onBlur={validate} />
                 </div>
 
                 <div className="">
