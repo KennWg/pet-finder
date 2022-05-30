@@ -5,20 +5,33 @@ const { report } = require('process');
 
 const resolvers = {
     Query: {
+        // get all reports
+
+        allUsers: async ()=> {
+            return User.find()
+            .select('-__v')
+            .populate('reports');
+        },
+
+        allReports: async () => {
+            return Report.find()
+            .select('-__v')
+            .populate('comments');
+        },
         // get all reports by user ID
-        reports: async (parent, { createdBy }) => {
-            const params = createdBy ? { createdBy } : {};
-            return Report.find(params).sort({ createdAt: -1 });
+        reportsByUserId: async (parent, { createdBy }) => {
+            return Report.find(createdBy).sort({ createdAt: -1 });
         },
         // get a single report
         report: async (parent, { _id }) => {
             return Report.findOne({ _id });
         },
-        // get all comments by report ID
-        reportComments: async (parent, {report}) => {
-            const params = report ? {report} : {};
-            return Comment.find(params).sort({createdAt: -1});
-        }
+        // get all reports that the user has commented on: To Do
+        reportByUserComments: async (parent, {user}) => {
+            return Report
+            .filter((u) => u.user == u.user)
+            .sort({createdAt: -1});
+        },
     },
 
     Mutation: {
