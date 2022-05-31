@@ -31,7 +31,7 @@ function CreateReport() {
         e.preventDefault();
 
         extraHelper();
-        
+
         if (errorMessage) {
             // setFormData({ [e.target.name]: e.target.value });
             console.log('client/src/components/Main/CreateReport.js:Form - NO ERROR - ', formState);
@@ -48,10 +48,10 @@ function CreateReport() {
             const imageData = new FormData();
             imageData.append('file', photo);
             imageData.append('upload_preset', process.env.REACT_APP_UPLOAD_PRESET);
-            console.log('before axios');
+            // console.log('before axios');
             // const response = await axios.post(url, imageData);
+            // console.log('after axios');
         }
-        console.log('after axios');
 
 
         try {
@@ -60,17 +60,18 @@ function CreateReport() {
                 variables: { ...formState }
             });
             console.log("try COMPLETED");
-            console.log(data)
+            console.log('CREATE_REPORT server response: ',data)
 
             if (!data) {
                 throw new Error('response was not "OK" something went wrong! -- In CreateReport');
             }
-            else {
-                const { token, user } = data.addReport;
-                console.log(user);
-                console.log(token);
-                Auth.loggedIn(token);
-            }
+            // The following code is not being used to do anything.  It simply generates errors:
+            // else {
+            //     const { token, user } = data.addReport;
+            //     console.log(user);
+            //     console.log(token);
+            //     Auth.loggedIn(token);
+            // }
 
         } catch (e) {
             console.error('client/src/components/Main/CreateReport.js:Form - FORM ERROR -', e);
