@@ -86,6 +86,7 @@ function CreateReport() {
 
 
         setFormState({ name: '', breed: '', picForUpload: '', description: '', lastSeen: '', photo: '', createdBy: '' });
+        setUpload(true);
     };
 
     const handleChange = ({ target }) => {
