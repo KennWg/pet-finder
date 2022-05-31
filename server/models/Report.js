@@ -33,7 +33,7 @@ const ReportSchema = new Schema(
         createdBy: {
             type: Schema.Types.ObjectId,
             ref: 'User',
-            // required: true
+            required: true
         },
         comments: [CommentSchema]
     },
