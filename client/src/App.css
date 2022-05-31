@@ -4,7 +4,7 @@
   --body-font: 'Times New Roman', Times, serif;
 
   /* Colors */
-  --opacity: 0.9;
+  --opacity: 0.8;
 
   --hex-c1: #1EA5E9;
   --c1: 30, 165, 233;
@@ -130,7 +130,7 @@ button[type="submit"] {
 
 .laptop-navbar {
   /* for development*/
-  border: 5px dotted rgb(0, 255, 242);
+  /* border: 5px dotted rgb(0, 255, 242); */
 
   /* Positon */
   z-index: 10;
@@ -234,7 +234,7 @@ button[type="submit"] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -55%);
-  z-index: 5;
+  z-index: 2;
   display: flex;
   justify-content: center;
   width: 60vw;
@@ -369,10 +369,13 @@ input {
 
 
 .footer-class {
+  z-index: 10;
   display: relative;
 }
 
 .footer-img {
+  z-index: 5;
+
   min-width: 140vw;
   position: absolute;
   bottom: 0;
@@ -403,6 +406,10 @@ input {
   .mobile-navbar {
     display: none;
   }
+
+  h1.brand-title {
+    font-size: 2.7em;
+    }
 }
 
 @media (max-width: 480px) {
@@ -424,10 +431,9 @@ input {
     object-fit: cover;
   }
 
-  .home-class h1 {
-    color: antiquewhite;
-
-  }
+  h1.brand-title {
+    font-size: 2.2em;
+    }
 }
 
 @media (max-width: 425px) {}
