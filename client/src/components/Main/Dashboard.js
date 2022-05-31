@@ -30,7 +30,7 @@ function Dashboard() {
 
     return (
         <div className="dashboard-class outer-div">
-            <p>
+           
                 <section>
                     <form className="row">
                         
@@ -40,11 +40,11 @@ function Dashboard() {
                             </h3>
                         ))} */}
 
-                        <button className="btn btn-primary" data-testid="button" type="submit">Create a Report<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                        <button className="btn btn-primary" data-testid="button" type="submit" value="ALL REPORTS" onClick={handleClick}>All Reports<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                        <button className="btn btn-primary" data-testid="button" type="submit" value="VIEW REPORT" onClick={handleClick}>SingleReport<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                        <button className="btn btn-primary" data-testid="button" type="submit">Logout<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                        <button className="btn btn-primary" data-testid="button" type="submit" style={highlightStyle}>Delete Account<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                        <button className="btn btn-primary" data-testid="button" type="submit">Create a Report</button>
+                        <button className="btn btn-primary" data-testid="button" type="submit" value="ALL REPORTS" onClick={handleClick}>All Reports</button>
+                        <button className="btn btn-primary" data-testid="button" type="submit" value="VIEW REPORT" onClick={handleClick}>SingleReport</button>
+                        <button className="btn btn-primary" data-testid="button" type="submit">Logout</button>
+                        <button className="btn btn-primary" data-testid="button" type="submit" style={highlightStyle}>Delete Account</button>
                     </form>
                 </section>
 
@@ -71,7 +71,7 @@ function Dashboard() {
                         </ul>
                     </div>
                 </section>
-            </p>
+           
         </div>
     );
 }
