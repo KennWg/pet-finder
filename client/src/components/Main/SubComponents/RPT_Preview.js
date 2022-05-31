@@ -3,14 +3,17 @@ import React from 'react';
 import { QUERY_REPORTS_BY_USER_ID } from '../../../utils/queries';
 
 function RPT_Preview() {
-
-    const { loading, data } = useQuery(QUERY_REPORTS_BY_USER_ID);
-    const reportsByUserId = data?.reportsByUserId || [];
-
+    // var data
+    // const loading = true;
+    const { loading, data } = useQuery(QUERY_REPORTS_BY_USER_ID,{variables: {sdafasdf: 'ttt'}});
+    const reportsByUserId = data?.reportsByUserId || [1,2,3];
+    
     if (loading) {
         return <div>Loading...</div>;
     }
 
+
+    console.log (reportsByUserId);
     // {
     //     "_id": "62965ace7f1b0daa38cbf04c",
     //     "name": "zvczv",
@@ -46,6 +49,11 @@ function RPT_Preview() {
     // ]
 
     return (
+
+
+
+
+
         <div className="RPT_Preview">
             {reportsByUserId.map((report) => (
 

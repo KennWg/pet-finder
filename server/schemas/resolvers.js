@@ -19,7 +19,9 @@ const resolvers = {
         },
         // get all reports by user ID
         reportsByUserId: async (parent, args, context) => {
-            return Report.find({createBy: context.user._id}).sort({ createdAt: -1 });
+            if (context.user){
+            return Report.find({createdBy: context.user._id}).sort({ createdAt: -1 });
+            }
         },
         // get a single report
         report: async (parent, { _id }) => {
