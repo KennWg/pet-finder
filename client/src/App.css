@@ -6,7 +6,7 @@
 --font-size-multiply: 1.6px;
 
   /* Colors */
-  --opacity: 0.8;
+  --opacity: 0.7;
 
   --hex-c1: #1EA5E9;
   --c1: 30, 165, 233;
@@ -256,8 +256,8 @@ button[type="submit"] {
 }
 
 .inner-div {
-  width: 90%;
-  height: 90%;
+  width: 92%;
+  height: 92%;
   border-radius: 5px;
   border-width: 2px;
   border-style: solid;
