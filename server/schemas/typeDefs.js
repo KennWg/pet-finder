@@ -43,7 +43,7 @@ type Query {
   allReports: [Report]
   report (_id: ID!): Report
   reportByUserComments(user: ID!): [Report]
-  reportsByUserId(createdBy: ID!): [Report]
+  reportsByUserId: [Report]
 }
 
 type Mutation {

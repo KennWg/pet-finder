@@ -18,8 +18,8 @@ const resolvers = {
                 // .populate('comments');
         },
         // get all reports by user ID
-        reportsByUserId: async (parent, { createdBy }) => {
-            return Report.find(createdBy).sort({ createdAt: -1 });
+        reportsByUserId: async (parent, args, context) => {
+            return Report.find({createBy: context.user._id}).sort({ createdAt: -1 });
         },
         // get a single report
         report: async (parent, { _id }) => {

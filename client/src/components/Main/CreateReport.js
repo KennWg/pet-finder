@@ -86,15 +86,9 @@ function CreateReport() {
             // alert('- FORM ERROR - (see console)');
         }
 
-
-
-
-
-
-
         setFormState({ name: '', breed: '', picForUpload: '', description: '', lastSeen: '', photo: '', createdBy: '' });
         setUpload(true);
-       
+
 
         await dispatch({
             type: UPDATE_VIEW,
