@@ -24,7 +24,6 @@
       "sizes": "180x180"
     }
   ],
-  "start_url": ".",
   "display": "standalone",
   "theme_color": "#1EA5E9",
   "background_color": "#D3F4F9"
