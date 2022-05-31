@@ -13,6 +13,10 @@ function Tablet() {
     }
 
     const handleClick = async clickedNavIcon => {
+        if (clickedNavIcon==="LOGOUT"){
+            Auth.logout();            
+        }
+        
         await dispatch({
             type: UPDATE_VIEW,
             currentView: clickedNavIcon

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import dogImg from '../../assets/images/dog.jpg';
 
 function Home() {

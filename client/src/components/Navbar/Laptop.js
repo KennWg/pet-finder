@@ -13,10 +13,15 @@ function Laptop() {
     }
 
     const handleClick = async clickedNavIcon => {
+        if (clickedNavIcon==="LOGOUT"){
+            Auth.logout();            
+        }
+        
         await dispatch({
             type: UPDATE_VIEW,
             currentView: clickedNavIcon
         })
+               
     };
     let tempArr = [];
     (Auth.loggedIn())

@@ -1,7 +1,18 @@
 const jwt = require('jsonwebtoken');
 
 const secret = 'mysecretsshhhhh';
+<<<<<<< HEAD
 const expiration = '12h';
+=======
+const expiration = '24h';
+
+// change the expiration back to 2h when deploying
+// change the expiration back to 2h when deploying
+// change the expiration back to 2h when deploying
+// change the expiration back to 2h when deploying
+// change the expiration back to 2h when deploying
+
+>>>>>>> 1a4906af3371d24a93216dfba54ba8510ec22013
 
 module.exports = {
   authMiddleware: function({ req }) {
@@ -17,17 +28,31 @@ module.exports = {
     }
 
     if (!token) {
+      (req.body.operationName === 'IntrospectionQuery')
+        ? console.log('GraphQL Sandbox: Ping! -- no token')
+        : console.log('No token provided');
       return req;
     }
 
     try {
-      const { data } = jwt.verify(token, secret, { maxAge: expiration });
+      // Attempt to decode JWT for payload data
+      const { data, exp } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
-    } catch {
-      console.log('Invalid token');
-    }
+      (req.body.operationName === 'IntrospectionQuery')
+        ? console.log('GraphQL Sandbox: Ping! -- valid token')
+        : console.log('^^ USER:  "', data.username, '" accessed the server with a token verified until:', formatDate(exp));
 
-    return req;
+
+    }
+    
+    // Error logging for invalid tokens
+    catch {
+      (req.body.operationName === 'IntrospectionQuery')
+        ? console.log('GraphQL Sandbox: Ping! ^^ invalid token')
+        : console.log('Invalid token');
+    }
+          // Returns the request object with or without verified user data
+          return req;
   },
   signToken: function({ username, email, _id }) {
     const payload = { username, email, _id };

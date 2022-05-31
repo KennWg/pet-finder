@@ -21,6 +21,8 @@ h1,h2,h3,h4,h5{
 }
 
 .error-div{
+  color: red;
+  font-weight: bold;
   height: 3vh;
   /* background-color: blue; */
 }
@@ -185,7 +187,6 @@ form.missing-pet-report {
   justify-content: space-around;
   align-items: center;
   height: 50vh;
-  background-color: blueviolet;
 }
 
 .input-file {
@@ -275,6 +276,7 @@ input {
   }
 }
 
+.logout-info-class,
 .signup-class,
 .signup-form,
 .home-class,
