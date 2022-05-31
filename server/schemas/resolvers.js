@@ -5,18 +5,17 @@ const { report } = require('process');
 
 const resolvers = {
     Query: {
-        // get all reports
-
-        allUsers: async ()=> {
+        // get all user
+        allUsers: async () => {
             return User.find()
-            .select('-__v')
-            .populate('reports');
+                .select('-__v')
+                .populate('reports');
         },
-
+        // get all reports
         allReports: async () => {
             return Report.find()
-            .select('-__v')
-            .populate('comments');
+                .select('-__v')
+                // .populate('comments');
         },
         // get all reports by user ID
         reportsByUserId: async (parent, { createdBy }) => {
@@ -27,10 +26,10 @@ const resolvers = {
             return Report.findOne({ _id });
         },
         // get all reports that the user has commented on: To Do
-        reportByUserComments: async (parent, {user}) => {
+        reportByUserComments: async (parent, { user }) => {
             return Report
-            .filter((u) => u.user == u.user)
-            .sort({createdAt: -1});
+                .filter((u) => u.user == u.user)
+                .sort({ createdAt: -1 });
         },
     },
 
@@ -75,26 +74,35 @@ const resolvers = {
         },
         // add a comment
         addComment: async (parent, args, context) => {
-            if(context.report) {
-                const comment = await Comment.create({...args, comment: context.report._id});
+            if (context.report) {
+                const comment = await Comment.create({ ...args, comment: context.report._id });
 
                 await Report.findByIdAndUpdate(
-                    {_id: context.report._id},
-                    {$push: { report: report._id}},
-                    {new: true}
+                    { _id: context.report._id },
+                    { $push: { report: report._id } },
+                    { new: true }
                 );
 
-                return comment;                
+                return comment;
             }
         },
         // update a report
         updateReport: async (parent, args, context) => {
-            if (context.report) {
-                return await Report.findByIdAndUpdate(context.report._id, args, {new: true});
+            if (context.user) {
+                const update = await Report.findByIdAndUpdate(
+                    args._id,
+                    args,
+                    { new: true });
+
+                    return update;
             }
             throw new AuthenticationError('Not logged in');
-        }
+        },
 
+        // delete a report
+        deleteReport: async (aprent, {_id}) => {
+            return Report.findByIdAndDelete({_id});
+        }
     }
 };
 
