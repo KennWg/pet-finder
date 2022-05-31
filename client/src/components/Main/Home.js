@@ -11,7 +11,7 @@ function Home() {
                 <div className="dog-img-div">
                 <img src={dogImg} alt="a dog sit on the front page" className='homepage-dog' />
                 </div>
-                <br></br>
+                
             </div>
 
         </div>
