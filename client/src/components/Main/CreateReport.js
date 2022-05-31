@@ -69,7 +69,7 @@ function CreateReport() {
                 const { token, user } = data.addReport;
                 console.log(user);
                 console.log(token);
-                Auth.login(token);
+                Auth.loggedIn(token);
             }
 
         } catch (e) {
