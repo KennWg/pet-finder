@@ -6,8 +6,8 @@ function Home() {
 
         <div className="home-class outer-div brand-bg-color">
 
-            <h1 className="brand-title">Welcome to the Pet Finder</h1>
-            <h2 className="brand-text">We'll help you spread the word.</h2>
+            <h1 className="brand-title">Pet Alert</h1>
+            <h2 className="brand-text">Quickly build a community brigade.</h2>
             <img src={dogImg} alt="a dog sit on the front page" className='homepage-dog' />
             <br></br>
         </div>
