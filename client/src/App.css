@@ -3,6 +3,8 @@
   --title-font: Arial, Helvetica, sans-serif;
   --body-font: 'Times New Roman', Times, serif;
 
+--font-size-multiply: 1.6px;
+
   /* Colors */
   --opacity: 0.8;
 
@@ -65,7 +67,7 @@ body {
 }
 
 h1.brand-title {
-font-size: 3.5em;
+font-size: calc(56 * var(--font-size-multiply));
 }
 
 .brand-text {
@@ -78,6 +80,11 @@ font-size: 3.5em;
   /* background-color: var(--color-c1-trans); */
   background-image: linear-gradient(to bottom right, var(--color-c3-trans), rgba(255,255,255,var(--opacity)), rgba(255,255,255,var(--opacity)), var(--color-c2-trans), var(--color-c1-trans), var(--color-c1-trans), var(--color-c3-trans), var(--color-c5-trans), rgba(255,255,255,var(--opacity)), rgba(255,255,255,var(--opacity)), rgba(255,255,255,var(--opacity)));
   border-color: var(--color-c2);
+}
+
+.body-bg-color {
+  border-color: var(--color-c2);
+  background-color: var(--color-c2);
 }
 
 .body-text {}
@@ -248,11 +255,28 @@ button[type="submit"] {
 
 }
 
+.inner-div {
+  width: 90%;
+  height: 90%;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+}
+
 /*HOME PAGE -------------------------- */
 
-.homepage-dog {
-  max-height: 50vh;
+/* .dog-img-div {
+  max-height: 30vh;
   max-width: 80%;
+} */
+
+.homepage-dog {
+  height: 40vh;
+  width: 40vh;
+  /* max-height: 30vh;
+  max-width: 80%; */
+object-fit: cover;
+
 }
 
 /* REPORT STYLES */
@@ -376,7 +400,6 @@ input {
 
 .footer-img {
   z-index: 5;
-
   min-width: 140vw;
   position: absolute;
   bottom: 0;
@@ -408,9 +431,9 @@ input {
     display: none;
   }
 
-  h1.brand-title {
+  /* h1.brand-title {
     font-size: 2.7em;
-    }
+    } */
 }
 
 @media (max-width: 480px) {
@@ -432,9 +455,9 @@ input {
     object-fit: cover;
   }
 
-  h1.brand-title {
+  /* h1.brand-title {
     font-size: 2.2em;
-    }
+    } */
 }
 
 @media (max-width: 425px) {}
@@ -442,3 +465,16 @@ input {
 @media (max-width: 395px) {}
 
 @media only screen and (max-width: 300px) {}
+
+
+/* SCREEN RESIZING FACTOR ADJUSTMENT */
+@media screen and (min-width: 100px)  {  :root  { --font-size-multiply: 0.4px;  } }
+@media screen and (min-width: 200px)  {  :root  { --font-size-multiply: 0.5px;  } }
+@media screen and (min-width: 300px)  {  :root  { --font-size-multiply: 0.6px;  } }
+@media screen and (min-width: 400px)  {  :root  { --font-size-multiply: 0.8px;  } }
+@media screen and (min-width: 600px)  {  :root  { --font-size-multiply: 0.9px;  } }
+@media screen and (min-width: 800px)  {  :root  { --font-size-multiply: 1.0px;  } }
+@media screen and (min-width: 1100px) {  :root  { --font-size-multiply: 1.2px;  } }
+@media screen and (min-width: 1400px) {  :root  { --font-size-multiply: 1.4px;  } }
+@media screen and (min-width: 1500px) {  :root  { --font-size-multiply: 1.5px;  } }
+@media screen and (min-width: 1700px) {  :root  { --font-size-multiply: 1.6px;  } }
