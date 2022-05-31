@@ -1,14 +1,40 @@
 :root {
   /*Fonts*/
-  font-family: 'Times New Roman', Times, serif;
+  --title-font: Arial, Helvetica, sans-serif;
+  --body-font: 'Times New Roman', Times, serif;
 
   /* Colors */
-  --color1: #1EA5E9;
-  --color2: #D3F4F9;
-  --color3: #FD5911;
-  --color4: #FF8217;
-  --color5: #FFA41D;
+  --opacity: 0.5;
 
+  --hex-c1: #1EA5E9;
+  --RGB-c1: 30, 165, 233;
+  --color-c1: rgb(var(--c1));
+  --color-c1-trans: rgba(var(--c1), var(--opacity));
+
+  --hex-c1a: #146d99;
+  --RGB-c1a: 20, 109, 153;
+  --color-c1a: rgb(var(--c1a));
+  --color-c1a-trans: rgba(var(--c1a), var(--opacity));
+
+  --hex-c2: #D3F4F9;
+  --RGB-c2: 211, 244, 249;
+  --color-c2: rgb(var(--c2));
+  --color-c2-trans: rgba(var(--c2), var(--opacity));
+
+  --hex-c3: #FD5911;
+  --RGB-c3: 253, 89, 17;
+  --color-c3: rgb(var(--c3));
+  --color-c3-trans: rgba(var(--c3), var(--opacity));
+
+  --hex-c4: #FF8217;
+  --RGB-c4: 255, 130, 23;
+  --color-c4: rgb(var(--c4));
+  --color-c4-trans: rgba(var(--c4), var(--opacity));
+
+  --hex-c5: #FFA41D;
+  --RGB-c5: 255, 164, 29;
+  --color-c5: rgb(var(--c5));
+  --color-c5-trans: rgba(var(--c5), var(--opacity));
 
 }
 
@@ -28,7 +54,23 @@ p {
 
 
 /* Bespoke CSS begins */
+body {
+  font-family: var(--title-font);
 
+}
+
+.brand-title {
+  color: var(--color2);
+  text-shadow: -1px -1px 0 var(--color1), 1px -1px 0 var(--color1), -1px 1px 0 var(--color1), 1px 1px 0 var(--color1);
+}
+
+.brand-text {
+  font-family: var(--body-font);
+  color: var(--color1a);
+  /* text-shadow: 1px 1px 0 #000; */
+}
+
+.body-text {}
 
 h1,
 h2,
@@ -36,6 +78,12 @@ h3,
 h4,
 h5 {
   margin: 2vw;
+}
+
+.bg-color {
+  /* background-color: var(--colorOne); */
+  background-image: linear-gradient(to bottom right, var(--color5), var(--color5), var(--colorOne), var(--color3), var(--color5), var(--color4), var(--color3));
+  border-color: var(--color2);
 }
 
 .error-div {
@@ -183,12 +231,14 @@ button[type="submit"] {
   z-index: 5;
   display: flex;
   justify-content: center;
-  width: 80vw;
+  width: 60vw;
   height: 80vh;
   max-width: 80vw;
   max-height: 80vh;
-  background-color: rgba(189, 255, 209, 0.747);
-  /* border: 3px solid black; */
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+
 }
 
 /*HOME PAGE -------------------------- */
