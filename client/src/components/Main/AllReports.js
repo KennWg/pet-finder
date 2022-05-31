@@ -2,6 +2,8 @@ import React, { useReducer, useState } from "react";
 
 import { anyInput } from '../../utils/helpers';
 
+import RPT_Preview from "./SubComponents/RPT_Preview";
+
 
 function AllReports() {
     const [formState, setFormState] = useState({ name: '', breed: '', collarMicrochip: '', picForUpload: '', description: '', lastKnownLocation: '' });

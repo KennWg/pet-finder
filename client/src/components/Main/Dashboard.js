@@ -4,6 +4,8 @@ import dogImg from '../../assets/images/dog.jpg';
 import { useStoreContext } from '../../utils/GlobalStore';
 import { UPDATE_VIEW } from '../../utils/actions';
 
+import RPT_Preview from './SubComponents/RPT_Preview';
+
 function Dashboard() {
 
     const { users } = useStoreContext();
@@ -48,6 +50,7 @@ function Dashboard() {
 
                 <section className="new-pet-report">
                     <div className="row">
+                        <RPT_Preview />
                         <img className="col-md-4 col-12" style={imgStyle} src={dogImg} alt="dog_img" />
                         <h3 className="col-md-8 col-12">Some text</h3>
                     </div>

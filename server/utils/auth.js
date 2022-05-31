@@ -37,8 +37,6 @@ module.exports = {
       (req.body.operationName === 'IntrospectionQuery')
         ? console.log('GraphQL Sandbox: Ping! -- valid token')
         : console.log('^^ USER:  "', data.username, '" accessed the server with a token verified until:', formatDate(exp));
-
-
     }
     
     // Error logging for invalid tokens
