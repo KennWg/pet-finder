@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const secret = 'mysecretsshhhhh';
-const expiration = '100h';
+const expiration = '24h';
 
 // change the expiration back to 2h when deploying
 // change the expiration back to 2h when deploying
