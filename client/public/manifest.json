@@ -1,6 +1,6 @@
 {
-  "start_url": "/",
-  "short_name": "React App",
+  "start_url": "./",
+  "short_name": "Pet Finder",
   "name": "Create React App Sample",
   "icons": [
     {
