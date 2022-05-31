@@ -1,7 +1,4 @@
 {
-  "start_url": "./",
-  "short_name": "Pet Finder",
-  "name": "Create React App Sample",
   "icons": [
     {
       "src": "./icons/favicon.ico",
@@ -24,6 +21,9 @@
       "sizes": "180x180"
     }
   ],
+  "start_url": "../index.html", 
+  "short_name": "Pet Finder",
+  "name": "Pet Alert Pet Finding app",
   "display": "standalone",
   "theme_color": "#1EA5E9",
   "background_color": "#D3F4F9"
