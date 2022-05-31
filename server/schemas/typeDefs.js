@@ -22,10 +22,11 @@ type Report {
     lastSeen: String
     createdAt: String
     createdBy: User
+    comment: [Comment]
 }
 
 type Comment {
-  commentId: ID
+  _id: ID
   report: Report
   user: User
   commentBody: String
@@ -48,10 +49,15 @@ type Query {
 type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!, address: String!): Auth
+<<<<<<< HEAD
+  addReport(name: String!, breed: String, photo: String!, description: String, lastSeen: String!, createdBy: ID!): Report
+  updateReport(_id: ID!, name: String!, breed: String, photo: String!, description: String, lastSeen: String!): Report
+=======
   addReport(name: String!, breed: String, photo: String!, description: String!, lastSeen: String!): Report
   updateReport(name: String!, breed: String, photo: String!, description: String, lastSeen: String!, createdAt: String!, createdBy: ID!): Report
+>>>>>>> 1a4906af3371d24a93216dfba54ba8510ec22013
   deleteReport(_id: ID!): Report
-  addComment(report: ID!, user: ID!, commentBody: String!, createdAt: String!): Report
+  addComment(report: ID!, user: ID!, commentBody: String!, createdAt: String): Report
 
 }
 
