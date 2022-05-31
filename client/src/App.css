@@ -6,7 +6,7 @@
 --font-size-multiply: 1.6px;
 
   /* Colors */
-  --opacity: 0.7;
+  --opacity: 0.8;
 
   --hex-c1: #1EA5E9;
   --c1: 30, 165, 233;
@@ -42,8 +42,8 @@
 
 * {
   /* for development*/
-  /* border: 1px dotted rgba(255, 0, 0, 0.315);
-  background-color: #ff003748; */
+  border: 1px dotted rgba(255, 0, 0, 0.315);
+  background-color: #ff003748;
 
 }
 
@@ -252,12 +252,11 @@ button[type="submit"] {
   border-radius: 5px;
   border-width: 2px;
   border-style: solid;
-
 }
 
 .inner-div {
-  width: 92%;
-  height: 92%;
+  width: 56vw;
+  height: 74vh;
   border-radius: 5px;
   border-width: 2px;
   border-style: solid;
