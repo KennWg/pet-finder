@@ -62,7 +62,7 @@ const resolvers = {
         // add a report
         addReport: async (parent, args, context) => {
             if (context.user) {
-                const report = await Report.create({ ...args, user: context.user.username });
+                const report = await Report.create({ ...args, createdBy: context.user._id });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },

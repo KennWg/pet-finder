@@ -3,17 +3,41 @@ import axios from 'axios';
 
 import { anyInput } from '../../utils/helpers';
 
+import { useMutation } from '@apollo/client';
+import { CREATE_REPORT } from '../../utils/mutations';
+import Auth from '../../utils/auth.js'
 
 function CreateReport() {
-    const [formState, setFormState] = useState({ name: '', breed: '', collarMicrochip: '', picForUpload: '', description: '', lastKnownLocation: '', uploadedFile: '' });
-    const { name, breed, collarMicrochip, picForUpload, description, lastKnownLocation, uploadedFile } = formState;
+    const [formState, setFormState] = useState({ name: '', breed: '', picForUpload: '', description: '', lastSeen: '', photo: '', createdBy: '' });
+    const { name, breed, picForUpload, description, lastSeen, photo } = formState;
 
     const [errorMessage, setErrorMessage] = useState('');
 
+    const [createReport, { error }] = useMutation(CREATE_REPORT);
+
     const [upload, setUpload] = useState(true);
+
+
+
+
+    const extraHelper = () => {
+        const { _id } = Auth.getProfile().data
+        setFormState({ ...formState, createdBy: _id });
+        console.log('------------=====> ', _id)
+    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        extraHelper();
+        
+        if (errorMessage) {
+            // setFormData({ [e.target.name]: e.target.value });
+            console.log('client/src/components/Main/CreateReport.js:Form - NO ERROR - ', formState);
+            return;
+        }
+
         if (!errorMessage) {
             console.log('Submit Form', formState);
 
@@ -22,11 +46,46 @@ function CreateReport() {
             const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
 
             const imageData = new FormData();
-            imageData.append('file', uploadedFile);
+            imageData.append('file', photo);
             imageData.append('upload_preset', process.env.REACT_APP_UPLOAD_PRESET);
-
-            const response = await axios.post(url, imageData);
+            console.log('before axios');
+            // const response = await axios.post(url, imageData);
         }
+        console.log('after axios');
+
+
+        try {
+            console.log("TRYING CreateReport", formState);
+            const { data } = await createReport({
+                variables: { ...formState }
+            });
+            console.log("try COMPLETED");
+            console.log(data)
+
+            if (!data) {
+                throw new Error('response was not "OK" something went wrong! -- In CreateReport');
+            }
+            else {
+                const { token, user } = data.addReport;
+                console.log(user);
+                console.log(token);
+                Auth.login(token);
+            }
+
+        } catch (e) {
+            console.error('client/src/components/Main/CreateReport.js:Form - FORM ERROR -', e);
+            console.log("Mutation error :", error);
+
+            // alert('- FORM ERROR - (see console)');
+        }
+
+
+
+
+
+
+
+        setFormState({ name: '', breed: '', picForUpload: '', description: '', lastSeen: '', photo: '', createdBy: '' });
     };
 
     const handleChange = ({ target }) => {
@@ -36,7 +95,7 @@ function CreateReport() {
         switch (inputName) {
             case 'name':
             case 'picForUpload':
-            case 'lastKnownLocation':
+            case 'lastSeen':
                 (!anyInput(inputValue))
                     ? setErrorMessage(`${inputName} is required.`)
                     : setErrorMessage('');
@@ -50,10 +109,11 @@ function CreateReport() {
         }
         if (!errorMessage) {
             if (inputName === 'picForUpload') {
-                setFormState({ ...formState, [target.name]: URL.createObjectURL(target.files[0]), uploadedFile: target.files[0] });
+                // photo: target.files[0].name  <---- This is temporary until we get a Cloudinary link
+                setFormState({ ...formState, [target.name]: URL.createObjectURL(target.files[0]), photo: target.files[0].name });
             } else {
                 setFormState({ ...formState, [target.name]: target.value });
-                console.log('client/../CreateReport.js:handleChange: formState=', formState);
+                // console.log('client/../CreateReport.js:handleChange: formState=', formState);
             }
         }
     };
@@ -83,15 +143,11 @@ function CreateReport() {
                 </div>
 
                 <div className="">
-                    <input className="" placeholder="Collar or Microchip" value={collarMicrochip} type="text" name="collarMicrochip" onChange={handleChange} />
-                </div>
-
-                <div className="">
                     <input className="" placeholder="Description" value={description} type="text" name="description" onChange={handleChange} />
                 </div>
 
                 <div className="">
-                    <input className="" placeholder="Last known location" value={lastKnownLocation} type="text" name="lastKnownLocation" onChange={handleChange} />
+                    <input className="" placeholder="Last known location" value={lastSeen} type="text" name="lastSeen" onChange={handleChange} />
                 </div>
 
                 <div className="">

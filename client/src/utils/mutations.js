@@ -24,3 +24,23 @@ mutation Mutation($username: String!, $email: String!, $password: String!, $addr
   }
 }
 `
+
+export const CREATE_REPORT = gql`
+mutation Mutation($name: String!, $photo: String!, $lastSeen: String!, $createdBy: ID!, $breed: String, $description: String) {
+  addReport(name: $name, photo: $photo, lastSeen: $lastSeen, createdBy: $createdBy, breed: $breed, description: $description) {
+    _id
+    name
+    breed
+    photo
+    description
+    lastSeen
+    createdAt
+    createdBy {
+      _id
+      username
+      email
+      address
+    }
+  }
+}
+`
