@@ -42,7 +42,7 @@
 
 * {
   /* for development*/
-  /* border: 1px dotted rgba(255, 0, 0, 0.315); */
+  border: 3px dotted rgb(255, 0, 0);
   background-color: #ff003748;
 
 }
@@ -136,11 +136,23 @@ button[type="submit"] {
   /* Size */
   min-height: 99vh;
   min-width: 99vw;
-background-color: none;
+  background-color: rgba(0, 0, 0, 0);
   /* background-color: burlywood; */
   border: 0.5vh dotted cornflowerblue;
 }
 
+html {
+  background-color: rgba(0, 0, 0, 0);
+
+}
+#root {
+  background-color: rgba(0, 0, 0, 0);
+
+}
+body {
+  background-color: rgba(0, 0, 0, 0);
+
+}
 .laptop-navbar {
   /* for development*/
   /* border: 5px dotted rgb(0, 255, 242); */
