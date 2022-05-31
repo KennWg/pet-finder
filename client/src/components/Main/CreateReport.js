@@ -138,7 +138,7 @@ function CreateReport() {
                     <input className="" placeholder="Breed" value={breed} type="text" name="breed" onChange={handleChange} />
                 </div>
 
-                <div className="">{upload ? (<label className="input-file-label" for="picForUpload" >Upload Photo
+                <div className="">{upload ? (<label className="input-file-label" htmlFor="picForUpload" >Upload Photo
                     <input id="picForUpload" className="input-file" placeholder="Upload a picture" type="file" accept="image/*" name="picForUpload" onChange={handleChange} />
                 </label>) : (<a onClick={setUpload}><img id="upload-thumbnail" src={picForUpload} ></img></a>)}
 
