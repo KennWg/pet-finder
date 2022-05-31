@@ -7,7 +7,13 @@ import { useMutation } from '@apollo/client';
 import { CREATE_REPORT } from '../../utils/mutations';
 import Auth from '../../utils/auth.js'
 
+import { useStoreContext } from '../../utils/GlobalStore';
+import { UPDATE_VIEW } from '../../utils/actions';
+
+
 function CreateReport() {
+    const [state, dispatch] = useStoreContext();
+
     const [formState, setFormState] = useState({ name: '', breed: '', picForUpload: '', description: '', lastSeen: '', photo: '', createdBy: '' });
     const { name, breed, picForUpload, description, lastSeen, photo } = formState;
 
@@ -60,7 +66,7 @@ function CreateReport() {
                 variables: { ...formState }
             });
             console.log("try COMPLETED");
-            console.log('CREATE_REPORT server response: ',data)
+            console.log('CREATE_REPORT server response: ', data)
 
             if (!data) {
                 throw new Error('response was not "OK" something went wrong! -- In CreateReport');
@@ -88,6 +94,15 @@ function CreateReport() {
 
         setFormState({ name: '', breed: '', picForUpload: '', description: '', lastSeen: '', photo: '', createdBy: '' });
         setUpload(true);
+       
+
+        await dispatch({
+            type: UPDATE_VIEW,
+            currentView: 'DASHBOARD'
+        })
+        // For when we add react router:
+        // window.location.assign('/');
+
     };
 
     const handleChange = ({ target }) => {
