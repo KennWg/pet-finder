@@ -4,35 +4,35 @@
   --body-font: 'Times New Roman', Times, serif;
 
   /* Colors */
-  --opacity: 0.5;
+  --opacity: 0.9;
 
   --hex-c1: #1EA5E9;
-  --RGB-c1: 30, 165, 233;
+  --c1: 30, 165, 233;
   --color-c1: rgb(var(--c1));
   --color-c1-trans: rgba(var(--c1), var(--opacity));
 
   --hex-c1a: #146d99;
-  --RGB-c1a: 20, 109, 153;
+  --c1a: 20, 109, 153;
   --color-c1a: rgb(var(--c1a));
   --color-c1a-trans: rgba(var(--c1a), var(--opacity));
 
   --hex-c2: #D3F4F9;
-  --RGB-c2: 211, 244, 249;
+  --c2: 211, 244, 249;
   --color-c2: rgb(var(--c2));
   --color-c2-trans: rgba(var(--c2), var(--opacity));
 
   --hex-c3: #FD5911;
-  --RGB-c3: 253, 89, 17;
+  --c3: 253, 89, 17;
   --color-c3: rgb(var(--c3));
   --color-c3-trans: rgba(var(--c3), var(--opacity));
 
   --hex-c4: #FF8217;
-  --RGB-c4: 255, 130, 23;
+  --c4: 255, 130, 23;
   --color-c4: rgb(var(--c4));
   --color-c4-trans: rgba(var(--c4), var(--opacity));
 
   --hex-c5: #FFA41D;
-  --RGB-c5: 255, 164, 29;
+  --c5: 255, 164, 29;
   --color-c5: rgb(var(--c5));
   --color-c5-trans: rgba(var(--c5), var(--opacity));
 
@@ -60,14 +60,20 @@ body {
 }
 
 .brand-title {
-  color: var(--color2);
-  text-shadow: -1px -1px 0 var(--color1), 1px -1px 0 var(--color1), -1px 1px 0 var(--color1), 1px 1px 0 var(--color1);
+  color: var(--color-c1);
+  text-shadow: -1px -1px 0 var(--color-c2), 1px -1px 0 var(--color-c2), -1px 1px 0 var(--color-c2), 1px 1px 0 var(--color-c2), -2px -2px 10px var(--color-c2), 2px -2px 10px var(--color-c2), -2px 2px 10px var(--color-c2), 2px 2px 10px var(--color-c2);
 }
 
 .brand-text {
   font-family: var(--body-font);
-  color: var(--color1a);
+  color: var(--color-c1a);
   /* text-shadow: 1px 1px 0 #000; */
+}
+
+.brand-bg-color {
+  /* background-color: var(--color-c1-trans); */
+  background-image: linear-gradient(to bottom right, var(--color-c3-trans), rgba(255,255,255,var(--opacity)), var(--color-c2-trans), var(--color-c1-trans), var(--color-c1-trans), var(--color-c5-trans), var(--color-c3-trans), var(--color-c5-trans), rgba(255,255,255,var(--opacity)), rgba(255,255,255,var(--opacity)));
+  border-color: var(--color-c2);
 }
 
 .body-text {}
@@ -80,11 +86,7 @@ h5 {
   margin: 2vw;
 }
 
-.bg-color {
-  /* background-color: var(--colorOne); */
-  background-image: linear-gradient(to bottom right, var(--color5), var(--color5), var(--colorOne), var(--color3), var(--color5), var(--color4), var(--color3));
-  border-color: var(--color2);
-}
+
 
 .error-div {
   color: red;
