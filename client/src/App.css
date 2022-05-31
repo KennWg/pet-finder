@@ -42,8 +42,8 @@
 
 * {
   /* for development*/
-  /* border: 1px dotted rgba(255, 0, 0, 0.315);
-  background-color: #ff003748; */
+  border: 1px dotted rgba(255, 0, 0, 0.315);
+  background-color: #ff003748;
 
 }
 
@@ -238,7 +238,7 @@ button[type="submit"] {
 
 
 .outer-div {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -55%);
@@ -246,9 +246,9 @@ button[type="submit"] {
   display: flex;
   justify-content: center;
   width: 60vw;
-  height: 80vh;
+  min-height: 80vh;
   max-width: 80vw;
-  max-height: 80vh;
+  /* max-height: 80vh; */
   border-radius: 5px;
   border-width: 2px;
   border-style: solid;
@@ -401,7 +401,7 @@ input {
 .footer-img {
   z-index: 5;
   min-width: 140vw;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
 }
