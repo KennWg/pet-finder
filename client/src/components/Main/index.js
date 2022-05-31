@@ -16,14 +16,14 @@ function Main() {
 
     return (
         <main className="main-class">
-            {currentView === 'HOME' && <Home />}
+            {/* {currentView === 'HOME' && <Home />}
             {currentView === 'DASHBOARD' && <Dashboard />}
             {currentView === 'LOGIN' && <Login />}
             {currentView === 'LOGOUT' && <LogoutInfo />}
             {currentView === 'SIGNUP' && <SignUp />}
             {currentView === 'REPORT' && <Report />}
             {currentView === 'VIEW REPORT' && <SingleReport />}
-            {currentView === 'ALL REPORTS' && <AllReports />}
+            {currentView === 'ALL REPORTS' && <AllReports />} */}
         </main>
     )
 }

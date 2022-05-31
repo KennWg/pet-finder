@@ -42,7 +42,7 @@
 
 * {
   /* for development*/
-  border: 1px dotted rgba(255, 0, 0, 0.315);
+  /* border: 1px dotted rgba(255, 0, 0, 0.315); */
   background-color: #ff003748;
 
 }
@@ -117,23 +117,28 @@ button[type="submit"] {
 
 .site-container {
   /* background: linear-gradient(#3c5688, #58a8e7); */
-  background-image: url(./assets/images/sky-background.png);
+  /* background-image: url(./assets/images/sky-background.png); */
   background-size: cover;
-  height: 100vh;
-  width: 100vw;
+  min-height: 200vh;
+  width: 100vw;  
+  background-color: rgba(0, 0, 0, 0);
 }
 
 /* NAVBAR */
 .navbar-class {
 
   /* Positon */
-  position: absolute;
-  
+  position: fixed;
+  z-index:100;
+
   /* Display */
-  display: contents;
+  /* display: contents; */
   /* Size */
-  min-height: 100vh;
-  min-width: 100vw;
+  min-height: 99vh;
+  min-width: 99vw;
+background-color: none;
+  /* background-color: burlywood; */
+  border: 0.5vh dotted cornflowerblue;
 }
 
 .laptop-navbar {
@@ -141,7 +146,7 @@ button[type="submit"] {
   /* border: 5px dotted rgb(0, 255, 242); */
 
   /* Positon */
-  z-index: 10;
+  /* z-index: 10; */
   position: absolute;
   top: 1vh;
   right: 1.6vw;
@@ -168,7 +173,7 @@ button[type="submit"] {
   border: 5px dotted rgb(0, 255, 242);
 
   /* Positon */
-  z-index: 10;
+  /* z-index: 10; */
   position: absolute;
   bottom: 1vh;
   right: 50%;
@@ -197,7 +202,7 @@ button[type="submit"] {
   border: 5px dotted rgb(0, 255, 242);
 
   /* Positon */
-  z-index: 10;
+  /* z-index: 10; */
   position: absolute;
   bottom: 10vh;
   right: 1vw;
@@ -238,11 +243,11 @@ button[type="submit"] {
 
 
 .outer-div {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -55%);
-  z-index: 6;
+  /* z-index: 6; */
   display: flex;
   justify-content: center;
   width: 60vw;
@@ -394,12 +399,12 @@ input {
 
 
 .footer-class {
-  z-index: 10;
+  /* z-index: 10; */
   display: relative;
 }
 
 .footer-img {
-  z-index: 5;
+  /* z-index: 5; */
   min-width: 140vw;
   position: fixed;
   bottom: 0;
