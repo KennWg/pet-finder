@@ -1,9 +1,25 @@
+:root {
+  /*Fonts*/
+  font-family: 'Times New Roman', Times, serif;
+
+  /* Colors */
+  --color1: #1EA5E9;
+  --color2: #D3F4F9;
+  --color3: #FD5911;
+  --color4: #FF8217;
+  --color5: #FFA41D;
+
+
+}
+
 * {
   /* for development*/
   /* border: 1px dotted rgba(255, 0, 0, 0.315);
   background-color: #ff003748; */
 
 }
+
+
 
 /* USER AGENT STYLE SHEET OVERIDES */
 p {
@@ -12,27 +28,29 @@ p {
 
 
 /* Bespoke CSS begins */
-body {
-  font-family: 'Times New Roman', Times, serif;
-}
 
-h1,h2,h3,h4,h5{
+
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 2vw;
 }
 
-.error-div{
+.error-div {
   color: red;
   font-weight: bold;
   height: 3vh;
   /* background-color: blue; */
 }
 
-.signup-class h3{
+.signup-class h3 {
   font-size: 120%;
   color: #6185fbb4;
 }
 
-button[type="submit"]{
+button[type="submit"] {
   margin-bottom: 3vh;
 }
 
@@ -216,7 +234,8 @@ form.missing-pet-report {
 }
 
 /* FORM STYLES */
-form, form div {
+form,
+form div {
   width: 100%;
 }
 
