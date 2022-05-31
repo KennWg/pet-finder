@@ -44,8 +44,8 @@ module.exports = {
     // Error logging for invalid tokens
     catch {
       (req.body.operationName === 'IntrospectionQuery')
-        ? console.log('GraphQL Sandbox: Ping! ^^ invalid token')
-        : console.log('Invalid token');
+        ? console.log('GraphQL Sandbox: Ping! ^^ Error')
+        : console.log('Error');
     }
           // Returns the request object with or without verified user data
           return req;
