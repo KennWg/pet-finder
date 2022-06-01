@@ -8,7 +8,7 @@ import './App.css';
 import { StoreProvider } from "./utils/GlobalStore";
 import Navbar from './components/Navbar/';
 import Header from './components/Header/Header.js';
-import Main from './components/Main/';
+// import Main from './components/Main/';
 import Footer from './components/Footer/Footer.js';
 import AllReports from './components/Main/AllReports';
 import CreateReport from './components/Main/CreateReport';
@@ -52,9 +52,13 @@ function App() {
 
             <Navbar />
             <Header />
-            <Main>
 
+            {/* <Main> */}
               <Routes>
+              <Route
+                  path="/"
+                  element={<Home />}
+                />
                 <Route
                   path="/all_reports"
                   element={<AllReports />}
@@ -85,9 +89,9 @@ function App() {
                 />
 
               </Routes>
+            {/* </Main> */}
 
-            </Main>
-            <Footer />
+            {/* <Footer /> */}
 
           </Router>
 
