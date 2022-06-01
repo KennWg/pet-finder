@@ -79,6 +79,7 @@ const resolvers = {
                 );
                 return returnReport;
             }
+            throw new AuthenticationError('You need to be logged in!');
         },
         // update a report
         updateReport: async (parent, args, context) => {
