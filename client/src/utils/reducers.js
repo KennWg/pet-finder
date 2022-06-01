@@ -10,8 +10,8 @@ import {
     from "./actions";
 
 const initialState = {
-    currentView: "HOME",
-    views: ["HOME", "LOGIN", "SIGNUP", "REPORT", "VIEW REPORT", "ALL REPORTS"],
+    currentView: "home",
+    views: ["home", "login", "signup", "create_report", "single_report", "logout_info", "all_reports"],
     users: [
         {
             id: 1,

@@ -13,16 +13,13 @@ function Laptop() {
     }
 
     const handleClick = async clickedNavIcon => {
-        if (clickedNavIcon==="LOGOUT"){
+        if (clickedNavIcon==="logout_info"){
             Auth.logout();            
         }
         
-        await dispatch({
-            type: UPDATE_VIEW,
-            currentView: clickedNavIcon
-        })
-               
+        window.location.assign('/');               
     };
+
     let tempArr = [];
     (Auth.loggedIn())
         ? tempArr = navBarChoices

@@ -8,18 +8,18 @@ const { Provider } = StoreContext;
 
 const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useStoreReducer({
-    currentView: "HOME",
-    views: ["HOME", "LOGIN", "SIGNUP", "REPORT", "VIEW REPORT", "ALL REPORTS"],
+    currentView: "home",
+    views: ["home", "login", "signup", "create_report", "single_report", "logout_info", "all_reports"],
     navBarChoices: [
-      { name: "REPORT", description: "Make a missing pet report" },
-      { name: "DASHBOARD", description: "See reports with which you have interacted" },
-      { name: "HOME", description: "Return to the home page" },
-      { name: "LOGOUT", description: "Logout" }
+      { name: "create_report", description: "Make a missing pet report" },
+      { name: "dashboard", description: "See reports with which you have interacted" },
+      { name: "home", description: "Return to the home page" },
+      { name: "logout_info", description: "Logout" }
     ],
     navBarChoicesNOT:[
-      { name: "HOME", description: "Return to the home page" },
-      { name: "LOGIN", description: "Login to your account" },
-      { name: "SIGNUP", description: "Create an account" },
+      { name: "home", description: "Return to the home page" },
+      { name: "login", description: "Login to your account" },
+      { name: "signup", description: "Create an account" },
     ],
     users: [
       {
