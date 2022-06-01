@@ -16,8 +16,11 @@ function Laptop() {
         if (clickedNavIcon==="logout_info"){
             Auth.logout();            
         }
+        else if(clickedNavIcon==="home"){
+            clickedNavIcon=""
+        }
         
-        window.location.assign('/');               
+        window.location.assign('/'+clickedNavIcon);               
     };
 
     let tempArr = [];
