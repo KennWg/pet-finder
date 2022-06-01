@@ -10,8 +10,8 @@ const resolvers = {
             return User.find()
                 .select('-__v')
                 .populate('reports')
-                .populate('createdBy')
-                .populate('comments.user');
+                .populate('reports.createdBy')
+                .populate('reports.comments.user');
         },
         // get all reports
         allReports: async () => {
@@ -74,7 +74,7 @@ const resolvers = {
             if (context.user) {
                 const returnReport = await Report.findByIdAndUpdate(               
                     { _id: report },
-                    { $push: { comments: {commentBody} } },
+                    { $push: { comments: {commentBody, user: context.user._id} } },
                     { new: true }
                 );
                 return returnReport;
