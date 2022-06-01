@@ -134,7 +134,7 @@ button[type="submit"] {
   /* Display */
   /* display: contents; */
   /* Size */
-  min-height: 99vh;
+  /* min-height: 99vh; */
   min-width: 99vw;
   background-color: rgba(0, 0, 0, 0);
   /* background-color: burlywood; */
