@@ -132,7 +132,7 @@ button[type="submit"] {
   z-index:100;
 
   /* Display */
-  /* display: contents; */
+  display: contents;
   /* Size */
   /* min-height: 99vh; */
   min-width: 99vw;
