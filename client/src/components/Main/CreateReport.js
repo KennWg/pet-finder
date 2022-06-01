@@ -14,11 +14,11 @@ import { UPDATE_VIEW } from '../../utils/actions';
 function CreateReport() {
     const [state, dispatch] = useStoreContext();
 
-    const [formState, setFormState] = useState({ name: '', breed: '', photo: '', description: '', lastSeen: '', createdBy: '' });
+    const [formState, setFormState] = useState({ name: '', breed: '', picture: '', description: '', lastSeen: '', createdBy: '' });
     
     const [imageState, setImageState] = useState({image: ''});
 
-    const { name, breed, description, lastSeen, photo } = formState;
+    const { name, breed, description, lastSeen, picture } = formState;
 
     const {image} = imageState;
 
@@ -51,7 +51,10 @@ function CreateReport() {
 
         if (!errorMessage) {
             console.log('Submit Form', formState);
+        }
 
+
+        try {
             //Image submission
 
             const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
@@ -59,22 +62,13 @@ function CreateReport() {
             const imageData = new FormData();
             imageData.append('file', image);
             imageData.append('upload_preset', process.env.REACT_APP_UPLOAD_PRESET);
-            console.log('before axios');
-            const response = await axios.post(url, imageData);
-            console.log('after axios');
+            const response = await axios.post(url, imageData)
 
-            const photoURL = response.url;
-            console.log(photoURL);
+            const pictureURL = response.data.url;
 
-            setFormState({...formState, photo: photoURL});
-            console.log(formState)
-        }
-
-
-        try {
             console.log("TRYING CreateReport", formState);
             const { data } = await createReport({
-                variables: { ...formState }
+                variables: { ...formState, photo: pictureURL}
             });
             console.log("try COMPLETED");
             console.log('CREATE_REPORT server response: ', data)
@@ -97,7 +91,7 @@ function CreateReport() {
             // alert('- FORM ERROR - (see console)');
         }
 
-        setFormState({ name: '', breed: '', photo: '', description: '', lastSeen: '', createdBy: '' });
+        setFormState({ name: '', breed: '', picture: '', description: '', lastSeen: '', createdBy: '' });
         setUpload(true);
 
 
@@ -116,12 +110,12 @@ function CreateReport() {
 
         switch (inputName) {
             case 'name':
-            case 'photo':
+            case 'picture':
             case 'lastSeen':
                 (!anyInput(inputValue))
                     ? setErrorMessage(`${inputName} is required.`)
                     : setErrorMessage('');
-                if (inputName === 'photo') {
+                if (inputName === 'picture') {
                     setUpload(false);
                 }
                 break;
@@ -130,8 +124,8 @@ function CreateReport() {
                 break;
         }
         if (!errorMessage) {
-            if (inputName === 'photo') {
-                // photo: target.files[0].name  <---- This is temporary until we get a Cloudinary link
+            if (inputName === 'picture') {
+                // picture: target.files[0].name  <---- This is temporary until we get a Cloudinary link
                 setFormState({ ...formState, [target.name]: URL.createObjectURL(target.files[0])});
                 setImageState({ image: target.files[0]});
             } else {
@@ -157,9 +151,9 @@ function CreateReport() {
                     <input className="" placeholder="Breed" value={breed} type="text" name="breed" onChange={handleChange} />
                 </div>
 
-                <div className="">{upload ? (<label className="input-file-label" htmlFor="photo" >Upload Photo
-                    <input id="photo" className="input-file" placeholder="Upload a picture" type="file" accept="image/*" name="photo" onChange={handleChange} />
-                </label>) : (<a onClick={setUpload}><img id="upload-thumbnail" src={photo} ></img></a>)}
+                <div className="">{upload ? (<label className="input-file-label" htmlFor="picture" >Upload picture
+                    <input id="picture" className="input-file" placeholder="Upload a picture" type="file" accept="image/*" name="picture" onChange={handleChange} />
+                </label>) : (<a onClick={setUpload}><img id="upload-thumbnail" src={picture} ></img></a>)}
 
                 </div>
 
