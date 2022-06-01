@@ -1,7 +1,16 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;600;700;800&family=M+PLUS+Rounded+1c:wght@100;300;400;700;900&family=Open+Sans:wght@400;700&family=Staatliches&display=swap'); */
+
 :root {
+
+
   /*Fonts*/
-  --title-font: Arial, Helvetica, sans-serif;
-  --body-font: 'Times New Roman', Times, serif;
+  font-family: 'Dosis', sans-serif;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Staatliches', cursive;
+
+  --title-font: 'Dosis', sans-serif, Arial, Helvetica, sans-serif;
+  --body-font: 'M PLUS Rounded 1c', sans-serif, 'Times New Roman', Times, serif;
 
   --font-size-multiply: 1.6px;
 
@@ -38,7 +47,14 @@
   --color-c5: rgb(var(--c5));
   --color-c5-trans: rgba(var(--c5), var(--opacity));
 
+
 }
+
+
+  body {
+    font-size: 48px;
+  }
+
 
 /* FOR DEVELOPMENT */
 * {
