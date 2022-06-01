@@ -3,11 +3,6 @@ const dateFormat = require('../utils/dateFormat')
 
 const CommentSchema = new Schema(
     {
-       // set custom id to avoid confusion with parent comment_id by requiring 'Types'
-        commentId: {
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId()
-        },
         report: {
             type: Schema.Types.ObjectId,
             ref: 'Report',

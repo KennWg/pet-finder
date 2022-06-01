@@ -8,28 +8,29 @@ const resolvers = {
         // get all user
         allUsers: async () => {
             return User.find()
-                .select('-__v')
-                .populate('reports');
+                .select('-__v').populate('reports')
+                // .populate('createdBy')
+                // .populate('comments.user');
         },
         // get all reports
         allReports: async () => {
             return Report.find()
                 .select('-__v')
-                // .populate('comments');
+                .populate('createdBy')
+                .populate('comments.user');
         },
         // get all reports by user ID
         reportsByUserId: async (parent, args, context) => {
-            return Report.find({createBy: context.user._id}).sort({ createdAt: -1 });
+            return Report.find({createBy: context.user._id})
+            .populate('createdBy')
+            .populate('comments.user')
+            .sort({ createdAt: -1 });
         },
         // get a single report
         report: async (parent, { _id }) => {
-            return Report.findOne({ _id });
-        },
-        // get all reports that the user has commented on: To Do
-        reportByUserComments: async (parent, { user }) => {
-            return Report
-                .filter((u) => u.user == u.user)
-                .sort({ createdAt: -1 });
+            return Report.findOne({ _id })
+            .populate('createdBy')
+            .populate('comments.user');
         },
     },
 
@@ -73,18 +74,17 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
         // add a comment
-        addComment: async (parent, args, context) => {
-            if (context.report) {
-                const comment = await Comment.create({ ...args, comment: context.report._id });
+        addComment: async (parent, {reportId, commentBody}, context) => {
+            if (context.user) {
+                const addCommentToReport = await Report.findOneAndUpdate(
+                    { _id: reportId},
+                    {$push: {comments: {commentBody}}},
+                    {new: true}
+                    );        
 
-                await Report.findByIdAndUpdate(
-                    { _id: context.report._id },
-                    { $push: { report: report._id } },
-                    { new: true }
-                );
-
-                return comment;
+                return addCommentToReport;
             }
+            throw new AuthenticationError('You need to be logged in!');
         },
         // update a report
         updateReport: async (parent, args, context) => {

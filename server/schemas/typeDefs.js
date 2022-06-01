@@ -22,7 +22,7 @@ type Report {
     lastSeen: String
     createdAt: String
     createdBy: User
-    comment: [Comment]
+    comments: [Comment]
 }
 
 type Comment {
@@ -42,7 +42,6 @@ type Query {
   allUsers: [User]
   allReports: [Report]
   report (_id: ID!): Report
-  reportByUserComments(user: ID!): [Report]
   reportsByUserId: [Report]
 }
 
@@ -50,7 +49,7 @@ type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!, address: String!): Auth
   addReport(name: String!, breed: String, photo: String!, description: String!, lastSeen: String!): Report
-  updateReport(name: String!, breed: String, photo: String!, description: String, lastSeen: String!): Report
+  updateReport(_id: ID!, name: String!, breed: String, photo: String!, description: String, lastSeen: String!): Report
   deleteReport(_id: ID!): Report
   addComment(report: ID!, commentBody: String!): Report
 
