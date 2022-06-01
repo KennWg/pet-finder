@@ -1,14 +1,5 @@
 import { gql } from '@apollo/client';
 
-// export const QUERY_ME = gql`
-//     me {
-//       _id
-//       username
-//       email
-//       address 
-//     }
-// `;
-
 export const QUERY_REPORTS_BY_USER_ID = gql`
 query Query {
   reportsByUserId {
@@ -17,3 +8,16 @@ query Query {
   }
 }
 `;
+
+export const QUERY_ALL_REPORTS = gql`
+query Query {
+  allReports {
+    name
+    breed
+    photo
+    createdBy {
+      username
+    }
+  }
+}
+`

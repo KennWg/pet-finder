@@ -33,3 +33,9 @@ mutation Mutation($name: String!, $photo: String!, $description: String!, $lastS
   }
 }
 `
+
+// export const CREATE_COMMENT = gql`
+// `
+
+// export const DELETE_COMMENT = gql`
+// `
