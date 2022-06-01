@@ -12,12 +12,10 @@ query Query {
 export const QUERY_ALL_REPORTS = gql`
 query Query {
   allReports {
-    name
-    breed
+    _id
     photo
-    createdBy {
-      username
-    }
+    name
+    lastSeen
   }
 }
 `
