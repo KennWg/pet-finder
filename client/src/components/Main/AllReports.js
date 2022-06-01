@@ -42,35 +42,31 @@ function AllReports() {
 
     const reportsObj = [
         {
-            petName:petName,
-            petImg:petComment
+            petName: petName,
+            petImg: petComment
         },
         {
-            petName:petName,
-            petImg:petComment
+            petName: petName,
+            petImg: petComment
         },
         {
-            petName:petName,
-            petImg:petComment
+            petName: petName,
+            petImg: petComment
         },
         {
-            petName:petName,
-            petImg:petComment
+            petName: petName,
+            petImg: petComment
         }
     ]
 
     return (
-        <div className="all-report-class outer-div">
-            {reportsObj.map((report) => (
-                <p>
-                    <a className="reportThumbnail">
-                        <img src={report.petImg} alt="lost pet" />
-                        <h5>{report.petName}</h5>
-                    </a>
-                </p>
-            ))}
-
+        <div>
+            <span>All Reports:</span>
+        <section className="sub-comp-section">
+            <RPT_Preview />
+        </section>
         </div>
+
     )
 }
 

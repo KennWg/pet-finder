@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;600;700;800&family=M+PLUS+Rounded+1c:wght@100;300;400;700;900&family=Open+Sans:wght@400;700&family=Staatliches&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;600;700;800&family=M+PLUS+Rounded+1c:wght@100;300;400;700;900&family=Open+Sans:wght@400;700&family=Staatliches&display=swap');
 
 :root {
 
@@ -58,8 +58,8 @@
 
 /* FOR DEVELOPMENT */
 * {
-  border: 3px dotted rgb(255, 0, 0);
-  background-color: #ff003748;
+  /* border: 3px dotted rgb(255, 0, 0);
+  background-color: #ff003748; */
   /* padding: 10px; */
 }
 

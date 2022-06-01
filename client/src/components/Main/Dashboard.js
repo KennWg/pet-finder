@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import dogImg from '../../assets/images/dog.jpg';
 
 import { useStoreContext } from '../../utils/GlobalStore';
@@ -30,9 +31,7 @@ function Dashboard() {
 
     return (
         <div className="dashboard-class outer-div body-bg-color">
-            <section className="sub-comp-section">
-                <RPT_Preview />
-            </section>
+
             <section>
                 <form className="row">
 
@@ -43,7 +42,7 @@ function Dashboard() {
                         ))} */}
 
                     <button className="btn btn-primary" data-testid="button" type="submit">Create a Report</button>
-                    <button className="btn btn-primary" data-testid="button" type="submit" value="ALL REPORTS" onClick={handleClick}>All Reports</button>
+                    <Link to="/all_reports">All Reports</Link>
                     <button className="btn btn-primary" data-testid="button" type="submit" value="VIEW REPORT" onClick={handleClick}>SingleReport</button>
                     <button className="btn btn-primary" data-testid="button" type="submit">Logout</button>
                     <button className="btn btn-primary" data-testid="button" type="submit" style={highlightStyle}>Delete Account</button>
