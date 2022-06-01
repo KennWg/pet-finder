@@ -22,7 +22,7 @@ type Report {
     lastSeen: String
     createdAt: String
     createdBy: User
-    comment: [Comment]
+    comments: [Comment]
 }
 
 type Comment {
@@ -42,7 +42,6 @@ type Query {
   allUsers: [User]
   allReports: [Report]
   report (_id: ID!): Report
-  reportByUserComments(user: ID!): [Report]
   reportsByUserId: [Report]
 }
 
