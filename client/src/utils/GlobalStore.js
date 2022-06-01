@@ -11,15 +11,15 @@ const StoreProvider = ({ value = [], ...props }) => {
     currentView: "HOME",
     views: ["HOME", "LOGIN", "SIGNUP", "REPORT", "VIEW REPORT", "ALL REPORTS"],
     navBarChoices: [
-      { name: "REPORT", description: "" },
-      { name: "DASHBOARD", description: "" },
-      { name: "HOME", description: "" },
-      { name: "LOGOUT", description: "" }
+      { name: "REPORT", description: "Make a missing pet report" },
+      { name: "DASHBOARD", description: "See reports with which you have interacted" },
+      { name: "HOME", description: "Return to the home page" },
+      { name: "LOGOUT", description: "Logout" }
     ],
     navBarChoicesNOT:[
-      { name: "HOME", description: "" },
-      { name: "LOGIN", description: "" },
-      { name: "SIGNUP", description: "" },
+      { name: "HOME", description: "Return to the home page" },
+      { name: "LOGIN", description: "Login to your account" },
+      { name: "SIGNUP", description: "Create an account" },
     ],
     users: [
       {
