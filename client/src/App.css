@@ -440,7 +440,7 @@ form.missing-pet-report {
   padding: 6px 12px;
   cursor: pointer;
 font-size: calc(var(--viewport-multiplier)12px);
-color: white;
+color: var(--color-c5);
 background-color: var(--color-c1a);
 border-radius: 5px;
 border-width: 2px;
@@ -449,7 +449,7 @@ text-decoration: none;
 }
 
 .custom-btn:hover {
-  color: var(--color-c5);
+  color: white;
   background-color: var(--color-c1a-trans);
 }
 

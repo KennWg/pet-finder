@@ -2,38 +2,37 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import dogImg from '../../assets/images/dog.jpg';
 
-import { useStoreContext } from '../../utils/GlobalStore';
-import { UPDATE_VIEW } from '../../utils/actions';
+import { useQuery } from '@apollo/client';
+import { QUERY_ALL_REPORTS } from '../../utils/queries';
+
 
 import RptPreview from './SubComponents/RptPreview';
 
 function Dashboard() {
 
-    const { users } = useStoreContext();
-    const [state, dispatch] = useStoreContext();
+    const { loading, data } = useQuery(QUERY_ALL_REPORTS, { variables: { sdafasdf: 'ttt' } });
+    const allReports = data?.allReports || [];
 
-    const highlightStyle = {
-        color: 'red',
-        fontWeight: 'bold'
-    };
-
-    const imgStyle = {
-        height: '200px'
+    if (loading) {
+        return <div>Loading...</div>;
     }
-
-    const handleClick = async ({ target }) => {
-        console.log(target.value)
-        await dispatch({
-            type: UPDATE_VIEW,
-            currentView: target.value
-        })
-    };
 
     return (
         <div className="dashboard-class outer-div body-bg-color">
-                <div>
-                    <h4>MY REPORT</h4>
-                </div>
+            <div>
+                {allReports.map((report) => (
+                    <a key={report._id + "anchorTag"} datavalue={report._id} className="reportThumbnail sub-comp-outer-div brand-bg-color">
+                        <div key={report._id + "sub-comp-inner-div"} className="rpt-preview-div sub-comp-inner-div">
+                            <img key={report._id + "img"} src={report.photo} alt={report.name + ", a lost pet"} />
+                            <div key={report._id + "details"} className="rpt-preview-text-div">
+                                <p key={report._id + report.name + "5"} className="rpt-preview-pet-name">{report.name}</p>
+                                <p key={report._id + report.lastSeen + "6"} className="rpt-preview-last-seen"><strong>Last seen: </strong> {report.lastSeen}</p>
+                            </div>
+                        </div>
+                    </a>
+
+                ))}
+            </div>
 
             <section className="my-report">
                 <div>
@@ -51,9 +50,9 @@ function Dashboard() {
             </section>
 
             <section className="flex-row full-column flex-space-around">
-                        <Link to="/create_report" className="custom-btn">FILE REPORT</Link>
-                        <Link to="/all_reports" className="custom-btn">VIEW REPORTS</Link>
-                        <Link to="/logout_info" className="custom-btn">LOGOUT</Link>
+                <Link to="/create_report" className="custom-btn">FILE REPORT</Link>
+                <Link to="/all_reports" className="custom-btn">VIEW REPORTS</Link>
+                <Link to="/logout_info" className="custom-btn">LOGOUT</Link>
             </section>
         </div>
     );
