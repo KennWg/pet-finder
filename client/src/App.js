@@ -52,7 +52,7 @@ function App() {
             <Navbar />
             <Header />
 
-            <main>
+            <main className="main-class">
               <Routes>
                 <Route
                   path="/"

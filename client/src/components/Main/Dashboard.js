@@ -31,13 +31,9 @@ function Dashboard() {
 
     return (
         <div className="dashboard-class outer-div body-bg-color">
-
-            <section className="flex-row full-column flex-space-around">
-                        <Link to="/create_report" className="custom-btn">Create a Report</Link>
-                        <Link to="/all_reports" className="custom-btn">All Reports</Link>
-                        <Link to="/single_report" className="custom-btn">SingleReport</Link>
-                        <Link to="/logout_info" className="custom-btn">Logout</Link>
-            </section>
+                <div>
+                    <h4>MY REPORT</h4>
+                </div>
 
             <section className="my-report">
                 <div>
@@ -54,6 +50,11 @@ function Dashboard() {
                 </div>
             </section>
 
+            <section className="flex-row full-column flex-space-around">
+                        <Link to="/create_report" className="custom-btn">FILE REPORT</Link>
+                        <Link to="/all_reports" className="custom-btn">VIEW REPORTS</Link>
+                        <Link to="/logout_info" className="custom-btn">LOGOUT</Link>
+            </section>
         </div>
     );
 }
