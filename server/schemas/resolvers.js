@@ -5,32 +5,28 @@ const { report } = require('process');
 
 const resolvers = {
     Query: {
-        // get all reports
-
-        allUsers: async ()=> {
+        // get all user
+        allUsers: async () => {
             return User.find()
-            .select('-__v')
-            .populate('reports');
+                .select('-__v')
+                .populate('reports')
+                .populate('reports.createdBy')
+                .populate('reports.comments.user');
         },
-
+        // get all reports
         allReports: async () => {
             return Report.find()
-            .select('-__v')
-            .populate('comments');
+                .select('-__v')
+                .populate('createdBy')
+                .populate('comments.user');
         },
         // get all reports by user ID
-        reportsByUserId: async (parent, { createdBy }) => {
-            return Report.find(createdBy).sort({ createdAt: -1 });
+        reportsByUserId: async (parent, args, context) => {
+            return Report.find({createdBy: context.user._id}).populate('createdBy').populate('comments.user').sort({ createdAt: -1 });
         },
         // get a single report
         report: async (parent, { _id }) => {
-            return Report.findOne({ _id });
-        },
-        // get all reports that the user has commented on: To Do
-        reportByUserComments: async (parent, {user}) => {
-            return Report
-            .filter((u) => u.user == u.user)
-            .sort({createdAt: -1});
+            return Report.findOne({ _id }).populate('createdBy').populate('comments.user');
         },
     },
 
@@ -74,27 +70,34 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
         // add a comment
-        addComment: async (parent, args, context) => {
-            if(context.report) {
-                const comment = await Comment.create({...args, comment: context.report._id});
-
-                await Report.findByIdAndUpdate(
-                    {_id: context.report._id},
-                    {$push: { report: report._id}},
-                    {new: true}
+        addComment: async (parent, {report, commentBody}, context) => {
+            if (context.user) {
+                const returnReport = await Report.findByIdAndUpdate(               
+                    { _id: report },
+                    { $push: { comments: {commentBody, user: context.user._id} } },
+                    { new: true }
                 );
-
-                return comment;                
+                return returnReport;
             }
+            throw new AuthenticationError('You need to be logged in!');
         },
         // update a report
         updateReport: async (parent, args, context) => {
-            if (context.report) {
-                return await Report.findByIdAndUpdate(context.report._id, args, {new: true});
+            if (context.user) {
+                const update = await Report.findByIdAndUpdate(
+                    args._id,
+                    args,
+                    { new: true });
+
+                    return update;
             }
             throw new AuthenticationError('Not logged in');
-        }
+        },
 
+        // delete a report
+        deleteReport: async (aprent, {_id}) => {
+            return Report.findByIdAndDelete({_id});
+        }
     }
 };
 
