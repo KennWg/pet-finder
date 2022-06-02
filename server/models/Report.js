@@ -21,7 +21,7 @@ const ReportSchema = new Schema(
         },
         lastSeen: {
             type: String,
-            required: true
+            required: [true, 'Please include where you last saw your pet.']
         },
         createdAt: {
             type: Date,
