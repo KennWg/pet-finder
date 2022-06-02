@@ -231,7 +231,7 @@ button[type="submit"] {
 
 .laptop-navbar {
   /* for development*/
-  /* border: 5px dotted rgb(0, 255, 242); */
+  background-color: rgba(0, 255, 255, 0.541);
 
   /* Positon */
   z-index: 100;
@@ -436,13 +436,22 @@ form.missing-pet-report {
 .input-file-label,
 .custom-btn {
   font-size: calc(12 * var(--viewport-multiplier));
-  border: 1px solid #ccc;
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
-color: var(--color-c5);
+font-size: calc(var(--viewport-multiplier)12px);
+color: white;
+background-color: var(--color-c1a);
+border-radius: 5px;
+border-width: 2px;
+text-decoration: none;
+
 }
 
+.custom-btn:hover {
+  color: var(--color-c5);
+  background-color: var(--color-c1a-trans);
+}
 
 #upload-thumbnail {
   max-height: 50px;
@@ -626,7 +635,6 @@ Link {
 
 
 .footer-class {
-  /* border: 10px solid yellow; */
   z-index: 1;
   display: relative;
   height: 2vh;
