@@ -245,7 +245,7 @@ button[type="submit"] {
   display: flex;
   justify-content: space-between;
   /* Size */
-  width: 35vw;
+  width: 25vw;
 }
 
 .laptop-nav-div {
