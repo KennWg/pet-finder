@@ -46,12 +46,12 @@ console.log(allReports);
     return (
     <>
                 {allReports.map((report) => (
-                <a key={report._id} data-key-value={report._id} className="reportThumbnail sub-comp-outer-div brand-bg-color">
-                    <div className="rpt-preview-div sub-comp-inner-div">
-                        <img src={report.photo} alt="a picture of a lost pet" />
-                        <div className="rpt-preview-text-div">
-                        <p className="rpt-preview-pet-name">{report.name}</p>
-                        <p className="rpt-preview-last-seen"><strong>Last seen: </strong> {report.lastSeen}</p>
+                <a key={report._id} dataValue={report._id} className="reportThumbnail sub-comp-outer-div brand-bg-color">
+                    <div key={report._id} className="rpt-preview-div sub-comp-inner-div">
+                        <img key={report._id} src={report.photo} alt={report.name + ", a lost pet"} />
+                        <div key={report._id} className="rpt-preview-text-div">
+                        <p key={report._id} className="rpt-preview-pet-name">{report.name}</p>
+                        <p key={report._id} className="rpt-preview-last-seen"><strong>Last seen: </strong> {report.lastSeen}</p>
                         </div>
                     </div>
                 </a>
