@@ -351,7 +351,7 @@ button[type="submit"] {
 .outer-div {
   position: relative;
   width: 40vw;
-  height: 80vh;
+  /* height: 80vh; */
   padding: 10px;
   border-radius: 5px;
   border-width: 2px;
@@ -575,21 +575,32 @@ input {
 
 
 .poster-title {
+  margin: 0px;
   font-weight: lighter;
   color: white;
-  position: absolute;
-  top: 24vh;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 80%;
   background-color: var(--color-c1a-trans);
   text-shadow: -1px -1px 1px var(--color-c2), 1px -1px 1px var(--color-c2), -1px 1px 1px var(--color-c2), 1px 1px 1px var(--color-c2);
 
 }
+.upper-dash-comp{
+height: 33%;
+width: 100%;
+}
+
+.lower-dash-comp {
+height: 55%;
+}
 
 .dash-sub-comp-outer-div {
   background-color: var(--color-c5);
   height: 80vh;
-  width: calc(95% - 3px);
-  min-width: calc(9% - 3px);
+  width: calc(100% - 10px);
+  min-width: calc(100% - 10px);
   position: relative;
   display: flex;
   justify-content: center;
@@ -656,12 +667,12 @@ input {
 
 }
 
-.rpt-dashboard-last-seen {
+/* .rpt-dashboard-last-seen {
   color: var(--color-c1a-trans);
   max-width: 80%;
   font-size: calc(var(--viewport-multiplier) 16px);
   text-align: justify;
-}
+} */
 
 
 
@@ -791,7 +802,7 @@ Link {
   .outer-div {
     position: relative;
     width: 75vw;
-    height: 85vh;
+    /* height: 85vh; */
     padding: 10px;
   }
 
@@ -822,7 +833,7 @@ Link {
   .outer-div {
     position: relative;
     width: 90vw;
-    height: 70vh;
+    /* height: 70vh; */
     padding: 6px;
   }
 

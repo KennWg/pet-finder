@@ -30,35 +30,37 @@ function Dashboard() {
 
     return (
         <div className="dashboard-class outer-div body-bg-color">
-            <div>
-                {me.map((report) => (
+            {me.map((report) => (
 
-                    <div key={report._id + "anchorTag"} datavalue={report._id} className="reportThumbnail dash-sub-comp-outer-div brand-bg-color">
+                <div key={report._id + "anchorTag"} datavalue={report._id} className="reportThumbnail dash-sub-comp-outer-div brand-bg-color">
 
-                        <div key={report._id + "sub-comp-inner-div"} className="rpt-dashboard-div dash-sub-comp-inner-div">
-
-                            <h1 className="poster-title">MISSING</h1>
+                    <div key={report._id + "sub-comp-inner-div"} className="rpt-dashboard-div dash-sub-comp-inner-div">
+                        <div className="upper-dash-comp">
                             <img key={report._id + "img"} src={report.photo} alt={report.name + ", a lost pet"} />
+                            <h1 className="poster-title">MISSING</h1>
+                        </div>
+                        <div className="lower-dash-comp">
+                            
                             <br></br>
 
                             <p key={report._id + report.name + "5"} className="rpt-dashboard-pet-name">{report.name}</p>
 
                             {/* <div key={report._id + "details"} className="rpt-dashboard-text-div"></div> */}
                             <p className="body-text">has been missing since:</p>
-                            <p key={report._id + report.lastSeen + "6"} className="rpt-dashboard-last-seen">{report.lastSeen}</p>
+                            <p key={report._id + report.lastSeen + "6"} className="body-text rpt-dashboard-last-seen">{report.lastSeen}</p>
                             <p key={report._id + report.description} className="body-text rpt-dashboard-description">{report.description}</p>
 
                             <div>
                                 <p className="body-text">This report was created on:</p>
                                 <p key={report._id + report.createdAt} className="body-text">{report.createdAt}</p>
                             </div>
-                            <div></div>
                         </div>
-                    </div>
-                ))}
 
-            </div>
-<br></br>
+                    </div>
+                </div>
+            ))}
+
+            <br></br>
             {/* <section className="my-report">
                 <div>
                     <h4>Reports I have commented on</h4>
