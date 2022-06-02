@@ -7,9 +7,15 @@ const resolvers = {
     Query: {
         // get all reports of the logged in user
         me: async (parent, args, context) => {
+            // console.log(context.user)
             if (context.user) {
-                return User.find({ createdBy: context.user._id }).populate('reports').populate('createdBy').populate('comments.user').sort({ createdAt: -1 });
-            }
+                const userData = Report.find({ createdBy: context.user._id })
+                    .populate('createdBy')
+                    .populate('comments.user')
+                    .sort({ createdAt: -1 });
+
+                    return userData
+            }            
         },
         // get all user
         allUsers: async () => {
@@ -28,7 +34,10 @@ const resolvers = {
         },
         // get all reports by user ID
         reportsByUserId: async (parent, { _id }, context) => {
-            return Report.find({ createdBy: _id }).populate('createdBy').populate('comments.user').sort({ createdAt: -1 });
+            return Report.find({ createdBy: _id })
+                .populate('createdBy')
+                .populate('comments.user')
+                .sort({ createdAt: -1 });
         },
         // get a single report
         report: async (parent, { _id }) => {
