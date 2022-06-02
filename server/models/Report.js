@@ -2,8 +2,6 @@ const { Schema, model } = require('mongoose');
 const CommentSchema = require('../models/Comment');
 const dateFormat = require('../utils/dateFormat');
 
-
-
 const ReportSchema = new Schema(
     {
         name: {
