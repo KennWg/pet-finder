@@ -2,7 +2,7 @@ import React, { useReducer, useState } from "react";
 
 import { anyInput } from '../../utils/helpers';
 
-import RPT_Preview from "./SubComponents/RPT_Preview";
+import RptPreview from "./SubComponents/RptPreview";
 
 
 function AllReports() {
@@ -63,7 +63,7 @@ function AllReports() {
         <div>
             <span>All Reports:</span>
         <section className="sub-comp-section">
-            <RPT_Preview />
+            <RptPreview />
         </section>
         </div>
 

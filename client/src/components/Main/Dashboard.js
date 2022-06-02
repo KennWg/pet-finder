@@ -5,7 +5,7 @@ import dogImg from '../../assets/images/dog.jpg';
 import { useStoreContext } from '../../utils/GlobalStore';
 import { UPDATE_VIEW } from '../../utils/actions';
 
-import RPT_Preview from './SubComponents/RPT_Preview';
+import RptPreview from './SubComponents/RptPreview';
 
 function Dashboard() {
 
