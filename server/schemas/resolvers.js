@@ -7,16 +7,14 @@ const resolvers = {
     Query: {
         // get all reports of the logged in user
         me: async (parent, args, context) => {
-                        console.table(context.user);
-
+            console.log(context.user)
             if (context.user) {
-                const userData = await User.findOne({ _id: context.user._id })
-                .select('-__v -password')
-                .populate('reports');
-                return {userData: 'I love Arrow'};
+                const userData = Report.find({ createdBy: context.user._id })
+                    .populate('createdBy')
+                    .populate('comments.user')
+                    .sort({ createdAt: -1 });
+                return userData
             }
-            throw new AuthenticationError('Not logged in');
-
         },
         // get all user
         allUsers: async () => {

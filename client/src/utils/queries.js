@@ -28,3 +28,16 @@ query Query {
   }
 }
 `
+export const QUERY_ME = gql`
+query Query {
+  me {
+    _id
+    name
+    breed
+    photo
+    description
+    lastSeen
+    createdAt
+  }
+}
+`

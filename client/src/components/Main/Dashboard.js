@@ -3,38 +3,63 @@ import { Link } from 'react-router-dom';
 import dogImg from '../../assets/images/dog.jpg';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_ALL_REPORTS } from '../../utils/queries';
+import { QUERY_ME } from '../../utils/queries';
 
 
 import RptPreview from './SubComponents/RptPreview';
 
 function Dashboard() {
 
-    const { loading, data } = useQuery(QUERY_ALL_REPORTS, { variables: { sdafasdf: 'ttt' } });
-    const allReports = data?.allReports || [];
+    const { loading, data } = useQuery(QUERY_ME);
+    const me = data?.me || [];
 
     if (loading) {
         return <div>Loading...</div>;
     }
+    console.log(me);
+
+    // me {
+    //     _id
+    //     name
+    //     breed
+    //     photo
+    //     description
+    //     lastSeen
+    //     createdAt
+    //   }
 
     return (
         <div className="dashboard-class outer-div body-bg-color">
             <div>
-                {allReports.map((report) => (
-                    <a key={report._id + "anchorTag"} datavalue={report._id} className="reportThumbnail sub-comp-outer-div brand-bg-color">
-                        <div key={report._id + "sub-comp-inner-div"} className="rpt-preview-div sub-comp-inner-div">
+                {me.map((report) => (
+
+                    <div key={report._id + "anchorTag"} datavalue={report._id} className="reportThumbnail dash-sub-comp-outer-div brand-bg-color">
+
+                        <div key={report._id + "sub-comp-inner-div"} className="rpt-dashboard-div dash-sub-comp-inner-div">
+
+                            <h1 className="poster-title">MISSING</h1>
                             <img key={report._id + "img"} src={report.photo} alt={report.name + ", a lost pet"} />
-                            <div key={report._id + "details"} className="rpt-preview-text-div">
-                                <p key={report._id + report.name + "5"} className="rpt-preview-pet-name">{report.name}</p>
-                                <p key={report._id + report.lastSeen + "6"} className="rpt-preview-last-seen"><strong>Last seen: </strong> {report.lastSeen}</p>
+                            <br></br>
+
+                            <p key={report._id + report.name + "5"} className="rpt-dashboard-pet-name">{report.name}</p>
+
+                            {/* <div key={report._id + "details"} className="rpt-dashboard-text-div"></div> */}
+                            <p className="body-text">has been missing since:</p>
+                            <p key={report._id + report.lastSeen + "6"} className="rpt-dashboard-last-seen">{report.lastSeen}</p>
+                            <p key={report._id + report.description} className="body-text rpt-dashboard-description">{report.description}</p>
+
+                            <div>
+                                <p className="body-text">This report was created on:</p>
+                                <p key={report._id + report.createdAt} className="body-text">{report.createdAt}</p>
                             </div>
+                            <div></div>
                         </div>
-                    </a>
-
+                    </div>
                 ))}
-            </div>
 
-            <section className="my-report">
+            </div>
+<br></br>
+            {/* <section className="my-report">
                 <div>
                     <h4>Reports I have commented on</h4>
                 </div>
@@ -47,7 +72,7 @@ function Dashboard() {
                         <li>4</li>
                     </ul>
                 </div>
-            </section>
+            </section> */}
 
             <section className="flex-row full-column flex-space-around">
                 <Link to="/create_report" className="custom-btn">FILE REPORT</Link>
