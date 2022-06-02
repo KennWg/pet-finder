@@ -41,7 +41,7 @@ type Auth {
 }
 
 type Query {
-  me: User
+  me: [Report]
   allUsers: [User]
   allReports: [Report]
   report (_id: ID!): Report
