@@ -128,7 +128,7 @@ h5 {
 }
 
 .body-text {
-  font-size: calc(var(--viewport-multiplier) * 20px);
+  font-size: calc(var(--viewport-multiplier) * 14px);
   padding: 10px;
 }
 
@@ -234,7 +234,7 @@ button[type="submit"] {
 
 .laptop-navbar {
   /* for development*/
-  background-color: rgba(0, 255, 255, 0.541);
+  /* background-color: rgba(0, 255, 255, 0.541); */
 
   /* Positon */
   z-index: 100;
