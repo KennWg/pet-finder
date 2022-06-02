@@ -95,7 +95,7 @@ function Login() {
                 </div>
 
                 <div className="form-group">
-                    <input className="form-control" placeholder="password" type="text" name="password" value={formData.password} onChange={handleChange} onBlur={validate} />
+                    <input className="form-control" placeholder="password" type="password" name="password" value={formData.password} onChange={handleChange} onBlur={validate} />
                 </div>
 
                 {errorMessage && (

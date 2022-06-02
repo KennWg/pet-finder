@@ -35,8 +35,14 @@ mutation Mutation($name: String!, $photo: String!, $description: String!, $lastS
 `
 
 
-// export const CREATE_COMMENT = gql`
-// `
+export const CREATE_COMMENT = gql`
+mutation Mutation($report: ID!, $commentBody: String!) {
+  addComment(report: $report, commentBody: $commentBody) {
+    _id
+    name
+  }
+}
+`
 
 // export const DELETE_COMMENT = gql`
 // `
