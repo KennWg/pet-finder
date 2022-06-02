@@ -285,7 +285,7 @@ button[type="submit"] {
   display: flex;
   justify-content: space-between;
   /* Size */
-  width: 75vw;
+  width: 65vw;
 }
 
 .tablet-nav-div {
@@ -295,7 +295,7 @@ button[type="submit"] {
 }
 
 .tablet-nav-icon {
-  height: 58px;
+  height: 48px;
   mix-blend-mode: multiply;
 }
 
@@ -306,7 +306,7 @@ button[type="submit"] {
   /* Positon */
   z-index: 100;
   position: absolute;
-  bottom: 10vh;
+  bottom: 6vh;
   right: 1vw;
   transform: translate(0%, 0%);
 
@@ -597,6 +597,7 @@ width: 100%;
 height: 55%;
 display: flex;
 flex-direction: column;
+justify-content: center;
 align-items: center;
 padding: 10%;
 }
