@@ -6,7 +6,7 @@ function Footer() {
 
     <footer className="footer-class">
       <p>
-        Enshen Test
+      &copy; Copyright Error-dite! 2022
       </p>
       <img className="footer-img" src={bucholic} alt="a footer of a bucholic horizon" />
     </footer>

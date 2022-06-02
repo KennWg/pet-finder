@@ -60,7 +60,7 @@ function AllReports() {
     ]
 
     return (
-        <div>
+        <div className="all-reports-container">
             <span>All Reports:</span>
         <section className="sub-comp-section">
             <RptPreview />
