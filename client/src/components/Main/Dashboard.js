@@ -37,11 +37,9 @@ function Dashboard() {
                     <div key={report._id + "sub-comp-inner-div"} className="rpt-dashboard-div dash-sub-comp-inner-div">
                         <div className="upper-dash-comp">
                             <img key={report._id + "img"} src={report.photo} alt={report.name + ", a lost pet"} />
-                            <h1 className="poster-title">MISSING</h1>
+                            <h1 className="poster-title"> MISSING</h1>
                         </div>
                         <div className="lower-dash-comp">
-                            
-                            <br></br>
 
                             <p key={report._id + report.name + "5"} className="rpt-dashboard-pet-name">{report.name}</p>
 
