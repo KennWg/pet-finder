@@ -13,9 +13,18 @@ export const QUERY_ALL_REPORTS = gql`
 query Query {
   allReports {
     _id
-    photo
     name
+    breed
+    photo
+    description
     lastSeen
+    createdAt
+    createdBy {
+      _id
+      username
+      email
+      address
+    }
   }
 }
 `

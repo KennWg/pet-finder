@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import React from 'react';
-import { QUERY_REPORTS_BY_USER_ID } from '../../../utils/queries';
+import { QUERY_ALL_REPORTS } from '../../../utils/queries';
 import rpt_photot1 from '../../../assets/images/RPT_photo/1.jpg'
 import rpt_photot2 from '../../../assets/images/RPT_photo/2.jpg'
 import rpt_photot3 from '../../../assets/images/RPT_photo/3.jpg'
@@ -36,16 +36,16 @@ const fillerData = [
 function RPT_Preview() {
     // var data
     // const loading = true;
-    const { loading, data } = useQuery(QUERY_REPORTS_BY_USER_ID, { variables: { sdafasdf: 'ttt' } });
-    const reportsByUserId = data?.reportsByUserId || fillerData;
+    const { loading, data } = useQuery(QUERY_ALL_REPORTS, { variables: { sdafasdf: 'ttt' } });
+    const allReports = data?.allReports || fillerData;
 
     if (loading) {
         return <div>Loading...</div>;
     }
-
+console.log(allReports);
     return (
     <>
-                {reportsByUserId.map((report) => (
+                {allReports.map((report) => (
                 <a key={report._id} data-key-value={report._id} className="reportThumbnail sub-comp-outer-div brand-bg-color">
                     <div className="rpt-preview-div sub-comp-inner-div">
                         <img src={report.photo} alt="a picture of a lost pet" />
