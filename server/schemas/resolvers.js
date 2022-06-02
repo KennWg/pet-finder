@@ -7,7 +7,7 @@ const resolvers = {
     Query: {
         // get all reports of the logged in user
         me: async (parent, args, context) => {
-            // console.log(context.user)
+            console.log(context.user)
             if (context.user) {
                 const userData = Report.find({ createdBy: context.user._id })
                     .populate('createdBy')
