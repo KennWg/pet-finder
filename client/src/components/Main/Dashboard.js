@@ -32,24 +32,12 @@ function Dashboard() {
     return (
         <div className="dashboard-class outer-div body-bg-color">
 
-            <section>
-                <form className="row">
-
-                    {/* {users.map((user) => (
-                            <h3 key={user.username}>
-                                Welcome, {user.username}
-                            </h3>
-                        ))} */}
-
-                    <button className="btn btn-primary" data-testid="button" type="submit">Create a Report</button>
-                    <Link to="/all_reports">All Reports</Link>
-                    <button className="btn btn-primary" data-testid="button" type="submit" value="VIEW REPORT" onClick={handleClick}>SingleReport</button>
-                    <button className="btn btn-primary" data-testid="button" type="submit">Logout</button>
-                    <button className="btn btn-primary" data-testid="button" type="submit" style={highlightStyle}>Delete Account</button>
-                </form>
+            <section className="flex-row full-column flex-space-around">
+                        <Link to="/create_report" className="custom-btn">Create a Report</Link>
+                        <Link to="/all_reports" className="custom-btn">All Reports</Link>
+                        <Link to="/single_report" className="custom-btn">SingleReport</Link>
+                        <Link to="/logout_info" className="custom-btn">Logout</Link>
             </section>
-
-
 
             <section className="my-report">
                 <div>

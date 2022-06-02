@@ -58,7 +58,7 @@
 
 /* FOR DEVELOPMENT */
 * {
-  /* border: 3px dotted rgb(255, 0, 0);
+  /* border: 0px dotted rgb(255, 0, 0);
   background-color: #ff003748; */
   /* padding: 10px; */
 }
@@ -334,6 +334,18 @@ button[type="submit"] {
   justify-content: space-around;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-space-around {
+  justify-content: space-around;
+}
+
+.full-column {
+  width: 100%;
+}
 /* HEADER */
 
 .header-class {
@@ -379,7 +391,9 @@ form.missing-pet-report {
   overflow: hidden;
 }
 
-.input-file-label {
+.input-file-label,
+.custom-btn {
+  font-size: calc(12 * var(--font-size-multiply));
   border: 1px solid #ccc;
   display: inline-block;
   padding: 6px 12px;
@@ -477,6 +491,9 @@ input {
   text-align: justify;
 }
 
+Link {
+  background-color: brown;
+}
 
 /* CREATE_REACT_APP BOILERPLATE*/
 .App {

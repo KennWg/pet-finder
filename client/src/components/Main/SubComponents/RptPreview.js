@@ -1,5 +1,5 @@
-import { useQuery } from '@apollo/client';
 import React from 'react';
+import { useQuery } from '@apollo/client';
 import { QUERY_ALL_REPORTS } from '../../../utils/queries';
 
 function RptPreview() {
