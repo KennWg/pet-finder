@@ -21,7 +21,7 @@ import SingleReport from './components/Main/SingleReport';
 const httpLink = createHttpLink({
   // Remember to change back to:   uri: '/graphql'    for deployment
 
-  uri: 'http://localhost:3001/graphql'
+  uri: '/graphql'
 });
 
 const authLink = setContext((_, { headers }) => {
