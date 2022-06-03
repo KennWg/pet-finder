@@ -32,20 +32,20 @@ module.exports = {
 
     try {
       // Attempt to decode JWT for payload data
-      const { data, exp } = jwt.verify(token, secret, { maxAge: expiration });
+      const {data, exp} = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
+
       (req.body.operationName === 'IntrospectionQuery')
-        ? console.log('GraphQL Sandbox: Ping! -- valid token')
+        ? console.log('GraphQL Sandbox: Ping! -- valid token') 
         : console.log('^^ USER:  "', data.username, '" accessed the server with a token verified until:', formatDate(exp));
-
-
     }
     
     // Error logging for invalid tokens
     catch {
+      console.log(req.body.operationName);
       (req.body.operationName === 'IntrospectionQuery')
-        ? console.log('GraphQL Sandbox: Ping! ^^ Error')
-        : console.log('Error');
+        ? console.log('GraphQL Sandbox: Ping! No verifiable token Error')
+        : console.log('Token could not be verified Error');
     }
           // Returns the request object with or without verified user data
           return req;

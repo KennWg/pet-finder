@@ -13,14 +13,14 @@ function Tablet() {
     }
 
     const handleClick = async clickedNavIcon => {
-        if (clickedNavIcon==="LOGOUT"){
+        if (clickedNavIcon==="logout_info"){
             Auth.logout();            
         }
+        else if(clickedNavIcon==="home"){
+            clickedNavIcon=""
+        }
         
-        await dispatch({
-            type: UPDATE_VIEW,
-            currentView: clickedNavIcon
-        })
+        window.location.assign('/'+clickedNavIcon);
     };
 
     let tempArr = [];

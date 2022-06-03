@@ -1,12 +1,16 @@
+import React from 'react';
 import bucholic from '../../assets/images/footerBorder.png';
 
 function Footer() {
-    return (
+  return (
 
-        <footer className="footer-class"> 
+    <footer className="footer-class">
+      <p>
+      &copy; Error-dite 2022
+      </p>
       <img className="footer-img" src={bucholic} alt="a footer of a bucholic horizon" />
-        </footer>
-    );
+    </footer>
+  );
 }
 
 export default Footer;
