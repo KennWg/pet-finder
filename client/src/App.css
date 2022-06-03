@@ -128,7 +128,7 @@ h5 {
 }
 
 .body-text {
-  font-size: calc(var(--viewport-multiplier) * 20px);
+  font-size: calc(var(--viewport-multiplier) * 14px);
   padding: 10px;
 }
 
@@ -234,7 +234,7 @@ button[type="submit"] {
 
 .laptop-navbar {
   /* for development*/
-  background-color: rgba(0, 255, 255, 0.541);
+  /* background-color: rgba(0, 255, 255, 0.541); */
 
   /* Positon */
   z-index: 100;
@@ -245,7 +245,7 @@ button[type="submit"] {
   display: flex;
   justify-content: space-between;
   /* Size */
-  width: 35vw;
+  width: 25vw;
 }
 
 .laptop-nav-div {
@@ -285,7 +285,7 @@ button[type="submit"] {
   display: flex;
   justify-content: space-between;
   /* Size */
-  width: 75vw;
+  width: 65vw;
 }
 
 .tablet-nav-div {
@@ -295,7 +295,7 @@ button[type="submit"] {
 }
 
 .tablet-nav-icon {
-  height: 58px;
+  height: 48px;
   mix-blend-mode: multiply;
 }
 
@@ -306,7 +306,7 @@ button[type="submit"] {
   /* Positon */
   z-index: 100;
   position: absolute;
-  bottom: 10vh;
+  bottom: 6vh;
   right: 1vw;
   transform: translate(0%, 0%);
 
@@ -585,7 +585,7 @@ input {
   transform: translate(-50%, -50%);
   width: 80%;
   background-color: var(--color-c1a-trans);
-  text-shadow: -1px -1px 5px var(--color-c3), 1px -1px 5px var(--color-c3), -1px 1px 5px var(--color-c3), 1px 1px 5px var(--color-c3);
+  text-shadow: -1px -1px 0px var(--color-c2), 1px -1px 0px var(--color-c2), -1px 1px 0px var(--color-c2), 1px 1px 0px var(--color-c2);
 
 }
 .upper-dash-comp{
