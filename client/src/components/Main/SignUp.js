@@ -111,7 +111,7 @@ function SignUp() {
                     <input className="form-control" placeholder="Address" type="text" name="address" value={formData.address} onChange={handleChange} onBlur={validate} />
                 </div>
                 <div className="form-group">
-                    <input className="form-control" placeholder="Password" type="text" name="password" value={formData.password} onChange={handleChange} onBlur={validate} />
+                    <input className="form-control" placeholder="Password" type="password" name="password" value={formData.password} onChange={handleChange} onBlur={validate} />
                 </div>
 
                 <div className="">
