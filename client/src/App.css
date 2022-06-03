@@ -1,0 +1,480 @@
+:root {
+  /*Fonts*/
+  --title-font: Arial, Helvetica, sans-serif;
+  --body-font: 'Times New Roman', Times, serif;
+
+--font-size-multiply: 1.6px;
+
+  /* Colors */
+  --opacity: 0.7;
+
+  --hex-c1: #1EA5E9;
+  --c1: 30, 165, 233;
+  --color-c1: rgb(var(--c1));
+  --color-c1-trans: rgba(var(--c1), var(--opacity));
+
+  --hex-c1a: #146d99;
+  --c1a: 20, 109, 153;
+  --color-c1a: rgb(var(--c1a));
+  --color-c1a-trans: rgba(var(--c1a), var(--opacity));
+
+  --hex-c2: #D3F4F9;
+  --c2: 211, 244, 249;
+  --color-c2: rgb(var(--c2));
+  --color-c2-trans: rgba(var(--c2), var(--opacity));
+
+  --hex-c3: #FD5911;
+  --c3: 253, 89, 17;
+  --color-c3: rgb(var(--c3));
+  --color-c3-trans: rgba(var(--c3), var(--opacity));
+
+  --hex-c4: #FF8217;
+  --c4: 255, 130, 23;
+  --color-c4: rgb(var(--c4));
+  --color-c4-trans: rgba(var(--c4), var(--opacity));
+
+  --hex-c5: #FFA41D;
+  --c5: 255, 164, 29;
+  --color-c5: rgb(var(--c5));
+  --color-c5-trans: rgba(var(--c5), var(--opacity));
+
+}
+
+* {
+  /* for development*/
+  /* border: 1px dotted rgba(255, 0, 0, 0.315);
+  background-color: #ff003748; */
+
+}
+
+
+
+/* USER AGENT STYLE SHEET OVERIDES */
+p {
+  margin: 0;
+}
+
+
+/* Bespoke CSS begins */
+body {
+  font-family: var(--title-font);
+
+}
+
+.brand-title {
+  color: var(--color-c1);
+  text-shadow: -1px -1px 0 var(--color-c2), 1px -1px 0 var(--color-c2), -1px 1px 0 var(--color-c2), 1px 1px 0 var(--color-c2), -2px -2px 10px var(--color-c2), 2px -2px 10px var(--color-c2), -2px 2px 10px var(--color-c2), 2px 2px 10px var(--color-c2);
+}
+
+h1.brand-title {
+font-size: calc(56 * var(--font-size-multiply));
+}
+
+.brand-text {
+  font-family: var(--body-font);
+  color: var(--color-c1a);
+  /* text-shadow: 1px 1px 0 #000; */
+}
+
+.brand-bg-color {
+  /* background-color: var(--color-c1-trans); */
+  background-image: linear-gradient(to bottom right, var(--color-c3-trans), rgba(255,255,255,var(--opacity)), rgba(255,255,255,var(--opacity)), var(--color-c2-trans), var(--color-c1-trans), var(--color-c1-trans), var(--color-c3-trans), var(--color-c5-trans), rgba(255,255,255,var(--opacity)), rgba(255,255,255,var(--opacity)), rgba(255,255,255,var(--opacity)));
+  border-color: var(--color-c2);
+}
+
+.body-bg-color {
+  border-color: var(--color-c2);
+  background-color: var(--color-c2);
+}
+
+.body-text {}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 2vw;
+}
+
+
+
+.error-div {
+  color: red;
+  font-weight: bold;
+  height: 3vh;
+  /* background-color: blue; */
+}
+
+.signup-class h3 {
+  font-size: 120%;
+  color: #6185fbb4;
+}
+
+button[type="submit"] {
+  margin-bottom: 3vh;
+}
+
+.site-container {
+  /* background: linear-gradient(#3c5688, #58a8e7); */
+  background-image: url(./assets/images/sky-background.png);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* NAVBAR */
+.navbar-class {
+
+  /* Positon */
+  position: absolute;
+  
+  /* Display */
+  display: contents;
+  /* Size */
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.laptop-navbar {
+  /* for development*/
+  /* border: 5px dotted rgb(0, 255, 242); */
+
+  /* Positon */
+  z-index: 10;
+  position: absolute;
+  top: 1vh;
+  right: 1.6vw;
+  /* Display */
+  display: flex;
+  justify-content: space-between;
+  /* Size */
+  width: 35vw;
+}
+
+.laptop-nav-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.laptop-nav-icon {
+  height: 40px;
+  /* mix-blend-mode: color-dodge; */
+}
+
+.tablet-navbar {
+  /* for development*/
+  border: 5px dotted rgb(0, 255, 242);
+
+  /* Positon */
+  z-index: 10;
+  position: absolute;
+  bottom: 1vh;
+  right: 50%;
+  transform: translate(50%, 0%);
+
+  /* Display */
+  display: flex;
+  justify-content: space-between;
+  /* Size */
+  width: 75vw;
+}
+
+.tablet-nav-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tablet-nav-icon {
+  height: 58px;
+  mix-blend-mode: multiply;
+}
+
+.mobile-navbar {
+  /* for development*/
+  border: 5px dotted rgb(0, 255, 242);
+
+  /* Positon */
+  z-index: 10;
+  position: absolute;
+  bottom: 10vh;
+  right: 1vw;
+  transform: translate(0%, 0%);
+
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Size */
+  height: 30vh;
+
+  /*Font*/
+  font-size: 0.6em;
+}
+
+.mobile-nav-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-nav-icon {
+  height: 38px;
+  mix-blend-mode: multiply;
+}
+
+.tablet-navbar,
+.mobile-navbar {
+  display: none;
+}
+
+/*VIEW STYLES*/
+.main-class {
+  display: flex;
+  justify-content: center;
+}
+
+
+.outer-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  z-index: 6;
+  display: flex;
+  justify-content: center;
+  width: 60vw;
+  height: 80vh;
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+
+}
+
+.inner-div {
+  width: 92%;
+  height: 92%;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+}
+
+/*HOME PAGE -------------------------- */
+
+/* .dog-img-div {
+  max-height: 30vh;
+  max-width: 80%;
+} */
+
+.homepage-dog {
+  height: 40vh;
+  width: 40vh;
+  /* max-height: 30vh;
+  max-width: 80%; */
+object-fit: cover;
+
+}
+
+/* REPORT STYLES */
+form.missing-pet-report {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 50vh;
+}
+
+.input-file {
+
+  opacity: 80%;
+  background-color: chartreuse;
+  position: absolute;
+  right: -0;
+  transform: translate(50%, 0%);
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+.input-file-label {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+#upload-thumbnail {
+  max-height: 50px;
+  max-width: 50px;
+}
+
+/* FORM STYLES */
+form,
+form div {
+  width: 100%;
+}
+
+input {
+  background-color: rgba(204, 204, 204, 0);
+  border: none;
+  border-bottom: 1px solid black;
+  margin: 4vh;
+  width: 60%;
+  text-align: center;
+}
+
+/* CREATE_REACT_APP BOILERPLATE*/
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 15s linear;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.App-header {
+  /* background-color: #282c34; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logout-info-class,
+.signup-class,
+.signup-form,
+.home-class,
+.dashboard-class,
+.all-reports-class,
+.login-class,
+.single-report-class,
+.create-report-class {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+}
+
+
+.footer-class {
+  z-index: 10;
+  display: relative;
+}
+
+.footer-img {
+  z-index: 5;
+  min-width: 140vw;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+
+
+/* Mobile Resizing */
+
+@media (max-width: 1100px) and (min-width: 701px) {
+  .tablet-navbar {
+    display: flex;
+  }
+
+  .laptop-navbar,
+  .mobile-navbar {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) and (min-width: 481px) {
+  .tablet-navbar {
+    display: flex;
+  }
+
+  .laptop-navbar,
+  .mobile-navbar {
+    display: none;
+  }
+
+  /* h1.brand-title {
+    font-size: 2.7em;
+    } */
+}
+
+@media (max-width: 480px) {
+  .mobile-navbar {
+    display: flex;
+  }
+
+  .tablet-navbar,
+  .laptop-navbar {
+    display: none;
+  }
+
+  .homepage-dog {
+
+    height: 100%;
+    width: 100%;
+    max-height: none;
+    max-width: none;
+    object-fit: cover;
+  }
+
+  /* h1.brand-title {
+    font-size: 2.2em;
+    } */
+}
+
+@media (max-width: 425px) {}
+
+@media (max-width: 395px) {}
+
+@media only screen and (max-width: 300px) {}
+
+
+/* SCREEN RESIZING FACTOR ADJUSTMENT */
+@media screen and (min-width: 100px)  {  :root  { --font-size-multiply: 0.4px;  } }
+@media screen and (min-width: 200px)  {  :root  { --font-size-multiply: 0.5px;  } }
+@media screen and (min-width: 300px)  {  :root  { --font-size-multiply: 0.6px;  } }
+@media screen and (min-width: 400px)  {  :root  { --font-size-multiply: 0.8px;  } }
+@media screen and (min-width: 600px)  {  :root  { --font-size-multiply: 0.9px;  } }
+@media screen and (min-width: 800px)  {  :root  { --font-size-multiply: 1.0px;  } }
+@media screen and (min-width: 1100px) {  :root  { --font-size-multiply: 1.2px;  } }
+@media screen and (min-width: 1400px) {  :root  { --font-size-multiply: 1.4px;  } }
+@media screen and (min-width: 1500px) {  :root  { --font-size-multiply: 1.5px;  } }
+@media screen and (min-width: 1700px) {  :root  { --font-size-multiply: 1.6px;  } }
