@@ -2,6 +2,8 @@ import React, { useReducer, useState } from "react";
 
 import { anyInput } from '../../utils/helpers';
 
+import RptPreview from "./SubComponents/RptPreview";
+
 
 function AllReports() {
     const [formState, setFormState] = useState({ name: '', breed: '', collarMicrochip: '', picForUpload: '', description: '', lastKnownLocation: '' });
@@ -40,35 +42,31 @@ function AllReports() {
 
     const reportsObj = [
         {
-            petName:petName,
-            petImg:petComment
+            petName: petName,
+            petImg: petComment
         },
         {
-            petName:petName,
-            petImg:petComment
+            petName: petName,
+            petImg: petComment
         },
         {
-            petName:petName,
-            petImg:petComment
+            petName: petName,
+            petImg: petComment
         },
         {
-            petName:petName,
-            petImg:petComment
+            petName: petName,
+            petImg: petComment
         }
     ]
 
     return (
-        <div className="all-report-class outer-div">
-            {reportsObj.map((report) => (
-                <p>
-                    <a className="reportThumbnail">
-                        <img src={report.petImg} alt="lost pet" />
-                        <h5>{report.petName}</h5>
-                    </a>
-                </p>
-            ))}
-
+        <div className="all-reports-container">
+            <span>All Reports:</span>
+        <section className="sub-comp-section">
+            <RptPreview />
+        </section>
         </div>
+
     )
 }
 

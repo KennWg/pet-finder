@@ -3,7 +3,6 @@ function Header() {
 
         <header className="header-class">
             <p>
-                HEADER
             </p>
         </header>
     );

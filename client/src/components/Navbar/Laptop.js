@@ -13,16 +13,16 @@ function Laptop() {
     }
 
     const handleClick = async clickedNavIcon => {
-        if (clickedNavIcon==="LOGOUT"){
+        if (clickedNavIcon==="logout_info"){
             Auth.logout();            
         }
+        else if(clickedNavIcon==="home"){
+            clickedNavIcon=""
+        }
         
-        await dispatch({
-            type: UPDATE_VIEW,
-            currentView: clickedNavIcon
-        })
-               
+        window.location.assign('/'+clickedNavIcon);               
     };
+
     let tempArr = [];
     (Auth.loggedIn())
         ? tempArr = navBarChoices
@@ -33,14 +33,14 @@ function Laptop() {
             {tempArr.map((view) => (
                 <div className={`laptop-nav-div`}
                     key={view.name}>
-                    <a className={`nav-link ${currentView === view.name ? 'active' : ''}`}
+                    <span className={`nav-link ${currentView === view.name ? 'active' : ''}`}
                         onClick={() => {
                             handleClick(view.name);
                         }}
-                        href="#"
+                        // href="#"
                         title={view.description}>
                         <img src={imagePath(view.name)} className="laptop-nav-icon" alt={view.name} />
-                    </a>
+                    </span>
                 </div>
             ))
             }

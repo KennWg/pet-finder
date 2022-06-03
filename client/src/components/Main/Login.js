@@ -84,7 +84,7 @@ function Login() {
 
     return (
 
-        <div className="login-class  outer-div">
+        <div className="login-class body-bg-color outer-div">
             <h4 data-testid="h1tag">Log In</h4>
             {/* <a href="mailto:dcpb777@gmail.com" rel="noopener noreferrer" target="_blank"><h5>Please provide your name and email address.</h5></a>
             <p style={{ maxWidth: '400px', textAlign: 'center' }}>Your email will be kept confidential. </p> */}

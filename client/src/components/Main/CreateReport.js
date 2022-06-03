@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
 import { anyInput } from '../../utils/helpers';
 
 import { useMutation } from '@apollo/client';
@@ -31,17 +32,17 @@ function CreateReport() {
 
 
 
-    const extraHelper = () => {
-        const { _id } = Auth.getProfile().data
-        setFormState({ ...formState, createdBy: _id });
-        console.log('------------=====> ', _id)
-    }
+    // const extraHelper = () => {
+    //     const { _id } = Auth.getProfile().data
+    //     setFormState({ ...formState, createdBy: _id });
+    //     console.log('------------=====> ', _id)
+    // }
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        extraHelper();
+        // extraHelper();
 
         if (errorMessage) {
             // setFormData({ [e.target.name]: e.target.value });
@@ -76,13 +77,7 @@ function CreateReport() {
             if (!data) {
                 throw new Error('response was not "OK" something went wrong! -- In CreateReport');
             }
-            // The following code is not being used to do anything.  It simply generates errors:
-            // else {
-            //     const { token, user } = data.addReport;
-            //     console.log(user);
-            //     console.log(token);
-            //     Auth.loggedIn(token);
-            // }
+
 
         } catch (e) {
             console.error('client/src/components/Main/CreateReport.js:Form - FORM ERROR -', e);
@@ -95,12 +90,8 @@ function CreateReport() {
         setUpload(true);
 
 
-        await dispatch({
-            type: UPDATE_VIEW,
-            currentView: 'DASHBOARD'
-        })
-        // For when we add react router:
-        // window.location.assign('/');
+
+        // window.location.assign('/dashboard');
 
     };
 
@@ -151,7 +142,7 @@ function CreateReport() {
                     <input className="" placeholder="Breed" value={breed} type="text" name="breed" onChange={handleChange} />
                 </div>
 
-                <div className="">{upload ? (<label className="input-file-label" htmlFor="picture" >Upload picture
+                <div className="">{upload ? (<label className="custom-btn" htmlFor="picture" >Upload picture
                     <input id="picture" className="input-file" placeholder="Upload a picture" type="file" accept="image/*" name="picture" onChange={handleChange} />
                 </label>) : (<a onClick={setUpload}><img id="upload-thumbnail" src={picture} ></img></a>)}
 
