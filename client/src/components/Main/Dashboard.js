@@ -1,19 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import dogImg from '../../assets/images/dog.jpg';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
-
-
-import RptPreview from './SubComponents/RptPreview';
 
 function Dashboard() {
 
     const { loading, data } = useQuery(QUERY_ME);
     const me = data?.me || [];
-
-
 
     if (loading) {
         return <div>Loading...</div>;
@@ -48,7 +42,6 @@ function Dashboard() {
 
                                 <p key={report._id + report.name + "5"} className="rpt-dashboard-pet-name">{report.name}</p>
 
-                                {/* <div key={report._id + "details"} className="rpt-dashboard-text-div"></div> */}
                                 <p className="body-text">has been missing since:</p>
                                 <p key={report._id + report.lastSeen + "6"} className="body-text rpt-dashboard-last-seen">{report.lastSeen}</p>
                                 <p key={report._id + report.description} className="body-text rpt-dashboard-description">{report.description}</p>

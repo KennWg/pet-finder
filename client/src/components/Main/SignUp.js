@@ -15,7 +15,6 @@ function SignUp() {
         console.log('You hit the SUBMIT button');
 
         if (errorMessage) {
-            // setFormData({ [e.target.name]: e.target.value });
             console.log('client/src/components/Main/SignUp.js:Form - NO ERROR - ', formData);
             return;
         }
@@ -42,7 +41,7 @@ function SignUp() {
             console.error('client/src/components/Main/SignUp.js:Form - FORM ERROR -', e);
             console.log("Mutation error :", error);
 
-            // alert('- FORM ERROR - (see console)');
+            alert('Please check your information and try again');
         }
 
         setFormData({
@@ -56,10 +55,8 @@ function SignUp() {
 
 
     const handleChange = (e) => {
-        // console.log('Handling Change');
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-        // console.log(formData);
     };
 
     const validate = (e) => {
@@ -88,10 +85,10 @@ function SignUp() {
     }
 
     return (
-        <div className="signup-class  outer-div">
+        <div className="signup-class outer-div body-bg-color">
             <h2 data-testid="h1tag">Sign Up</h2>
-            <h3>Please provide a username, your email and street addresses and a password.</h3>
-            <p style={{ maxWidth: '400px', textAlign: 'center' }}>Your email will be kept confidential. </p>
+            <h3>Please provide a username,<br/>your email and street addresses<br/>and a password.</h3>
+            <p>Your email will be kept confidential. </p>
 
             <div className="error-div">
                 {errorMessage && (
@@ -115,7 +112,7 @@ function SignUp() {
                 </div>
 
                 <div className="">
-                    <button className="" type="submit">Submit<i className="fa fa-paper-plane" aria-hidden="true"></i></button>
+                    <button className="custom-btn" type="submit">Submit<i className="fa fa-paper-plane" aria-hidden="true"></i></button>
                 </div>
             </form>
 

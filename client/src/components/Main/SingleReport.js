@@ -12,8 +12,6 @@ function SingleReport() {
         e.preventDefault();
         console.log('You hit the SUBMIT button');
         if (!errorMessage) {
-            // setFormData({ [e.target.name]: e.target.value });
-            // console.log('client/src/components/Main/SingleReport.js:Form - NO ERROR - ', formData);
         }
 
         try {
@@ -34,13 +32,13 @@ function SingleReport() {
         }
     }
 
-    var petName="Tom";
-    var petDescription="An adorable cat";
-    var petComment="I saw it last day";
+    var petName = "Tom";
+    var petDescription = "An adorable cat";
+    var petComment = "I saw it last day";
 
     return (
         <div className="single-report-class  outer-div">
-            
+
             <section>
                 <h4 data-testid="h1tag">Report for {petName}</h4>
                 <img src="" alt="lost pet" />
@@ -50,13 +48,14 @@ function SingleReport() {
 
                 <h6>{petComment}</h6>
             </section>
-            
+
             <form>
                 <textarea placeholder="Please leave a comment if you have any infomation of this lost pet"></textarea>
                 <button type="submit"></button>
-            </form>            
+            </form>
 
         </div>
-    )}
+    )
+}
 
 export default SingleReport;

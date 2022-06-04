@@ -3,8 +3,6 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ALL_REPORTS } from '../../../utils/queries';
 
 function RptPreview() {
-    // var data
-    // const loading = true;
     const { loading, data } = useQuery(QUERY_ALL_REPORTS, { variables: { sdafasdf: 'ttt' } });
     const allReports = data?.allReports || [];
 
