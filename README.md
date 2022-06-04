@@ -29,7 +29,7 @@
 #### [Description](#description)  -  [Installation](#installation)  -  [Usage](#usage) - [License](#license) - [Contributing](#contributing) - [Questions](#questions)
 &nbsp;  
 ## Description  
-A MERN stack app that allows users to find their lost pets by creating reports that others can respond to and update.  It offers a user a dashboard where they can see all their posts, as well as those of other users of the site.  Allowing users to crowd source real-time from neighbors who have otherwise been strangers, the app helps families reunite and helps communities come together when there is a vital need quickly and efficiently.  
+A MERN stack app that allows communities to efficiently share information about lost pets.  Users can create reports that others can respond to and update.  It offers users a quick and self-explanatory user experience where users can see their posts, and those belonging to other users of the site.  By allowing users to crowd source real-time from neighbors who care but who would have otherwise been strangers, the app helps families reunite and lets communities come together quickly and with minimum effort when there is a vital need.  
 &nbsp;  
 <img src="./client/public/images/screenshot.png" alt="Pet Alert application screenshot" width="600"/>    
      

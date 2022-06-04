@@ -14,7 +14,7 @@ function RptPreview() {
     return (
         <>
             {allReports.map((report) => (
-                <a key={report._id + "anchorTag"} datavalue={report._id} className="reportThumbnail sub-comp-outer-div brand-bg-color">
+                <a key={report._id + "anchorTag"} datavalue={report._id} className="sub-comp-outer-div brand-bg-color">
                     <div key={report._id + "sub-comp-inner-div"} className="rpt-preview-div sub-comp-inner-div">
                         <img key={report._id + "img"} src={report.photo} alt={report.name + ", a lost pet"} />
                         <div key={report._id + "details"} className="rpt-preview-text-div">
