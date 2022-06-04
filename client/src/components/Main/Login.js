@@ -4,12 +4,10 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth.js'
 
-
 function Login() {
 
     const [formData, setFormData] = useState({ email: '', password: '' });
     const [errorMessage, setErrorMessage] = useState('');
-    // const { name, email, message } = formState;
 
     const [loginUser, { error }] = useMutation(LOGIN_USER);
 
@@ -17,7 +15,6 @@ function Login() {
         e.preventDefault();
         console.log('You hit the SUBMIT button');
         if (errorMessage) {
-            // setFormData({ [e.target.name]: e.target.value });
             console.log('client/src/components/Main/Login.js:Form - NO ERROR - ', formData);
             return;
         }
@@ -35,13 +32,12 @@ function Login() {
             else {
                 const { token, user } = data.login;
                 console.log(user);
-                // console.log(token);
                 Auth.login(token);
             }
 
         } catch (e) {
             console.error('client/src/components/Main/Login.js:Form - FORM ERROR -', e);
-            // alert('- FORM ERROR - (see console)');
+            alert('Sorry, those are not valid credentials');
         }
 
         setFormData({
@@ -51,10 +47,8 @@ function Login() {
     };
 
     const handleChange = (e) => {
-        // console.log('Handling Change');
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-        // console.log(formData);
     };
 
     const validate = (e) => {
@@ -86,8 +80,6 @@ function Login() {
 
         <div className="login-class body-bg-color outer-div">
             <h4 data-testid="h1tag">Log In</h4>
-            {/* <a href="mailto:dcpb777@gmail.com" rel="noopener noreferrer" target="_blank"><h5>Please provide your name and email address.</h5></a>
-            <p style={{ maxWidth: '400px', textAlign: 'center' }}>Your email will be kept confidential. </p> */}
 
             <form className="signup-form" id="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -105,7 +97,7 @@ function Login() {
                 )}
 
                 <div className="d-flex justify-content-center  ">
-                    <button className="btn btn-primary" data-testid="button" type="submit">Submit<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                    <button className="custom-btn" data-testid="button" type="submit">Submit<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                 </div>
             </form>
 

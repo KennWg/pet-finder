@@ -41,15 +41,16 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <div className="site-container">
 
-      <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
 
-        <StoreProvider>
+      <StoreProvider>
 
-          <Router>
+        <Router>
 
-            <Navbar />
+          <Navbar />
+          <div className="site-container">
+
             <Header />
 
             <main className="main-class">
@@ -91,14 +92,14 @@ function App() {
             </main>
 
             <Footer />
+          </div>
 
-          </Router>
+        </Router>
 
-        </StoreProvider>
+      </StoreProvider>
 
-      </ApolloProvider >
+    </ApolloProvider >
 
-    </div>
 
   );
 }
