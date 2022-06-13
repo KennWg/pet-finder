@@ -28,31 +28,33 @@ function Dashboard() {
                 <br></br>
 
                 {me.slice(0, 1).map((report) => (
+                    <Link to={"/single_report/" + report._id} className="">
+                        <div key={report._id + "anchorTag"} datavalue={report._id} className="reportThumbnail dash-sub-comp-outer-div brand-bg-color">
 
-                    <div key={report._id + "anchorTag"} datavalue={report._id} className="reportThumbnail dash-sub-comp-outer-div brand-bg-color">
+                            <div key={report._id + "sub-comp-inner-div"} className="rpt-dashboard-div dash-sub-comp-inner-div">
 
-                        <div key={report._id + "sub-comp-inner-div"} className="rpt-dashboard-div dash-sub-comp-inner-div">
-                            
-                            <div className="upper-dash-comp">
-                                <img key={report._id + "img"} src={report.photo} alt={report.name + ", a lost pet"} />
-                            </div>
-
-                            <div className="lower-dash-comp">
-                            <h1 className="poster-title">MISSING</h1>
-
-                                <p key={report._id + report.name + "5"} className="rpt-dashboard-pet-name">{report.name}</p>
-
-                                <p className="body-text">has been missing since:</p>
-                                <p key={report._id + report.lastSeen + "6"} className="body-text rpt-dashboard-last-seen">{report.lastSeen}</p>
-                                <p key={report._id + report.description} className="body-text rpt-dashboard-description">{report.description}</p>
-
-                                <div>
-                                    <p key={report._id + report.createdAt} className="body-text">This report was created on:<br></br><b>{report.createdAt}</b></p>
+                                <div className="upper-dash-comp">
+                                    <img key={report._id + "img"} src={report.photo} alt={report.name + ", a lost pet"} />
                                 </div>
 
+                                <div className="lower-dash-comp">
+                                    <h1 className="poster-title">MISSING</h1>
+
+                                    <p key={report._id + report.name + "5"} className="rpt-dashboard-pet-name">{report.name}</p>
+
+                                    <p className="body-text">has been missing since:</p>
+                                    <p key={report._id + report.lastSeen + "6"} className="body-text rpt-dashboard-last-seen">{report.lastSeen}</p>
+                                    <p key={report._id + report.description} className="body-text rpt-dashboard-description">{report.description}</p>
+
+                                    <div>
+                                        <p key={report._id + report.createdAt} className="body-text">This report was created on:<br></br><b>{report.createdAt}</b></p>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </Link>
+
                 ))}
 
             </div>

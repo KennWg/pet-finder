@@ -41,3 +41,30 @@ query Query {
   }
 }
 `
+export const REPORT_BY_REPORT_ID = gql`
+query ReportByID($id: ID!) {
+  report(_id: $id) {
+    _id
+    name
+    breed
+    photo
+    description
+    lastSeen
+    createdAt
+    createdBy {
+      username
+      _id
+      email
+    }
+    comments {
+      _id
+      user {
+        username
+        _id
+        email
+      }
+      commentBody
+    }
+  }
+}
+`

@@ -1,58 +1,41 @@
 import React, { useReducer, useState } from "react";
-
+import { useParams } from 'react-router-dom';
+import Map from './SubComponents/googleMap.js'
 import { anyInput } from '../../utils/helpers';
+import { useQuery } from '@apollo/client';
+import { REPORT_BY_REPORT_ID } from '../../utils/queries';
+
+
 
 
 function SingleReport() {
-    const [formState, setFormState] = useState({ name: '', breed: '', collarMicrochip: '', picForUpload: '', description: '', lastKnownLocation: '' });
-    const [errorMessage, setErrorMessage] = useState('');
-    const { name, breed, collarMicrochip, picForUpload, description, lastKnownLocation } = formState;
+    const { id } = useParams();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log('You hit the SUBMIT button');
-        if (!errorMessage) {
-        }
+    console.log("REPORT-ID: ", id);
 
-        try {
-            // const response = await createUser({
-            //     variables: { ...formData }
-            // });
+    const { loading, data } = useQuery(REPORT_BY_REPORT_ID, { variables: { "id": id } });
+    const report = data?.report || [];
 
-            // if (!response.ok) {
-            //   throw new Error('something went wrong!');
-            // }
-
-            // const { token, user } = await response.json();
-            // console.log(user);
-            // Auth.login(token);
-        } catch (e) {
-            console.error('client/src/components/Main/SingleReport.js:Form - FORM ERROR -', e);
-            alert('- FORM ERROR - (see console)');
-        }
+    if (loading) {
+        return <div>Loading...</div>;
     }
-
-    var petName = "Tom";
-    var petDescription = "An adorable cat";
-    var petComment = "I saw it last day";
-
+    console.log(report);
+    const {name, breed, photo, description, lastSeen, createdAt, createdBy } = report;
+    const { username, email } = createdBy;
     return (
+
+
         <div className="single-report-class  outer-div">
 
-            <section>
-                <h4 data-testid="h1tag">Report for {petName}</h4>
-                <img src="" alt="lost pet" />
-                <h5>{petName}</h5>
+                <div>name{name}</div>
+                <div>breed{breed}</div>
+                <div>photo{photo}</div>
+                <div>description{description}</div>
+                <div>lastSeen{lastSeen}</div>
+                <div>createdAt{createdAt}</div>
+                <div>username{username}</div>
+                <div>email{email}</div>
 
-                <h5>{petDescription}</h5>
-
-                <h6>{petComment}</h6>
-            </section>
-
-            <form>
-                <textarea placeholder="Please leave a comment if you have any infomation of this lost pet"></textarea>
-                <button type="submit"></button>
-            </form>
 
         </div>
     )
