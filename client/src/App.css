@@ -451,6 +451,14 @@ textarea {
 }
 
 /* SUB COMPONENTS */
+.map-div {
+  display: block;
+  height: 78vw;
+  width: 78vw;
+  max-height: 600px;
+  max-width: 800px;
+}
+
 .sub-comp-section {
   width: 95%;
   position: relative;

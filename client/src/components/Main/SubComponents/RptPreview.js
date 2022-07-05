@@ -6,13 +6,18 @@ function RptPreview() {
     const { loading, data } = useQuery(QUERY_ALL_REPORTS, { variables: { sdafasdf: 'ttt' } });
     const allReports = data?.allReports || [];
 
+const handleClick = (reportId) => {
+    window.location.assign('/single_report/'+reportId);               
+console.log(reportId);
+}
+
     if (loading) {
         return <div>Loading...</div>;
     }
     return (
         <>
             {allReports.map((report) => (
-                <a key={report._id + "anchorTag"} datavalue={report._id} className="sub-comp-outer-div brand-bg-color">
+                <a key={report._id + "anchorTag"} datavalue={report._id} onClick={() => {handleClick(report._id)}} className="sub-comp-outer-div brand-bg-color">
                     <div key={report._id + "sub-comp-inner-div"} className="rpt-preview-div sub-comp-inner-div">
                         <img key={report._id + "img"} src={report.photo} alt={report.name + ", a lost pet"} />
                         <div key={report._id + "details"} className="rpt-preview-text-div">
