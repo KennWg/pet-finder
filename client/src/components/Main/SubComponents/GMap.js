@@ -7,9 +7,9 @@ function GMap({petName, _id}) {
     //For development: marker dissapears on re-render without unique key
     const randomKey = Math.floor(Math.random() * 1000);
     console.log(randomKey);
-
+// console.log('pop',process.env.PET_ALERT_GOOGLE_MAPS_API_KEY)
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: 'AIzaSyAH2HDQneS4AOvKsLenr6A9s90wO5A4IcY'
+        googleMapsApiKey: process.env.REACT_APP_PET_ALERT_GOOGLE_MAPS_API_KEY
     })
   
     const mapPosition = {  

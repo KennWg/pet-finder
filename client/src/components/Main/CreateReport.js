@@ -29,6 +29,7 @@ function CreateReport() {
 
     const [upload, setUpload] = useState(true);
 
+    console.log('pop',process.env.PET_ALERT_GOOGLE_MAPS_API_KEY)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
