@@ -35,4 +35,5 @@ module.exports = {
         return re.test(String(input));
     }
 
+
 };

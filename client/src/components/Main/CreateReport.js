@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 
@@ -11,8 +11,63 @@ import Auth from '../../utils/auth.js'
 import { useStoreContext } from '../../utils/GlobalStore';
 import { UPDATE_VIEW } from '../../utils/actions';
 
+let autoComplete;
+const addScriptToHTML = (url, callback) => {
+    let script = document.createElement('script');
+    script.type = "text/javascript";
+
+    if (script.readyState) {
+        script.onreadystatechange = function () {
+            if (script.readyState === "loaded" || script.readyState === "completed") {
+                script.onreadystatechange = null;
+                callback();
+            }
+        };
+    } else {
+        script.onload = () => callback();
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+const handleScriptLoad = (updateQuery, autoCompleteRef) => {
+    autoComplete = new window.google.maps.places.Autocomplete(
+        autoCompleteRef.current,
+        { types: ["geocode"], componentRestrictions: { country: ["us","ca"] } }
+    );
+    autoComplete.setFields(["address_components", "formatted_address"]);
+
+    autoComplete.addListener("place_changed", () =>
+        handlePlaceSelect(updateQuery)
+    );
+};
+
+const handlePlaceSelect = async (updateQuery) => {
+    const addressObject = autoComplete.getPlace();
+    const query = addressObject.formatted_address;
+    updateQuery(query);
+    console.log(addressObject);
+};
+
+
+
 
 function CreateReport() {
+
+    const [query, setQuery] = useState("");
+    const autoCompleteRef = useRef(null);
+
+    useEffect(() => {
+        addScriptToHTML(
+            `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_PET_ALERT_GOOGLE_MAPS_API_KEY}&libraries=places`,
+            () => handleScriptLoad(setQuery, autoCompleteRef)
+        );
+    }, []);
+
+
+
+
     const [state, dispatch] = useStoreContext();
 
     const [formState, setFormState] = useState({ name: '', breed: '', picture: '', description: '', lastSeen: '', createdBy: '' });
@@ -29,7 +84,7 @@ function CreateReport() {
 
     const [upload, setUpload] = useState(true);
 
-    console.log('pop',process.env.PET_ALERT_GOOGLE_MAPS_API_KEY)
+    console.log('pop', process.env.PET_ALERT_GOOGLE_MAPS_API_KEY)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -149,8 +204,19 @@ function CreateReport() {
                             {/* <input className="" placeholder="Description" value={description} type="text" name="description" onChange={handleChange} /> */}
                         </div>
 
-                        <div className="">
-                            <input className="" placeholder="Last known location" value={lastSeen} type="text" name="lastSeen" onChange={handleChange} />
+                        <div className="search-location-input">
+                            <input
+                            name="lastSeen"
+                            type="text"
+                                ref={autoCompleteRef}
+                                onChange={event => {
+                                    setQuery(event.target.value);
+                                    handleChange();
+                                }}
+                                placeholder="Last known location"
+                                value={query}
+                            />
+                            {/* <input className="" placeholder="Last known location" value={lastSeen} type="text" name="lastSeen" onChange={handleChange} /> */}
                         </div>
 
                         <div className="">
