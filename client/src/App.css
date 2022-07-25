@@ -101,22 +101,19 @@ h2 {
 
 h3 {
   font-size: calc(var(--viewport-multiplier)*25px);
-  margin: calc(var(--viewport-multiplier)*10px);
+  margin: calc(var(--viewport-multiplier)*14px);
 }
 
 h4 {
-  font-size: calc(var(--viewport-multiplier)*22px);
-  margin: calc(var(--viewport-multiplier)*8px);
-}
-
-h4 {
-  font-size: calc(var(--viewport-multiplier)*20px);
-  margin: calc(var(--viewport-multiplier)*8px);
+  font-size: calc(var(--viewport-multiplier)*34px);
+  margin: calc(var(--viewport-multiplier)*12px);
 }
 
 h5 {
   font-size: calc(var(--viewport-multiplier)*16px);
-  margin: calc(var(--viewport-multiplier)*8px);
+  margin: calc(var(--viewport-multiplier)*12px);
+  margin-bottom: calc(var(--viewport-multiplier)*0px);
+
 }
 
 p,
@@ -346,7 +343,7 @@ button[type="submit"] {
   border: 2px solid white;
   border-radius: 3px;
   object-fit: cover;
-
+  margin: 20px;
 }
 
 /* REPORT STYLES */
@@ -400,6 +397,10 @@ form div {
   z-index: 5;
 }
 
+.create-report-class {
+  width: 50%;
+}
+
 .signup-class,
 .create-report-form {
   display: flex;
@@ -409,6 +410,9 @@ form div {
 
 form textarea {
   margin-top: 20px;
+  width: 75%;
+  text-align: center;
+
 }
 
 .form-error-div {
@@ -439,8 +443,8 @@ input {
   background-color: rgba(204, 204, 204, 0);
   border: none;
   border-bottom: 1px solid black;
-  margin: calc(var(--viewport-multiplier) * 12px);
-  width: 60%;
+  margin: calc(var(--viewport-multiplier) * 17px);
+  width: 80%;
   text-align: center;
 }
 
@@ -692,6 +696,25 @@ textarea {
   .tablet-navbar {
     display: none;
   }
+
+  h1 {
+    font-size: calc(var(--viewport-multiplier)*30px);
+    margin: calc(var(--viewport-multiplier)*20px);
+  }
+
+  h4 {
+    font-size: calc(var(--viewport-multiplier)*24px);
+    margin: calc(var(--viewport-multiplier)*12px);
+  }
+
+  .create-report-class {
+    width: 100%;
+  }
+
+  .homepage-dog {
+    width: 75vw;
+    height: 75vw;
+  }
 }
 
 /*Mobile Landscape*/
@@ -707,6 +730,24 @@ textarea {
   .laptop-navbar,
   .tablet-navbar {
     display: none;
+  }
+  .create-report-class {
+    width: 80%;
+  }
+  .homepage-dog {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  h1,
+  h1.brand-title {
+    font-size: calc(var(--viewport-multiplier)*20px);
+    margin: calc(var(--viewport-multiplier)*8px);
+  }
+
+  h4 {
+    font-size: calc(var(--viewport-multiplier)*18px);
+    margin: calc(var(--viewport-multiplier)*4px);
   }
 }
 
@@ -725,6 +766,10 @@ textarea {
   .mobile-navbar {
     display: none;
   }
+
+  .create-report-class {
+    width: 88%;
+  }
 }
 
 
@@ -741,6 +786,9 @@ textarea {
   .laptop-navbar,
   .mobile-navbar {
     display: none;
+  }
+  .create-report-class {
+    width: 70%;
   }
 }
 

@@ -176,8 +176,8 @@ function CreateReport() {
 
                 <div className="create-report-form">
                     <h4 data-testid="h1tag">File a Missing Pet Report</h4>
-                    <h5>Please provide all the details that could help in locating the missing pet.</h5>
-                    <p style={{ maxWidth: '400px', textAlign: 'center' }}>Your email will be kept confidential. </p>
+                    <h5>Please provide all the details that could </h5>
+                    <h5>help in locating the missing pet.</h5>
 
                     <form className="missing-pet-report" id="missing-pet-report" onSubmit={handleSubmit}>
                         <div className="form-error-div">
