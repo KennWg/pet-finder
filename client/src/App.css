@@ -175,14 +175,20 @@ button[type="submit"] {
 
 /* NAVBAR */
 
+.hidden {
+  visibility: hidden;
+}
 
+.navbar-class .navbar-div {
+  /* border: 1px solid red; */
+}
 
 .laptop-navbar {
   /* Positon */
   z-index: 100;
   position: fixed;
   top: 1vh;
-  right: 1.6vw;
+  right: calc(2.6vw + 60px);
 
   /* Display */
   display: flex;
@@ -286,8 +292,6 @@ button[type="submit"] {
   justify-content: center;
   align-items: center;
 }
-
-.home-class {}
 
 .outer-div {
   position: relative;
