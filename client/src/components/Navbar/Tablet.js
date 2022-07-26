@@ -1,9 +1,19 @@
 import { useStoreContext } from '../../utils/GlobalStore';
-import { UPDATE_VIEW } from '../../utils/actions';
-
+import React, { useState } from 'react';
+import menuIcon from '../../assets/images/nav_menu.png';
 import Auth from '../../utils/auth.js';
 
-function Tablet() {
+let navbarVisible = false;
+
+function Tablet(props) {
+        
+    const [navbarStyle, setNavbarStyle] = useState(props.menuClosed);
+
+    const toggleNavMenu = () => {
+        navbarVisible = !navbarVisible;
+        (navbarVisible) ? setNavbarStyle(props.menuOpen) : setNavbarStyle(props.menuClosed);
+        console.log(navbarStyle);
+    }
 
     const [state, dispatch] = useStoreContext();
     const { currentView, navBarChoices, navBarChoicesNOT } = state;
@@ -29,7 +39,11 @@ function Tablet() {
         : tempArr = navBarChoicesNOT;
 
     return (
-        <div className="tablet-navbar navbar-div">
+        <div>
+        <div className={`tablet-nav-div`} style={{ position: "absolute", bottom: "4vh", right: "1.6vw" }} onClick={toggleNavMenu}>
+            <img src={menuIcon} className="menu-icon tablet-nav-icon" />
+        </div>
+        <div className="tablet-navbar navbar-div" style={navbarStyle}>
             {tempArr.map((view) => (
                 <div className={`tablet-nav-div`}
                     key={view.name}>
@@ -45,6 +59,7 @@ function Tablet() {
             ))
             }
         </div >
+        </div>
     )
 }
 

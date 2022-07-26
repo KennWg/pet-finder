@@ -1,45 +1,18 @@
 import { useStoreContext } from '../../utils/GlobalStore';
 import React, { useState } from 'react';
 import menuIcon from '../../assets/images/nav_menu.png';
-import { UPDATE_VIEW } from '../../utils/actions';
-
 import Auth from '../../utils/auth.js';
 let navbarVisible = false;
 
-function Laptop() {
+function Laptop(props) {
 
-    const menuClosed = {
-        visibility: "hidden",
-        border: "3px solid yellow"
-    }
-
-    const menuOpen = {
-        visibility: "visible",
-        border: "3px solid blue"
-    }
-
-    console.log("before");
-    const [navbarStyle, setNavbarStyle] = useState(menuClosed);
-
-    console.log(navbarStyle);
-    console.log("after");
-
-
+    const [navbarStyle, setNavbarStyle] = useState(props.menuClosed);
 
     const toggleNavMenu = () => {
-        console.log("1", navbarVisible);
-
         navbarVisible = !navbarVisible;
-        console.log("2", navbarVisible);
-
-        (navbarVisible) ? setNavbarStyle(menuOpen) : setNavbarStyle(menuClosed);
+        (navbarVisible) ? setNavbarStyle(props.menuOpen) : setNavbarStyle(props.menuClosed);
         console.log(navbarStyle);
-        console.log("3", navbarVisible);
-
     }
-
-
-
 
     const [state, dispatch] = useStoreContext();
     const { currentView, navBarChoices, navBarChoicesNOT } = state;
@@ -67,7 +40,7 @@ function Laptop() {
     return (
         <div>
             <div className={`laptop-nav-div`} style={{ position: "absolute", top: "1vh", right: "1.6vw" }} onClick={toggleNavMenu}>
-                <img src={menuIcon} className="menu-icon laptop-nav-icon" style={{ border: "3px dotted green" }} />
+                <img src={menuIcon} className="menu-icon laptop-nav-icon" />
             </div>
             <div className="laptop-navbar navbar-div" style={navbarStyle}>
                 {tempArr.map((view) => (

@@ -1,16 +1,20 @@
 import { useStoreContext } from '../../utils/GlobalStore';
-import { UPDATE_VIEW } from '../../utils/actions';
-
+import React, { useState } from 'react';
+import menuIcon from '../../assets/images/nav_menu.png';
 import Auth from '../../utils/auth.js';
 
-// import report from '../../assets/images/REPORT.png';
-// import home from '../../assets/images/HOME.png';
-// import dashboard from '../../assets/images/DASHBOARD.png';
-// import login from '../../assets/images/LOGIN.png';
+let navbarVisible = false;
 
 
-function Mobile() {
-    
+function Mobile(props) {
+    const [navbarStyle, setNavbarStyle] = useState(props.menuClosed);
+
+    const toggleNavMenu = () => {
+        navbarVisible = !navbarVisible;
+        (navbarVisible) ? setNavbarStyle(props.menuOpen) : setNavbarStyle(props.menuClosed);
+        console.log(navbarStyle);
+    }
+
     const [state, dispatch] = useStoreContext();
     const { currentView, navBarChoices, navBarChoicesNOT } = state;
 
@@ -35,7 +39,11 @@ function Mobile() {
         : tempArr = navBarChoicesNOT;
 
     return (
-        <div className="mobile-navbar  navbar-div">
+        <div>
+        <div className={`mobile-nav-div`} style={{ position: "absolute", bottom: "1vh", right: "1.6vw" }} onClick={toggleNavMenu}>
+            <img src={menuIcon} className="menu-icon mobile-nav-icon" />
+        </div>
+        <div className="mobile-navbar  navbar-div" style={navbarStyle}>
             {tempArr.map((view) => (
                 <div className={`mobile-nav-div`}
                     key={view.name}>
@@ -51,6 +59,7 @@ function Mobile() {
             ))
             }
         </div >
+        </div>
     )
 
 }

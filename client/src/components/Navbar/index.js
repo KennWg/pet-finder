@@ -4,12 +4,29 @@ import Tablet from './Tablet.js';
 import Mobile from './Mobile.js';
 
 function Navbar() {
-    return (
 
+    const menu = {
+        menuClosed: {
+            visibility: "hidden",
+            opacity: "0%",
+            // width: "0px",
+            // height: "0px",
+            transition: "0.3s ease-in"
+        },
+
+        menuOpen: {
+            visibility: "visible",
+            opacity: "100%",
+            transition: "0.3s ease-in"
+
+        }
+    }
+
+    return (
         <div className="navbar-class">
-            <Laptop />
-            <Tablet />
-            <Mobile />
+            <Laptop {...menu} />
+            <Tablet {...menu} />
+            <Mobile {...menu}/>
         </div>
     );
 }
